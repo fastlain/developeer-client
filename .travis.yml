@@ -1,5 +1,12 @@
- language: node_js
- node_js: node
- cache:
-   directories:
-     - node_modules
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: zdg9jnr/RnVC+Bgk+f9R7DmSVhKfuol4m0sgBN44KfFJAo6b8qNCePO7uksCjAyNDXGuKZeyhglqLac5U7VhZ87XybUkbmhBQRYdiAnvXGJDNovvUEV1BicVZD4jzijBQPthqluOI8T+kXwWCmQQYB9KnMpWfDTKvdcFJFdi2f5bHIK3wgKZLxK+x9snqQVe+id68O1wWT0CUf4RArM9gOs4hJdlC9JfekKP2Qvo7LfvBZ8Y+BQDMlArHbrl+57ZNYgBlj6ofpaNxPZKy3VPAp//2KKJB8xNRwUnouggOif5Kpsvjp9Rx6kOKadXAMYH/fbaMSucIpHfK6NuUWxccYWAozRLkrMULPWMnn34MDR9zFNrb0pN88nQE8/BHj7SkXVdd6GyQnUb0TOUDGHgiFgXhHBFGRLYoHa2wQJiwYJfFDkEe30NMK0S5VwCjGBluDmyHFy0eq4FitA/mn0pQz4MfRSiD/FzwSuGWtdcum+HbhwXBcWzpypSC0q73zFFwxUjC24sdojem93TpehDSeIAtN8mpiLokwSzokyuuUyZrexZZwXHfsLCq99LUxrQ9+RV4u9W5P6u1ph0T6H+5eaZGCIx23HDEApFgFmdwPqlnaqROgDvN36lr9p1o/GElaa4rtmNNyopS/HRvw45mN6sSm1k8y5XIb6fz4GSGsQ=
+  app: shrouded-coast-59166
+  on:
+    repo: fastlain/developeer-client
