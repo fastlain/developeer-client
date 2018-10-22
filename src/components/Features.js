@@ -21,8 +21,8 @@ const Features = () => {
         }
     ]
 
-    const features = dummyFeatureData.map(feature => (
-        <div className={styles.feature}>
+    const features = dummyFeatureData.map((feature, i) => (
+        <div className={styles.feature} key={i}>
             <h2>{feature.name}</h2>
             <p>{feature.content}</p>
             <img src={feature.screenshot} alt="feature screenshot" />
@@ -30,7 +30,7 @@ const Features = () => {
     ));
 
     return (
-        <section role="region">
+        <section>
             {features}
         </section>
     );
