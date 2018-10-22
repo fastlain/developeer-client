@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroBanner from './HeroBanner';
 import Features from './Features';
+import Footer from './Footer';
 
 const LandingPageLayout = () => {
     return (
@@ -12,7 +13,7 @@ const LandingPageLayout = () => {
                 <Features />
             </main>
             <footer role="contentinfo">
-
+                <Footer />
             </footer>
         </div>
     );
