@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import HeroBanner from './HeroBanner';
+import LandingPageLayout from './LandingPageLayout';
 
 class App extends Component {
     render() {
         return (
-            <HeroBanner />
+            <LandingPageLayout />
         );
     }
 }
