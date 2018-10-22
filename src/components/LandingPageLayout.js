@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroBanner from './HeroBanner';
+import Features from './Features';
 
 const LandingPageLayout = () => {
     return (
@@ -8,7 +9,7 @@ const LandingPageLayout = () => {
                 <HeroBanner />
             </header>
             <main role="main">
-
+                <Features />
             </main>
             <footer role="contentinfo">
 
