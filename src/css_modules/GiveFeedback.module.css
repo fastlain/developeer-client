@@ -1,0 +1,10 @@
+.giveFeedbackWrapper {
+    text-align: center;
+    padding: 10px 0;
+    background: lightgrey;
+}
+
+.credits {
+    background: lightyellow;
+    padding: 5px;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import Notifications from './Notifications';
+import GiveFeedback from './GiveFeedback';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -20,6 +21,9 @@ class Dashboard extends Component {
                 <main role="main">
                     <section>
                         <Notifications />
+                    </section>
+                    <section>
+                        <GiveFeedback />
                     </section>
                 </main>
                 <footer role="contentinfo">
