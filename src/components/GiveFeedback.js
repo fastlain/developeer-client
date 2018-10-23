@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styles from '../css_modules/GiveFeedback.module.css';
 
+import Button from './Button';
+
 class GiveFeedback extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +17,7 @@ class GiveFeedback extends Component {
                 <h2>Credits</h2>
                 <p>You currently have <span className={styles.credits}>#</span> credits.</p>
                 <p>Earn more by providing peer feedback:</p>
-                <button type="button">Give Feedback</button>
+                <Button type="button">Give Feedback</Button>
             </div>
         );
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from '../css_modules/MyFeedback.module.css';
 
 import FormSummary from './FormSummary';
+import Button from './Button';
 
 class MyFeedback extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class MyFeedback extends Component {
                 <FormSummary />
                 <FormSummary />
                 <FormSummary />
-                <button type="button">Create New Feedback Form</button>
+                <Button type="button">Create New Feedback Form</Button>
 
             </div>
         );

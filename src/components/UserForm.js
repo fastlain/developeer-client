@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styles from '../css_modules/UserForm.module.css';
 
+import Button from './Button';
+
 class UserForm extends Component {
     constructor(props) {
         super(props);
@@ -38,18 +40,18 @@ class UserForm extends Component {
                         <label className={styles.block} htmlFor="rePassword">re-enter password: </label>
                         <input id="rePassword" name="rePassword" type="password" />
                     </div>
-                    <button type="submit">
+                    <Button type="submit">
                         {submitButtonText}
-                    </button>
+                    </Button>
                 </fieldset>
 
                 <div className={styles.toggleWrapper}>
                     <p>
                         {toggleDescription}
                     </p>
-                    <button type="button" onClick={this.toggleFormType}>
+                    <Button type="button" onClick={this.toggleFormType}>
                         {toggleButtonText}
-                    </button>
+                    </Button>
                 </div>
             </form>
         );

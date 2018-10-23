@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styles from '../css_modules/FormSummary.module.css';
 
+import Button from './Button';
+
 class FormSummary extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +17,7 @@ class FormSummary extends Component {
 
                 <div className={styles.formNameWrapper}>
                     <h3 className={styles.formName}>My first form</h3>
-                    <button className={styles.editButton}>Edit</button>
+                    <Button className={styles.editButton}>Edit</Button>
                 </div>
 
                 <div className={styles.requestWrapper}>
@@ -23,9 +25,9 @@ class FormSummary extends Component {
                     <div className={styles.pendingRequests}>
                         <span>Pending Requests:</span>
                         <div className={styles.requestButtonWrapper}>
-                            <button type="button">-</button>
+                            <Button type="button">-</Button>
                             <span className={styles.credits}>3</span>
-                            <button type="button">+</button>
+                            <Button type="button">+</Button>
                         </div>
                     </div>
 
@@ -35,12 +37,12 @@ class FormSummary extends Component {
                         <p className={styles.requestInfo}>Share this direct link elsewhere:</p>
                         <div className={styles.shareLinkWrapper}>
                             <input type="text" value="http://www.test.com/" readOnly />
-                            <button type="button">Copy to Clipboard</button>
+                            <Button type="button">Copy to Clipboard</Button>
                         </div>
                     </div>
                 </div>
 
-                <button type="button">Review Feedback</button>
+                <Button type="button">Review Feedback</Button>
             </div>
         );
     }
