@@ -11,7 +11,7 @@ const Header = () => {
                     <button type="button">Log Out</button>
                 </div>
             </div>
-            <h1 class={styles.pageTitle}>Dashboard</h1>
+            <h1 className={styles.pageTitle}>Dashboard</h1>
         </div>
     );
 }
