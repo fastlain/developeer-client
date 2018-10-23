@@ -3,6 +3,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Notifications from './Notifications';
 import GiveFeedback from './GiveFeedback';
+import MyFeedback from './MyFeedback';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -24,6 +25,9 @@ class Dashboard extends Component {
                     </section>
                     <section>
                         <GiveFeedback />
+                    </section>
+                    <section>
+                        <MyFeedback />
                     </section>
                 </main>
                 <footer role="contentinfo">

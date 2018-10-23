@@ -1,0 +1,55 @@
+.formContainer {
+    background: lightgrey;
+    margin: 15px auto;
+    width: 90%;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.formNameWrapper {
+    position: relative;
+}
+
+.formName {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0 2rem;
+}
+
+.editButton {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 1rem 0;
+}
+
+.requestWrapper {
+    background: lightsalmon;
+}
+
+.requestInfo {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.pendingRequests {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.requestButtonWrapper {
+    padding: 5px;
+}
+
+.credits {
+    background: lightyellow;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+.shareLinkWrapper {
+    margin: 0 auto;
+    padding: 10px 0;
+}
