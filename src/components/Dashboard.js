@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
 import Header from './Header';
+import Notifications from './Notifications';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -17,7 +18,9 @@ class Dashboard extends Component {
                     <Header />
                 </header>
                 <main role="main">
-
+                    <section>
+                        <Notifications />
+                    </section>
                 </main>
                 <footer role="contentinfo">
                     <Footer />
