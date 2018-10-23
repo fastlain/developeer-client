@@ -1,0 +1,20 @@
+.topBar {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: lightgrey;
+}
+
+.appTitle {
+    font-weight: bold;
+}
+
+.username {
+    font-style: italic;
+    padding: 0 1rem;
+}
+
+.pageTitle {
+    text-align: center;
+}
