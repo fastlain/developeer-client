@@ -21,7 +21,7 @@ class MyFeedback extends Component {
                 <FormSummary />
                 <FormSummary />
                 <FormSummary />
-                <button class="centerButton newFormBtn" type="button">Create New Feedback Form</button>
+                <button type="button">Create New Feedback Form</button>
 
             </div>
         );
