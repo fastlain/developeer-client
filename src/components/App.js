@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LandingPageLayout from './LandingPageLayout';
-import Dashboard from './Dashboard';
+import MainLayout from './MainLayout';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ class App extends Component {
             <Router>
                 <div>
                     <Route exact path="/" component={LandingPageLayout} />
-                    <Route path="/dashboard" component={Dashboard} />
+                    <Route path="/main" component={MainLayout} />
                 </div>
             </Router>
         );

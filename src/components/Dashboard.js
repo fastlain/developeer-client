@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Footer from './Footer';
-import Header from './Header';
+
 import Notifications from './Notifications';
 import GiveFeedback from './GiveFeedback';
 import MyFeedback from './MyFeedback';
@@ -16,23 +15,15 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <header role="banner">
-                    <Header />
-                </header>
-                <main role="main">
-                    <section>
-                        <Notifications />
-                    </section>
-                    <section>
-                        <GiveFeedback />
-                    </section>
-                    <section>
-                        <MyFeedback />
-                    </section>
-                </main>
-                <footer role="contentinfo">
-                    <Footer />
-                </footer>
+                <section>
+                    <Notifications />
+                </section>
+                <section>
+                    <GiveFeedback />
+                </section>
+                <section>
+                    <MyFeedback />
+                </section>
             </div>
         );
     }
