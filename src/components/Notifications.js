@@ -13,18 +13,20 @@ class Notifications extends Component {
 
     render() {
         return (
-            <ul className={styles.notificationList}>
-                <li className={styles.notification}>
-                    Nofication 1 goes here
-                    <Button type="button" btnStyle="tight">X</Button>
-                </li>
-                <li className={styles.notification}>
-                    Nofication 2 goes here
-                    <Button type="button"
-                        btnStyle="tight">X</Button>
+            <section>
+                <ul className={styles.notificationList}>
+                    <li className={styles.notification}>
+                        Nofication 1 goes here
+                        <Button type="button" btnStyle="tight">X</Button>
+                    </li>
+                    <li className={styles.notification}>
+                        Nofication 2 goes here
+                        <Button type="button"
+                            btnStyle="tight">X</Button>
 
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </section>
         );
     }
 }

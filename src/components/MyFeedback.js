@@ -14,17 +14,15 @@ class MyFeedback extends Component {
 
     render() {
         return (
-            <div className={styles.center}>
+            <section className={styles.center}>
                 <h2>My Feedback</h2>
                 <p>
                     Here are some instructions...
                 </p>
                 <FormSummary />
                 <FormSummary />
-                <FormSummary />
                 <Button type="button" btnStyle="roomyTopBot">Create New Feedback Form</Button>
-
-            </div>
+            </section>
         );
     }
 }

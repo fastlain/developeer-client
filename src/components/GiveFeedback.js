@@ -13,12 +13,12 @@ class GiveFeedback extends Component {
 
     render() {
         return (
-            <div className={styles.giveFeedbackWrapper}>
+            <section className={styles.giveFeedbackWrapper}>
                 <h2>Credits</h2>
                 <p>You currently have <span className={styles.credits}>#</span> credits.</p>
                 <p>Earn more by providing peer feedback:</p>
                 <Button type="button" btnStyle="roomyTopBot">Give Feedback</Button>
-            </div>
+            </section>
         );
     }
 }

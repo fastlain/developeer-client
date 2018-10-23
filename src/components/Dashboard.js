@@ -17,15 +17,9 @@ class Dashboard extends Component {
         return (
             <div>
                 <PageTitle>Dashboard</PageTitle>
-                <section>
-                    <Notifications />
-                </section>
-                <section>
-                    <GiveFeedback />
-                </section>
-                <section>
-                    <MyFeedback />
-                </section>
+                <Notifications />
+                <GiveFeedback />
+                <MyFeedback />
             </div>
         );
     }
