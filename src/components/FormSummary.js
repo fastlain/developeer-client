@@ -17,7 +17,7 @@ class FormSummary extends Component {
 
                 <div className={styles.formNameWrapper}>
                     <h3 className={styles.formName}>My first form</h3>
-                    <Button className={styles.editButton}>Edit</Button>
+                    <Button type="button" btnStyle="edit">Edit</Button>
                 </div>
 
                 <div className={styles.requestWrapper}>
@@ -37,12 +37,12 @@ class FormSummary extends Component {
                         <p className={styles.requestInfo}>Share this direct link elsewhere:</p>
                         <div className={styles.shareLinkWrapper}>
                             <input type="text" value="http://www.test.com/" readOnly />
-                            <Button type="button">Copy to Clipboard</Button>
+                            <Button type="button" btnStyle="roomySides">Copy to Clipboard</Button>
                         </div>
                     </div>
                 </div>
 
-                <Button type="button">Review Feedback</Button>
+                <Button type="button" btnStyle="roomyTopBot">Review Feedback</Button>
             </div>
         );
     }

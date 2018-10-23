@@ -22,7 +22,7 @@ class MyFeedback extends Component {
                 <FormSummary />
                 <FormSummary />
                 <FormSummary />
-                <Button type="button">Create New Feedback Form</Button>
+                <Button type="button" btnStyle="roomyTopBot">Create New Feedback Form</Button>
 
             </div>
         );

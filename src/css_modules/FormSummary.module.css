@@ -2,7 +2,6 @@
     background: lightgrey;
     margin: 15px auto;
     width: 90%;
-    padding: 10px 0;
     text-align: center;
 }
 
@@ -13,14 +12,7 @@
 .formName {
     display: inline-block;
     margin: 1rem 0;
-    padding: 0 2rem;
-}
-
-.editButton {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: 1rem 0;
+    padding: 0 1rem;
 }
 
 .requestWrapper {

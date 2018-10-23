@@ -40,7 +40,7 @@ class UserForm extends Component {
                         <label className={styles.block} htmlFor="rePassword">re-enter password: </label>
                         <input id="rePassword" name="rePassword" type="password" />
                     </div>
-                    <Button type="submit">
+                    <Button type="submit" btnStyle="center roomyTopBot">
                         {submitButtonText}
                     </Button>
                 </fieldset>

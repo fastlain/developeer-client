@@ -16,11 +16,12 @@ class Notifications extends Component {
             <ul className={styles.notificationList}>
                 <li className={styles.notification}>
                     Nofication 1 goes here
-                    <Button type="button" className={styles.closeBtn}>X</Button>
+                    <Button type="button" btnStyle="tight">X</Button>
                 </li>
                 <li className={styles.notification}>
                     Nofication 2 goes here
-                    <Button type="button" className={styles.closeBtn}>X</Button>
+                    <Button type="button"
+                        btnStyle="tight">X</Button>
 
                 </li>
             </ul>
