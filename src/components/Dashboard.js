@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PageTitle from './PageTitle';
 import Notifications from './Notifications';
-import GiveFeedback from './GiveFeedback';
+import Credits from './Credits';
 import MyFeedback from './MyFeedback';
 
 class Dashboard extends Component {
@@ -18,7 +18,7 @@ class Dashboard extends Component {
             <div>
                 <PageTitle>Dashboard</PageTitle>
                 <Notifications />
-                <GiveFeedback />
+                <Credits />
                 <MyFeedback />
             </div>
         );

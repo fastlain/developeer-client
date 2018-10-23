@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import styles from '../css_modules/GiveFeedback.module.css';
+import styles from '../css_modules/Credits.module.css';
 
 import Button from './Button';
 
-class GiveFeedback extends Component {
+class Credits extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,7 @@ class GiveFeedback extends Component {
 
     render() {
         return (
-            <section className={styles.giveFeedbackWrapper}>
+            <section className={styles.creditsWrapper}>
                 <h2>Credits</h2>
                 <p>You currently have <span className={styles.credits}>#</span> credits.</p>
                 <p>Earn more by providing peer feedback:</p>
@@ -23,4 +23,4 @@ class GiveFeedback extends Component {
     }
 }
 
-export default GiveFeedback;
+export default Credits;
