@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';
 import Dashboard from './Dashboard';
+import GiveFeedback from './GiveFeedback';
 
 const MainLayout = () => {
     return (
@@ -12,9 +13,8 @@ const MainLayout = () => {
                 <Header />
             </header>
             <main role="main">
-                <Route exact path="/dashboard">
-                    <Dashboard />
-                </Route>
+                <Route exact path="/main/dashboard" component={Dashboard} />
+                <Route exact path="/main/givefeedback" component={GiveFeedback} />
             </main>
             <footer role="contentinfo">
                 <Footer />

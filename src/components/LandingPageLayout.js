@@ -10,7 +10,7 @@ const LandingPageLayout = () => {
     return (
 
         <div>
-            <Link to="/main">Skip to MainLayout</Link>
+            <Link to="/main/dashboard">Skip to MainLayout</Link>
             <header role="banner">
                 <HeroBanner />
             </header>
