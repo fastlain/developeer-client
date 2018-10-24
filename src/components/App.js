@@ -4,17 +4,13 @@ import MainLayout from './MainLayout';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-class App extends Component {
-    render() {
-        return (
-            <Router>
-                <div>
-                    <Route exact path="/" component={LandingPageLayout} />
-                    <Route path="/main" component={MainLayout} />
-                </div>
-            </Router>
-        );
-    }
-}
+const App = () => (
+    <Router>
+        <div>
+            <Route exact path="/" component={LandingPageLayout} />
+            <Route path="/main" component={MainLayout} />
+        </div>
+    </Router>
+);
 
 export default App;
