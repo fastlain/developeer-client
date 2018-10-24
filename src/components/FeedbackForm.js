@@ -44,7 +44,7 @@ class FeedbackForm extends Component {
         return (
             <form className={styles.form}>
                 <h3>Project: <span className={styles.innerHeading}>{dummyData.project}</span></h3>
-                <h3 className={styles.formHeading}>Author: <span className={styles.innerHeading}>{dummyData.author}</span></h3>
+                <h3>Author: <span className={styles.innerHeading}>{dummyData.author}</span></h3>
                 <a className={styles.buttonLink} href={dummyData.link} target="_blank" rel="noopener noreferrer" >VISIT PAGE</a>
                 {questions}
                 <Button type="submit" btnStyle="roomyTopBot" onClick={this.submitForm}>SUBMIT FEEDBACK</Button>
