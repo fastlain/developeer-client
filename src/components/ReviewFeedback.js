@@ -5,6 +5,7 @@ import styles from '../css_modules/ReviewFeedback.module.css';
 import PageTitle from './PageTitle';
 import Button from './Button';
 import TableRow from './TableRow';
+import ExternalLinkBtn from './ExternalLinkBtn';
 
 class ReviewFeedback extends Component {
     constructor(props) {
@@ -17,21 +18,22 @@ class ReviewFeedback extends Component {
     render() {
 
         const dummyData = {
-            formName: "My Demo Form",
+            formName: 'My Demo Form',
+            link: 'https://www.michaelallain.com',
             reviews: [
                 {
-                    reviewer: "anonymous",
-                    date: "01/01/2018 10:10"
+                    reviewer: 'anonymous',
+                    date: '01/01/2018 10:10'
                 },
                 {
-                    reviewer: "user123",
-                    date: "02/03/2018 11:11"
+                    reviewer: 'user123',
+                    date: '02/03/2018 11:11'
                 },
                 {
-                    reviewer: "reviewer789",
-                    date: "03/04/2018 12:12"
+                    reviewer: 'reviewer789',
+                    date: '03/04/2018 12:12'
                 }
-            ]
+            ],
         }
 
         const tableContents = dummyData.reviews.map((review, index) => {
@@ -40,13 +42,13 @@ class ReviewFeedback extends Component {
                 review.reviewer,
                 review.date,
             ];
-            const rowStyle = (index % 2 === 0) ? "even" : "odd";
+            const rowStyle = (index % 2 === 0) ? 'even' : 'odd';
             return (
                 <TableRow cells={cells} key={index} rowStyle={rowStyle} />
             );
         });
 
-        const tableHeadings = ["", "Reviewer", "Date"];
+        const tableHeadings = ['', 'Reviewer', 'Date'];
 
         return (
             <div>
@@ -56,6 +58,9 @@ class ReviewFeedback extends Component {
                 <PageTitle>Review Feedback</PageTitle>
                 <h2 className={styles.heading}>Form name: <span className={styles.innerHeading}>{dummyData.formName}</span></h2>
                 <h3 className={styles.heading}>Reviews Received: <span className={styles.innerHeading}>{dummyData.reviews.length}</span></h3>
+                <ExternalLinkBtn href={dummyData.link}>
+                    VISIT PAGE
+                </ExternalLinkBtn>
                 <div className={styles.table}>
                     <TableRow cells={tableHeadings} rowStyle="heading"></TableRow>
                     {tableContents}

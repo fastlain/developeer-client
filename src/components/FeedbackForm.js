@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from '../css_modules/FeedbackForm.module.css';
 
 import Button from './Button';
+import ExternalLinkBtn from './ExternalLinkBtn';
 
 class FeedbackForm extends Component {
     constructor(props) {
@@ -45,7 +46,9 @@ class FeedbackForm extends Component {
             <form className={styles.form}>
                 <h3>Project: <span className={styles.innerHeading}>{dummyData.project}</span></h3>
                 <h3>Author: <span className={styles.innerHeading}>{dummyData.author}</span></h3>
-                <a className={styles.buttonLink} href={dummyData.link} target="_blank" rel="noopener noreferrer" >VISIT PAGE</a>
+                <ExternalLinkBtn href={dummyData.link}>
+                    VISIT PAGE
+                </ExternalLinkBtn>
                 {questions}
                 <Button type="submit" btnStyle="roomyTopBot" onClick={this.submitForm}>SUBMIT FEEDBACK</Button>
             </form>

@@ -9,13 +9,6 @@
     font-weight: 400;
 }
 
-.buttonLink {
-    composes: default roomyTopBot from "./Button.module.css";
-    text-decoration: none;
-    display: inline-block;
-    font-family: Arial;
-}
-
 .questionWrapper {
     text-align: left;
     margin: 10px;
