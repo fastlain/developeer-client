@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import LandingPageLayout from './LandingPageLayout';
 import MainLayout from './MainLayout';
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () => (
     <Router>
