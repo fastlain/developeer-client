@@ -1,8 +1,6 @@
 .buttonLink {
     composes: default roomyTopBot from "./Button.module.css";
     text-decoration: none;
-    display: block;
     font-family: Arial;
     margin: 0 auto;
-    width: fit-content;
 }

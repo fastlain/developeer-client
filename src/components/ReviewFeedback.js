@@ -56,11 +56,13 @@ class ReviewFeedback extends Component {
                     <Button type="Button" btnStyle="roomyTopBot">&larr; Dashboard</Button>
                 </Link>
                 <PageTitle>Review Feedback</PageTitle>
-                <h2 className={styles.heading}>Form name: <span className={styles.innerHeading}>{dummyData.formName}</span></h2>
-                <h3 className={styles.heading}>Reviews Received: <span className={styles.innerHeading}>{dummyData.reviews.length}</span></h3>
-                <ExternalLinkBtn href={dummyData.link}>
-                    VISIT PAGE
-                </ExternalLinkBtn>
+                <h2 className={styles.center}>Form name: <span className={styles.innerHeading}>{dummyData.formName}</span></h2>
+                <div className={styles.center}>
+                    <ExternalLinkBtn href={dummyData.link}>
+                        VISIT PAGE
+                    </ExternalLinkBtn>
+                </div>
+                <h3 className={styles.center}>Reviews Received: <span className={styles.innerHeading}>{dummyData.reviews.length}</span></h3>
                 <div className={styles.table}>
                     <TableRow cells={tableHeadings} rowStyle="heading"></TableRow>
                     {tableContents}
