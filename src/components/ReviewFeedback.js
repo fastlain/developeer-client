@@ -48,14 +48,6 @@ class ReviewFeedback extends Component {
 
         const tableHeadings = ["", "Reviewer", "Date"];
 
-        //     <div className={styles.gridContainer}>
-        //         <h4 className={styles.col1Head}> </h4>
-        //         <h4 className={styles.col2Head}>Reviewer</h4>
-        //         <h4 className={styles.col3Head}> Date</h4 >
-        //         {rows}
-        //     </div >
-
-
         return (
             <div>
                 <Link to="/main/dashboard">
