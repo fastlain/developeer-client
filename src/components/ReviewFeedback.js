@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import styles from '../css_modules/ReviewFeedback.module.css';
 
 import PageTitle from './PageTitle';
 import Button from './Button';
 import TableRow from './TableRow';
 import ExternalLinkBtn from './ExternalLinkBtn';
+import FeedbackForm from './FeedbackForm';
 
 class ReviewFeedback extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class ReviewFeedback extends Component {
 
         const tableContents = dummyData.reviews.map((review, index) => {
             const cells = [
-                <Button type="Button">VIEW</Button>,
+                <Link to={`/main/reviewfeedback/view/${index}`}><Button type="Button">VIEW</Button></Link>,
                 review.reviewer,
                 review.date,
             ];
@@ -67,6 +68,8 @@ class ReviewFeedback extends Component {
                     <TableRow cells={tableHeadings} rowStyle="heading"></TableRow>
                     {tableContents}
                 </div>
+
+                <Route path={`/main/reviewfeedback/view`} component={FeedbackForm} />
             </div >
         );
     }
