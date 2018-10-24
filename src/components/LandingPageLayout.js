@@ -8,7 +8,6 @@ import UserForm from './UserForm';
 
 const LandingPageLayout = () => {
     return (
-
         <div>
             <Link to="/main/dashboard">Skip to MainLayout</Link>
             <header role="banner">
@@ -22,7 +21,6 @@ const LandingPageLayout = () => {
                 <Footer />
             </footer>
         </div>
-
     );
 }
 
