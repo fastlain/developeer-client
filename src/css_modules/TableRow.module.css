@@ -1,0 +1,30 @@
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 10px 0;
+    align-items: center;
+    /* justify-content: space-evenly; */
+}
+
+.cell {
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.rowEven {
+    composes: row;
+    background: lightblue;
+}
+
+.rowOdd {
+    composes: row;
+    background: lightyellow;
+}
+
+.rowHeading {
+    composes: row;
+    font-weight: bold;
+    background: lightgrey;
+    border-bottom: 2px solid darkslategray;
+}

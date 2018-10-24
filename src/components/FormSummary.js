@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../css_modules/FormSummary.module.css';
+import { Link } from 'react-router-dom';
 
 import Button from './Button';
 
@@ -42,7 +43,7 @@ class FormSummary extends Component {
                     </div>
                 </div>
 
-                <Button type="button" btnStyle="roomyTopBot">Review Feedback</Button>
+                <Link to="/main/reviewfeedback"><Button type="button" btnStyle="roomyTopBot">REVIEW FEEDBACK</Button></Link>
             </div>
         );
     }
