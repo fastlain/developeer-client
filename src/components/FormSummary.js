@@ -6,7 +6,22 @@ import Button from './Button';
 
 class FormSummary extends Component {
 
+    removeRequest = () => {
+        if (this.props.requests > 0) {
+            this.props.removeRequest(this.props.id);
+        }
+    }
+
+    addRequest = () => {
+        if (this.props.credit > 0) {
+            this.props.addRequest(this.props.id);
+        }
+    }
+
     render() {
+
+        const removeBtnActive = this.props.requests > 0;
+        const removeBtnClass = removeBtnActive ? "default" : "disabled";
 
         return (
             <div className={styles.formContainer}>
@@ -21,9 +36,9 @@ class FormSummary extends Component {
                     <div className={styles.pendingRequests}>
                         <span>Pending Requests:</span>
                         <div className={styles.requestButtonWrapper}>
-                            <Button type="button" onClick={() => this.props.removeRequest(this.props.id)}>-</Button>
+                            <Button type="button" btnStyle={removeBtnClass} onClick={this.removeRequest}>-</Button>
                             <span className={styles.credits}>{this.props.requests}</span>
-                            <Button type="button" onClick={() => this.props.addRequest(this.props.id)}> +</Button>
+                            <Button type="button" onClick={this.addRequest}> +</Button>
                         </div>
                     </div>
 
