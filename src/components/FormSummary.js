@@ -7,17 +7,15 @@ import Button from './Button';
 class FormSummary extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        };
     }
 
     render() {
+
         return (
             <div className={styles.formContainer}>
 
                 <div className={styles.formNameWrapper}>
-                    <h3 className={styles.formName}>My first form</h3>
+                    <h3 className={styles.formName}>{this.props.name}</h3>
                     <Button type="button" btnStyle="edit">Edit</Button>
                 </div>
 
@@ -27,7 +25,7 @@ class FormSummary extends Component {
                         <span>Pending Requests:</span>
                         <div className={styles.requestButtonWrapper}>
                             <Button type="button">-</Button>
-                            <span className={styles.credits}>3</span>
+                            <span className={styles.credits}>{this.props.requests}</span>
                             <Button type="button">+</Button>
                         </div>
                     </div>

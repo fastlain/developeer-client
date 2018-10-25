@@ -3,7 +3,30 @@ import * as ACTIONS from '../actions';
 const initialState = {
     username: "dummy_user",
     credit: 0,
-    forms: [],
+    forms: [
+        {
+            id: 0,
+            name: "dummyForm0",
+            projectUrl: "https://www.michaelallain.com",
+            pendingRequests: 1,
+            questions: [
+                "Question 1 text here",
+                "Question 2 text here",
+                "Question 3 text here"
+            ]
+        },
+        {
+            id: 1,
+            name: "dummyForm1",
+            pendingRequests: 3,
+            projectUrl: "https://www.michaelallain.com",
+            questions: [
+                "Question 1 text here",
+                "Question 2 text here",
+                "Question 3 text here"
+            ]
+        }
+    ],
     notifications: [
         {
             id: 0,

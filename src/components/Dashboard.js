@@ -12,7 +12,7 @@ export const Dashboard = props => (
         <PageTitle>Dashboard</PageTitle>
         <Notifications notifications={props.notifications} closeNotification={props.closeNotification} />
         <Credits credits={props.credit} />
-        <MyFeedback addCredit={props.addCredit} />
+        <MyFeedback />
     </div>
 );
 
