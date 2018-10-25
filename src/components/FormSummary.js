@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 
 class FormSummary extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
 

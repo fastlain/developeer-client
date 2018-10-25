@@ -6,9 +6,6 @@ import FormSummary from './FormSummary';
 import Button from './Button';
 
 class MyFeedback extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
 
