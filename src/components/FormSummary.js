@@ -6,15 +6,15 @@ import Button from './Button';
 
 class FormSummary extends Component {
 
-    removeRequest = () => {
+    decRequest = () => {
         if (this.props.requests > 0) {
-            this.props.removeRequest(this.props.id);
+            this.props.decRequest(this.props.id);
         }
     }
 
-    addRequest = () => {
+    incRequest = () => {
         if (this.props.credit > 0) {
-            this.props.addRequest(this.props.id);
+            this.props.incRequest(this.props.id);
         }
     }
 
@@ -36,9 +36,9 @@ class FormSummary extends Component {
                     <div className={styles.pendingRequests}>
                         <span>Pending Requests:</span>
                         <div className={styles.requestButtonWrapper}>
-                            <Button type="button" btnStyle={removeBtnClass} onClick={this.removeRequest}>-</Button>
+                            <Button type="button" btnStyle={removeBtnClass} onClick={this.decRequest}>-</Button>
                             <span className={styles.credits}>{this.props.requests}</span>
-                            <Button type="button" onClick={this.addRequest}> +</Button>
+                            <Button type="button" onClick={this.incRequest}> +</Button>
                         </div>
                     </div>
 
