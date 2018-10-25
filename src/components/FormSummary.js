@@ -21,9 +21,9 @@ class FormSummary extends Component {
                     <div className={styles.pendingRequests}>
                         <span>Pending Requests:</span>
                         <div className={styles.requestButtonWrapper}>
-                            <Button type="button">-</Button>
+                            <Button type="button" onClick={() => this.props.removeRequest(this.props.id)}>-</Button>
                             <span className={styles.credits}>{this.props.requests}</span>
-                            <Button type="button">+</Button>
+                            <Button type="button" onClick={() => this.props.addRequest(this.props.id)}> +</Button>
                         </div>
                     </div>
 

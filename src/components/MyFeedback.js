@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addRequest, removeRequest } from '../actions';
 import styles from '../css_modules/MyFeedback.module.css';
 
 import FormSummary from './FormSummary';
@@ -10,7 +11,7 @@ class MyFeedback extends Component {
     render() {
 
         const summaries = this.props.forms.map(form => (
-            <FormSummary key={form.id} name={form.name} requests={form.pendingRequests} />
+            <FormSummary key={form.id} id={form.id} name={form.name} requests={form.pendingRequests} addRequest={this.props.addRequest} removeRequest={this.props.removeRequest} credit={this.props.credit} />
         ))
 
         return (
@@ -27,7 +28,13 @@ class MyFeedback extends Component {
 }
 
 const mapStateToProps = state => ({
-    forms: state.forms
+    forms: state.forms,
+    credit: state.credit
 });
 
-export default connect(mapStateToProps)(MyFeedback);
+const mapDispatchToProps = dispatch => ({
+    addRequest: formId => dispatch(addRequest(formId)),
+    removeRequest: formId => dispatch(removeRequest(formId))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyFeedback);
