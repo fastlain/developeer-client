@@ -9,7 +9,7 @@ export const removeCredit = () => ({
 });
 
 export const CLOSE_NOTIFICATION = 'CLOSE_NOTIFICATION';
-export const closeNoticication = (id) => ({
+export const closeNotification = (id) => ({
     type: CLOSE_NOTIFICATION,
     id
 });

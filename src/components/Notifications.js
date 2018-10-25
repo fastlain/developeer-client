@@ -1,34 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from '../css_modules/Notifications.module.css';
 
 import Button from './Button';
 
-class Notifications extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+const Notifications = ({ notifications, closeNotification }) => {
 
-        };
-    }
+    const notifList = notifications.map(n => (
+        <li className={styles.notification} key={n.id} id={n.id}>
+            {n.text}
+            <Button type="button" btnStyle="tight" onClick={() => closeNotification(n.id)}>X</Button>
+        </li >
+    ));
 
-    render() {
-        return (
-            <section>
-                <ul className={styles.notificationList}>
-                    <li className={styles.notification}>
-                        Nofication 1 goes here
-                        <Button type="button" btnStyle="tight">X</Button>
-                    </li>
-                    <li className={styles.notification}>
-                        Nofication 2 goes here
-                        <Button type="button"
-                            btnStyle="tight">X</Button>
-
-                    </li>
-                </ul>
-            </section>
-        );
-    }
+    return (
+        <section>
+            <ul className={styles.notificationList}>
+                {notifList}
+            </ul>
+        </section>
+    );
 }
 
 export default Notifications;
