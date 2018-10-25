@@ -7,3 +7,9 @@ export const REMOVE_CREDIT = 'REMOVE_CREDIT';
 export const removeCredit = () => ({
     type: REMOVE_CREDIT
 });
+
+export const CLOSE_NOTIFICATION = 'CLOSE_NOTIFICATION';
+export const closeNoticication = (id) => ({
+    type: CLOSE_NOTIFICATION,
+    id
+});

@@ -11,12 +11,12 @@ export const Dashboard = props => (
         <PageTitle>Dashboard</PageTitle>
         <Notifications />
         <Credits credits={props.credit} />
-        <MyFeedback />
+        <MyFeedback addCredit={props.addCredit} />
     </div>
 );
 
 const mapStateToProps = state => ({
-    credit: state.user.credit
+    credit: state.credit
 });
 
 export default connect(mapStateToProps)(Dashboard);
