@@ -17,7 +17,12 @@
 .default:focus {
     outline: none;
     box-shadow: 0 0 0 2px blue;
-}   
+}
+
+.disabled, .disabled:hover {
+    background: lightgrey;
+    color: darkgrey;
+}
 
 .outline {
     background: none;
