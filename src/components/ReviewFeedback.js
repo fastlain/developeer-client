@@ -3,7 +3,6 @@ import { Link, Route } from 'react-router-dom';
 import styles from '../css_modules/ReviewFeedback.module.css';
 
 import PageTitle from './PageTitle';
-import Button from './Button';
 import TableRow from './TableRow';
 import ExternalLinkBtn from './ExternalLinkBtn';
 import FeedbackForm from './FeedbackForm';

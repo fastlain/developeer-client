@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../css_modules/Credits.module.css';
 
-import Button from './Button';
-
 const Credits = ({ credits }) => (
     <section className={styles.creditsWrapper}>
         <h2>Credits</h2>
