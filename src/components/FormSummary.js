@@ -56,8 +56,8 @@ class FormSummary extends Component {
                             <span className={styles.credits}>{this.props.requests}</span>
                             <Button type="button" onClick={this.incRequest}> +</Button>
                         </div>
-                        <p className={warnClass}>Out of credits. Give feedback to earn more</p>
                     </div>
+                    <p className={warnClass}>Out of credits. Give feedback to earn more</p>
 
                     <p>-- OR --</p>
 

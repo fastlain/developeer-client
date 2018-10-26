@@ -43,6 +43,7 @@
 }
 
 .warning {
+    display: inline-block;
     font-size: 0.8rem;
     margin: 0 auto; 
     font-style: italic;
@@ -53,6 +54,7 @@
 
 .hideWarning {
     composes: warning;
+    display: inline-block;
     visibility: hidden;
 }
 
