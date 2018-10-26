@@ -5,6 +5,18 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 
 class FormSummary extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showWarning: false
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.credit > 0) {
+            this.setState({ showWarning: false });
+        }
+    }
 
     decRequest = () => {
         if (this.props.requests > 0) {
@@ -15,13 +27,17 @@ class FormSummary extends Component {
     incRequest = () => {
         if (this.props.credit > 0) {
             this.props.incRequest(this.props.id);
+        } else {
+            this.setState({ showWarning: true });
         }
     }
 
     render() {
 
         const removeBtnActive = this.props.requests > 0;
-        const removeBtnClass = removeBtnActive ? "default" : "disabled";
+        const removeBtnClass = removeBtnActive ? 'default' : 'disabled';
+
+        const warnClass = (this.state.showWarning && this.props.credit === 0) ? styles.warning : styles.hideWarning;
 
         return (
             <div className={styles.formContainer}>
@@ -40,6 +56,7 @@ class FormSummary extends Component {
                             <span className={styles.credits}>{this.props.requests}</span>
                             <Button type="button" onClick={this.incRequest}> +</Button>
                         </div>
+                        <p className={warnClass}>Out of credits. Give feedback to earn more</p>
                     </div>
 
                     <p>-- OR --</p>

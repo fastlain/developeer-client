@@ -29,6 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .requestButtonWrapper {
@@ -39,6 +40,20 @@
     background: lightyellow;
     padding: 5px;
     margin: 0 5px;
+}
+
+.warning {
+    font-size: 0.8rem;
+    margin: 0 auto; 
+    font-style: italic;
+    background: lightgrey;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.hideWarning {
+    composes: warning;
+    visibility: hidden;
 }
 
 .shareLinkWrapper {
