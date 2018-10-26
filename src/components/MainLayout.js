@@ -16,7 +16,7 @@ const MainLayout = () => {
             <main role="main">
                 <Route exact path="/main/dashboard" component={Dashboard} />
                 <Route exact path="/main/givefeedback" component={GiveFeedback} />
-                <Route path="/main/reviewfeedback" component={ReviewFeedback} />
+                <Route path="/main/reviewfeedback/:id" component={ReviewFeedback} />
             </main>
             <footer role="contentinfo">
                 <Footer />

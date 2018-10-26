@@ -29,6 +29,30 @@ const initialState = {
             ]
         }
     ],
+    reviews: [
+        {
+            id: 0,
+            formId: 0,
+            reviewer: "reviewer123",
+            responses: [
+                "Response to question 1",
+                "Response to question 2",
+                "Response to question 3",
+            ],
+            date: new Date()
+        },
+        {
+            id: 1,
+            formId: 0,
+            reviewer: "reviewerabc",
+            responses: [
+                "Response to question 1",
+                "Response to question 2",
+                "Response to question 3",
+            ],
+            date: new Date()
+        }
+    ],
     notifications: [
         {
             id: 0,

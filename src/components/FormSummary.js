@@ -79,7 +79,7 @@ class FormSummary extends Component {
                     </div>
                 </div>
 
-                <Link to="/main/reviewfeedback" className="Link btnStyle roomy">
+                <Link to={`/main/reviewfeedback/${this.props.id}`} className="Link btnStyle roomy">
                     REVIEW FEEDBACK
                 </Link>
             </div>
