@@ -11,7 +11,7 @@ class MyFeedback extends Component {
     render() {
 
         const summaries = this.props.forms.map(form => (
-            <FormSummary key={form.id} id={form.id} name={form.name} requests={form.pendingRequests} incRequest={this.props.incRequest} decRequest={this.props.decRequest} credit={this.props.credit} />
+            <FormSummary key={form.id} id={form.id} name={form.name} requests={form.pendingRequests} shareableUrl={form.shareableUrl} incRequest={this.props.incRequest} decRequest={this.props.decRequest} credit={this.props.credit} />
         ))
 
         return (

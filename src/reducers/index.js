@@ -8,6 +8,7 @@ const initialState = {
             id: 0,
             name: "dummyForm0",
             projectUrl: "https://www.michaelallain.com",
+            shareableUrl: "https://www.michaelallain.com",
             pendingRequests: 1,
             questions: [
                 "Question 1 text here",
@@ -20,6 +21,7 @@ const initialState = {
             name: "dummyForm1",
             pendingRequests: 3,
             projectUrl: "https://www.michaelallain.com",
+            shareableUrl: "https://www.michaelallain.com",
             questions: [
                 "Question 1 text here",
                 "Question 2 text here",

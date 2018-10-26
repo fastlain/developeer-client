@@ -10,6 +10,7 @@ class FormSummary extends Component {
         this.state = {
             showWarning: false
         }
+        this.urlInputRef = React.createRef();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -32,12 +33,20 @@ class FormSummary extends Component {
         }
     }
 
+    // select content of urlInput and copies it to clipboard
+    copyDirectUrl = () => {
+        this.urlInputRef.current.select();
+        document.execCommand('copy');
+    }
+
     render() {
 
         const removeBtnActive = this.props.requests > 0;
         const removeBtnClass = removeBtnActive ? 'default' : 'disabled';
 
         const warnClass = (this.state.showWarning && this.props.credit === 0) ? styles.warning : styles.hideWarning;
+
+        const inputWidth = this.props.shareableUrl.length;
 
         return (
             <div className={styles.formContainer}>
@@ -64,8 +73,8 @@ class FormSummary extends Component {
                     <div>
                         <p className={styles.requestInfo}>Share this direct link elsewhere:</p>
                         <div className={styles.shareLinkWrapper}>
-                            <input type="text" value="http://www.test.com/" readOnly />
-                            <Button type="button" btnStyle="roomySides">Copy to Clipboard</Button>
+                            <input ref={this.urlInputRef} type="text" value={this.props.shareableUrl} readOnly size={inputWidth} />
+                            <Button type="button" btnStyle="roomySides" onClick={this.copyDirectUrl}>COPY LINK</Button>
                         </div>
                     </div>
                 </div>
