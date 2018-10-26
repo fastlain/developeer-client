@@ -34,8 +34,8 @@ class GiveFeedback extends Component {
 
         return (
             <div>
-                <Link to="/main/dashboard">
-                    <Button type="button" btnStyle="roomyTopBot">&larr; Dashboard</Button>
+                <Link to="/main/dashboard" className="Link btnStyle roomy">
+                    &larr; DASHBOARD
                 </Link>
                 <PageTitle>Feedback</PageTitle>
                 {toRender}

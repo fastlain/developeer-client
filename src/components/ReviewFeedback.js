@@ -39,7 +39,7 @@ class ReviewFeedback extends Component {
 
         const tableContents = dummyData.reviews.map((review, index) => {
             const cells = [
-                <Link to={`/main/reviewfeedback/view/${index}`}><Button type="Button">VIEW</Button></Link>,
+                <Link to={`/main/reviewfeedback/view/${index}`} className="Link btnStyle">VIEW</Link>,
                 review.reviewer,
                 review.date,
             ];
@@ -53,8 +53,8 @@ class ReviewFeedback extends Component {
 
         return (
             <div>
-                <Link to="/main/dashboard">
-                    <Button type="Button" btnStyle="roomyTopBot">&larr; Dashboard</Button>
+                <Link to="/main/dashboard" className="Link btnStyle roomy">
+                    &larr; DASHBOARD
                 </Link>
                 <PageTitle>Review Feedback</PageTitle>
                 <h2 className={styles.center}>Form name: <span className={styles.innerHeading}>{dummyData.formName}</span></h2>

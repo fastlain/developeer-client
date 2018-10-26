@@ -70,7 +70,9 @@ class FormSummary extends Component {
                     </div>
                 </div>
 
-                <Link to="/main/reviewfeedback"><Button type="button" btnStyle="roomyTopBot">REVIEW FEEDBACK</Button></Link>
+                <Link to="/main/reviewfeedback" className="Link btnStyle roomy">
+                    REVIEW FEEDBACK
+                </Link>
             </div>
         );
     }

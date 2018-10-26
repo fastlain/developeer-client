@@ -9,8 +9,8 @@ const Credits = ({ credits }) => (
         <h2>Credits</h2>
         <p>You currently have <span className={styles.credits}>{credits}</span> credits.</p>
         <p>Earn more by providing peer feedback:</p>
-        <Link to="/main/givefeedback">
-            <Button type="button" btnStyle="roomyTopBot">Give Feedback</Button>
+        <Link to="/main/givefeedback" className="Link btnStyle roomy">
+            GIVE FEEDBACK
         </Link>
     </section>
 );
