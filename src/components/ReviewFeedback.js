@@ -7,6 +7,7 @@ import PageTitle from './PageTitle';
 import TableRow from './TableRow';
 import ExternalLinkBtn from './ExternalLinkBtn';
 import FeedbackForm from './FeedbackForm';
+import ViewFeedback from './ViewFeedback';
 
 class ReviewFeedback extends Component {
 
@@ -51,7 +52,7 @@ class ReviewFeedback extends Component {
                     {tableContents}
                 </div>
 
-                <Route exact path={`${this.props.match.url}/view/:reviewId`} component={FeedbackForm} />
+                <Route exact path={`${this.props.match.url}/view/:reviewId`} render={(props) => <ViewFeedback {...props} questions={formData.questions} reviews={reviews} />} />
             </div >
         );
     }
