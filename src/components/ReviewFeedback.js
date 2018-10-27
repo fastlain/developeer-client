@@ -6,7 +6,6 @@ import styles from '../css_modules/ReviewFeedback.module.css';
 import PageTitle from './PageTitle';
 import TableRow from './TableRow';
 import ExternalLinkBtn from './ExternalLinkBtn';
-import FeedbackForm from './FeedbackForm';
 import ViewFeedback from './ViewFeedback';
 
 class ReviewFeedback extends Component {
