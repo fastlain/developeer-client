@@ -9,7 +9,7 @@ const Question = (props) => (
         <label className={styles.blockLabel} htmlFor={`question${props.order}`}>
             Write your question here:
         </label>
-        <textarea id={`question${props.order}`} className={styles.textArea} name={`question${props.order}`} rows={4} value={props.value} onChange={(e) => props.setText(e.target.value, props.order)} />
+        <textarea id={`question${props.order}`} className={styles.textArea} name={`question${props.order}`} rows={4} value={props.value} onChange={(e) => props.setQuestionText(e.target.value, props.order)} />
         <Button btnStyle="right" type="button" onClick={() => props.deleteQuestion(props.order)}>
             DELETE QUESTION
         </Button>

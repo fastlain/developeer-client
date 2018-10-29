@@ -36,7 +36,7 @@ class CreateForm extends Component {
         }
     }
 
-    setText = (text, order) => {
+    setQuestionText = (text, order) => {
         const newQuestions = [...this.state.questions];
         newQuestions[order] = text;
         this.setState({ questions: newQuestions });
@@ -45,7 +45,7 @@ class CreateForm extends Component {
     render() {
 
         const questionList = this.state.questions.map((question, index) => (
-            <Question order={index} key={index} value={question} setText={this.setText} deleteQuestion={this.deleteQuestion} />
+            <Question order={index} key={index} value={question} setQuestionText={this.setQuestionText} deleteQuestion={this.deleteQuestion} />
         ));
 
         const maxedQuestions = this.state.questions.length < 5;
