@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { createForm } from '../actions';
 import styles from '../css_modules/CreateForm.module.css';
 
 import PageTitle from './PageTitle';
@@ -42,6 +44,13 @@ class CreateForm extends Component {
         this.setState({ questions: newQuestions });
     }
 
+    submitForm = (e) => {
+        e.preventDefault();
+        this.props.dispatch(createForm(this.state.formName, this.state.projectUrl, this.state.questions));
+        // navigate back to dashboard
+        this.props.history.push('/main/dashboard');
+    }
+
     render() {
 
         const questionList = this.state.questions.map((question, index) => (
@@ -63,7 +72,7 @@ class CreateForm extends Component {
                     <p className={styles.instructions}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </section>
 
-                <form className={styles.createForm}>
+                <form className={styles.createForm} onSubmit={this.submitForm}>
                     <div className={styles.inputWrapper}>
                         <label htmlFor="formName">Form Name: </label>
                         <input id="formName" name="formName" type="text" value={this.state.formName} onChange={this.setInput} />
@@ -85,7 +94,7 @@ class CreateForm extends Component {
 
                     </div>
 
-                    <Button btnStyle="roomyTopBot block center" type="button">SAVE FORM</Button>
+                    <Button btnStyle="roomyTopBot block center" type="submit">SUBMIT FORM</Button>
 
                 </form>
             </div>
@@ -93,4 +102,4 @@ class CreateForm extends Component {
     }
 }
 
-export default CreateForm;
+export default connect()(CreateForm);

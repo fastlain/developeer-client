@@ -82,6 +82,18 @@ const developeerReducer = (state = initialState, action) => {
                 return (form.id === action.formId) ? Object.assign({}, form, { pendingRequests: form.pendingRequests - 1 }) : form;
             });
             return Object.assign({}, state, { forms: formsRemovedRequest });
+        case ACTIONS.CREATE_FORM:
+            const newForm = {
+                id: Math.floor(Math.random() * 1000),
+                name: action.formName,
+                projectUrl: action.projectUrl,
+                shareableUrl: 'http://wwww.michaelallain.com',
+                questions: action.questions,
+                pendingRequests: 0
+            };
+            const updatedForms = [...state.forms];
+            updatedForms.push(newForm);
+            return Object.assign({}, state, { forms: updatedForms });
         default:
             return state;
     }

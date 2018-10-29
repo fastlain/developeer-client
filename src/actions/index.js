@@ -36,3 +36,11 @@ export const closeNotification = (id) => ({
     type: CLOSE_NOTIFICATION,
     id
 });
+
+export const CREATE_FORM = 'CREATE_FORM';
+export const createForm = (formName, projectUrl, questions) => ({
+    type: CREATE_FORM,
+    formName,
+    projectUrl,
+    questions
+});
