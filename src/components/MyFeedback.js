@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { incRequest, decRequest } from '../actions';
 import styles from '../css_modules/MyFeedback.module.css';
 
 import FormSummary from './FormSummary';
-import Button from './Button';
 
 class MyFeedback extends Component {
 
@@ -21,7 +21,7 @@ class MyFeedback extends Component {
                     Here are some instructions...
                 </p>
                 {summaries}
-                <Button type="button" btnStyle="roomyTopBot">Create New Feedback Form</Button>
+                <Link to="/main/createform" className="Link btnStyle roomy">CREATE NEW FORM</Link>
             </section>
         );
     }

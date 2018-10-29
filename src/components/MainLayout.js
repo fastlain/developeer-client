@@ -6,6 +6,7 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import GiveFeedback from './GiveFeedback';
 import ReviewFeedback from './ReviewFeedback';
+import CreateForm from './CreateForm';
 
 const MainLayout = () => {
     return (
@@ -17,6 +18,7 @@ const MainLayout = () => {
                 <Route exact path="/main/dashboard" component={Dashboard} />
                 <Route exact path="/main/givefeedback" component={GiveFeedback} />
                 <Route path="/main/reviewfeedback/:id" component={ReviewFeedback} />
+                <Route path="/main/createform" component={CreateForm} />
             </main>
             <footer role="contentinfo">
                 <Footer />
