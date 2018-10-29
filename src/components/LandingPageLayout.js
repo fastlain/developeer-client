@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import HeroBanner from './HeroBanner';
-import Features from './Features';
+import LandingPageContent from './LandingPageContent';
 import Footer from './Footer';
 import UserForm from './UserForm';
 
@@ -14,8 +14,8 @@ const LandingPageLayout = () => {
                 <HeroBanner />
             </header>
             <main role="main">
-                <UserForm />
-                <Features />
+                <Route exact path="/" component={LandingPageContent} />
+                <Route path="/userform/:type" render={props => <UserForm {...props} />} />
             </main>
             <footer role="contentinfo">
                 <Footer />

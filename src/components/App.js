@@ -8,6 +8,7 @@ const App = () => (
     <Router>
         <div>
             <Route exact path="/" component={LandingPageLayout} />
+            <Route path="/userform/" component={LandingPageLayout} />
             <Route path="/main" component={MainLayout} />
         </div>
     </Router>

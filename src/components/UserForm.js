@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../css_modules/UserForm.module.css';
+import { Link } from 'react-router-dom';
 
 import Button from './Button';
 
@@ -7,22 +8,21 @@ class UserForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newAccountForm: false
         };
-    }
-
-    toggleFormType = () => {
-        this.setState(prevState => ({
-            newAccountForm: !prevState.newAccountForm
-        }));
     }
 
     render() {
 
-        const submitButtonText = this.state.newAccountForm ? "CREATE ACCOUNT" : "LOG IN";
-        const toggleButtonText = this.state.newAccountForm ? "LOG IN" : "CREATE ACCOUNT";
-        const toggleDescription = this.state.newAccountForm ? "Already have an account?" : "New to Developeer?";
-        const hideReEnterPass = this.state.newAccountForm ? styles.block : styles.hide;
+        // get form type from route params
+        const formType = this.props.match.params.type;
+        const isCreate = (formType === 'create');
+
+        // create variables for account creation or log in form
+        const submitButtonText = isCreate ? "CREATE ACCOUNT" : "LOG IN";
+        const toggleButtonText = isCreate ? "LOG IN" : "CREATE ACCOUNT";
+        const toggleRouteParam = isCreate ? "login" : "create";
+        const toggleDescription = isCreate ? "Already have an account?" : "New to Developeer?";
+        const hideReEnterPass = isCreate ? styles.block : styles.hide;
 
         return (
             <form className={styles.userForm}>
@@ -49,9 +49,9 @@ class UserForm extends Component {
                     <p>
                         {toggleDescription}
                     </p>
-                    <Button type="button" onClick={this.toggleFormType}>
+                    <Link to={`/userform/${toggleRouteParam}`} className="Link btnStyle roomy">
                         {toggleButtonText}
-                    </Button>
+                    </Link>
                 </div>
             </form>
         );
