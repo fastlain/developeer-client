@@ -4,33 +4,51 @@ import styles from '../css_modules/CreateForm.module.css';
 
 import PageTitle from './PageTitle';
 import Button from './Button';
+import Question from './Question';
 
 class CreateForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            questions: ['', '', '']
         };
+    }
+
+    deleteQuestion = (order) => {
+        const newQuestions = [...this.state.questions];
+        newQuestions.splice(order, 1);
+        this.setState({ questions: newQuestions });
+    }
+
+    addQuestion = () => {
+        if (this.state.questions.length < 5) {
+            const newQuestions = [...this.state.questions];
+            newQuestions.push('');
+            this.setState({ questions: newQuestions });
+        }
+    }
+
+    setText = (text, order) => {
+        const newQuestions = [...this.state.questions];
+        newQuestions[order] = text;
+        this.setState({ questions: newQuestions });
     }
 
     render() {
 
-        const questions = (
-            <fieldset>
-                <legend>Question 1:</legend>
-                <label className={styles.blockLabel} htmlFor="question1">
-                    Write your question here:
-                                    </label>
-                <textarea id="question1" className={styles.textArea} name="question1" rows={4}></textarea>
-                <Button btnStyle="right" type="button">DELETE QUESTION</Button>
-            </fieldset>
-        );
+        const questionList = this.state.questions.map((question, index) => (
+            <Question order={index} key={index} value={question} setText={this.setText} deleteQuestion={this.deleteQuestion} />
+        ));
+
+        const maxedQuestions = this.state.questions.length < 5;
+        const addQuestionBtnStyle = maxedQuestions ? '' : 'disabled';
+        const warnClass = maxedQuestions ? styles.hideWarning : styles.warning;
 
         return (
             <div>
                 <Link to="/main/dashboard" className="Link btnStyle roomy">
                     &larr; DASHBOARD
-                    </Link>
+                </Link>
                 <PageTitle>Create a New Form</PageTitle>
                 <section className={styles.instructionsWrapper}>
                     <h2>Instructions</h2>
@@ -48,10 +66,19 @@ class CreateForm extends Component {
                         <input id="projectUrl" name="projectUrl" type="text"></input>
                     </div>
 
-                    {questions}
+                    {questionList}
 
-                    <Button btnStyle="roomyTopBot block center" type="button">+ ADD QUESTION</Button>
+                    <Button btnStyle={`block center ${addQuestionBtnStyle}`} type="button" onClick={this.addQuestion}>
+                        + ADD QUESTION
+                    </Button>
+
+                    <div className={styles.warningWrapper}>
+                        <p className={warnClass}>5 questions maximum</p>
+
+                    </div>
+
                     <Button btnStyle="roomyTopBot block center" type="button">SAVE FORM</Button>
+
                 </form>
             </div>
         );

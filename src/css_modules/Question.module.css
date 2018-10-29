@@ -1,0 +1,14 @@
+.question {
+    margin: 20px auto;
+}
+
+.textArea {
+    width: 90%;
+    display: block;
+    margin: 10px auto;
+    resize: vertical;
+}
+
+.blockLabel {
+    display: block;
+}

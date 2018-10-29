@@ -19,13 +19,18 @@
     margin: 10px 0;
 }
 
-.blockLabel {
-    display: block;
+.warningWrapper {
+    text-align: center;
 }
 
-.textArea {
-    width: 90%;
-    display: block;
-    margin: 10px auto;
-    resize: vertical;
+.warning {
+    display: inline-block;
+    font-size: 0.8rem;
+    margin: 0 auto; 
+    font-style: italic;
+}
+
+.hideWarning {
+    composes: warning;
+    visibility: hidden;
 }
