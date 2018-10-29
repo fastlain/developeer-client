@@ -10,8 +10,16 @@ class CreateForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            formName: '',
+            projectUrl: '',
             questions: ['', '', '']
         };
+    }
+
+    setInput = (e) => {
+        const val = e.target.value;
+        const inputId = e.target.id;
+        this.setState({ [inputId]: val })
     }
 
     deleteQuestion = (order) => {
@@ -58,12 +66,12 @@ class CreateForm extends Component {
                 <form className={styles.createForm}>
                     <div className={styles.inputWrapper}>
                         <label htmlFor="formName">Form Name: </label>
-                        <input id="formName" name="formName" type="text"></input>
+                        <input id="formName" name="formName" type="text" value={this.state.formName} onChange={this.setInput} />
                     </div>
 
                     <div className={styles.inputWrapper}>
                         <label htmlFor="projectUrl">Project URL: </label>
-                        <input id="projectUrl" name="projectUrl" type="text"></input>
+                        <input id="projectUrl" name="projectUrl" type="text" value={this.state.projectUrl} onChange={this.setInput} />
                     </div>
 
                     {questionList}
