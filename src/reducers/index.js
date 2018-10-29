@@ -64,24 +64,24 @@ const initialState = {
 const developeerReducer = (state = initialState, action) => {
     switch (action.type) {
         case ACTIONS.ADD_CREDIT:
-            return Object.assign({}, state, { credit: state.credit + 1 });
+            return { ...state, credit: state.credit + 1 };
         case ACTIONS.REMOVE_CREDIT:
-            return Object.assign({}, state, { credit: state.credit - 1 });
+            return { ...state, credit: state.credit - 1 };
         case ACTIONS.CLOSE_NOTIFICATION:
             const updatedNotifications = state.notifications.filter(notification => (
                 notification.id !== action.id
             ));
-            return Object.assign({}, state, { notifications: updatedNotifications });
+            return { ...state, notifications: updatedNotifications };
         case ACTIONS.ADD_REQUEST:
             const formsAddedRequest = state.forms.map(form => {
-                return (form.id === action.formId) ? Object.assign({}, form, { pendingRequests: form.pendingRequests + 1 }) : form;
+                return (form.id === action.formId) ? { ...form, pendingRequests: form.pendingRequests + 1 } : form;
             });
-            return Object.assign({}, state, { forms: formsAddedRequest });
+            return { ...state, forms: formsAddedRequest };
         case ACTIONS.REMOVE_REQUEST:
             const formsRemovedRequest = state.forms.map(form => {
-                return (form.id === action.formId) ? Object.assign({}, form, { pendingRequests: form.pendingRequests - 1 }) : form;
+                return (form.id === action.formId) ? { ...form, pendingRequests: form.pendingRequests - 1 } : form;
             });
-            return Object.assign({}, state, { forms: formsRemovedRequest });
+            return { ...state, forms: formsRemovedRequest };
         case ACTIONS.CREATE_FORM:
             const newForm = {
                 id: Math.floor(Math.random() * 1000),
@@ -93,7 +93,7 @@ const developeerReducer = (state = initialState, action) => {
             };
             const updatedForms = [...state.forms];
             updatedForms.push(newForm);
-            return Object.assign({}, state, { forms: updatedForms });
+            return { ...state, forms: updatedForms };
         default:
             return state;
     }
