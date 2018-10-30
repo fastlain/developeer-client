@@ -8,6 +8,7 @@ import Dashboard from './Dashboard';
 import GiveFeedback from './GiveFeedback';
 import ReviewFeedback from './ReviewFeedback';
 import CreateForm from './CreateForm';
+import styles from '../css_modules/MainLayout.module.css';
 
 class MainLayout extends Component {
 
@@ -18,20 +19,16 @@ class MainLayout extends Component {
 
     render() {
         return (
-            <div>
-                <header role="banner">
-                    <Header username={this.props.username} logOut={this.handleLogout} />
-                </header>
-                <main role="main">
+            <div className={styles.layoutWrapper}>
+                <Header username={this.props.username} logOut={this.handleLogout} />
+                <main role="main" className={styles.main} >
                     <Route exact path="/main/dashboard" component={Dashboard} />
                     <Route exact path="/main/givefeedback" component={GiveFeedback} />
                     <Route path="/main/reviewfeedback/:id" component={ReviewFeedback} />
                     <Route path="/main/createform" component={CreateForm} />
                 </main>
-                <footer role="contentinfo">
-                    <Footer />
-                </footer>
-            </div >
+                <Footer />
+            </div>
         );
     }
 }

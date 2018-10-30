@@ -1,5 +1,6 @@
 .heroBanner {
-    text-align: center;
     background: lightgrey;
+    text-align: center;
+    flex-shrink: 0;
     padding: 50px;
 }

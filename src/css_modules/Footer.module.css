@@ -1,6 +1,8 @@
 .footer {
     background: lightgrey;
     text-align: center;
+    flex-shrink: 0;
+    width: 100%;
 }
 
 .para {

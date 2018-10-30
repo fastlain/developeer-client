@@ -9,16 +9,12 @@ import UserForm from './UserForm';
 const LandingPageLayout = () => {
     return (
         <div>
-            <header role="banner">
-                <HeroBanner />
-            </header>
+            <HeroBanner />
             <main role="main">
                 <Route exact path="/" component={LandingPageContent} />
                 <Route path="/userform/:type" render={props => <UserForm {...props} />} />
             </main>
-            <footer role="contentinfo">
-                <Footer />
-            </footer>
+            <Footer />
         </div>
     );
 }

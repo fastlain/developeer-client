@@ -5,7 +5,7 @@ import Button from './Button';
 
 const Header = (props) => {
     return (
-        <div className={styles.topBar}>
+        <header role="banner" className={styles.topBar}>
             <div className={styles.appTitle}>Developeer</div>
             <div>
                 <span className={styles.username}>{props.username}</span>
@@ -13,7 +13,7 @@ const Header = (props) => {
                     LOG OUT
                 </ Button>
             </div>
-        </div>
+        </header>
     );
 }
 
