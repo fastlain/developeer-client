@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import HeroBanner from './HeroBanner';
 import LandingPageContent from './LandingPageContent';
@@ -9,7 +9,6 @@ import UserForm from './UserForm';
 const LandingPageLayout = () => {
     return (
         <div>
-            <Link to="/main/dashboard">Skip to MainLayout</Link>
             <header role="banner">
                 <HeroBanner />
             </header>
