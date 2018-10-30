@@ -64,7 +64,7 @@ class FormSummary extends Component {
                 <div className={styles.formNameWrapper} >
                     <Button btnStyle="background" onClick={this.toggleExpanded} aria-expanded={this.state.expanded}></Button>
                     <h3 className={styles.formName} >{this.props.name}</h3>
-                    <Button type="button" btnStyle="edit">Edit</Button>
+                    {/* <Button type="button" btnStyle="edit">Edit</Button> */}
                 </div>
 
                 <div className={showDetails}>
