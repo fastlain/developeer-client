@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 
 class UserForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
+
+    handleFormSubmit = (e) => {
+        e.preventDefault();
+        // TODO: form validation
+        // navigate to dashboard
+        this.props.history.push('/main/dashboard');
     }
 
     render() {
@@ -25,7 +27,7 @@ class UserForm extends Component {
         const hideReEnterPass = isCreate ? styles.block : styles.hide;
 
         return (
-            <form className={styles.userForm}>
+            <form className={styles.userForm} onSubmit={this.handleFormSubmit}>
                 <fieldset>
                     <legend>Log In</legend>
                     <div className={styles.inputWrapper}>
