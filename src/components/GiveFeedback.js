@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../css_modules/GiveFeedback.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import PageTitle from './PageTitle';
 import Button from './Button';
@@ -35,7 +36,7 @@ class GiveFeedback extends Component {
         return (
             <div>
                 <Link to="/main/dashboard" className="Link btnStyle roomy">
-                    &larr; DASHBOARD
+                    <FontAwesomeIcon icon="long-arrow-alt-left" size="lg" /> DASHBOARD
                 </Link>
                 <PageTitle>Feedback</PageTitle>
                 {toRender}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createForm } from '../actions';
 import styles from '../css_modules/CreateForm.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import PageTitle from './PageTitle';
 import Button from './Button';
@@ -64,7 +65,7 @@ class CreateForm extends Component {
         return (
             <div>
                 <Link to="/main/dashboard" className="Link btnStyle roomy">
-                    &larr; DASHBOARD
+                    <FontAwesomeIcon icon="long-arrow-alt-left" size="lg" /> DASHBOARD
                 </Link>
                 <PageTitle>Create a New Form</PageTitle>
                 <section className={styles.instructionsWrapper}>

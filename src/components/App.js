@@ -6,8 +6,8 @@ import MainLayout from './MainLayout';
 
 // import fontawesome icons and add to library
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faArrowsAltH, faAngleRight, faAngleDown, faPlus, faMinus, faTimes, faCopy, faExternalLinkAlt, faArrowLeft, faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
-library.add(faArrowsAltH, faAngleRight, faAngleDown, faPlus, faMinus, faTimes, faCopy, faExternalLinkAlt, faArrowLeft, faEdit, faUser);
+import { faArrowsAltH, faAngleRight, faAngleDown, faPlus, faMinus, faTimes, faCopy, faExternalLinkAlt, faLongArrowAltLeft, faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
+library.add(faArrowsAltH, faAngleRight, faAngleDown, faPlus, faMinus, faTimes, faCopy, faExternalLinkAlt, faLongArrowAltLeft, faEdit, faUser);
 
 const App = () => (
     <Router>
