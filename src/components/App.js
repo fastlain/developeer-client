@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import LandingPageLayout from './LandingPageLayout';
 import MainLayout from './MainLayout';
 
 // import fontawesome icons and add to library
@@ -11,11 +10,7 @@ library.add(faArrowsAltH, faPlus, faMinus, faTimes, faCopy, faExternalLinkAlt, f
 
 const App = () => (
     <Router>
-        <div>
-            <Route exact path="/" component={LandingPageLayout} />
-            <Route path="/userform/" component={LandingPageLayout} />
-            <Route path="/main" component={MainLayout} />
-        </div>
+        <Route path="/" component={MainLayout} />
     </Router>
 );
 

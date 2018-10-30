@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import styles from '../css_modules/MainLayout.module.css';
 
-import Footer from './Footer';
+import HeroBanner from './HeroBanner';
 import Header from './Header';
+import LandingPageContent from './LandingPageContent';
+import UserForm from './UserForm';
 import Dashboard from './Dashboard';
 import GiveFeedback from './GiveFeedback';
 import ReviewFeedback from './ReviewFeedback';
 import CreateForm from './CreateForm';
-import styles from '../css_modules/MainLayout.module.css';
+import Footer from './Footer';
+
 
 class MainLayout extends Component {
 
@@ -20,8 +24,13 @@ class MainLayout extends Component {
     render() {
         return (
             <div className={styles.layoutWrapper}>
-                <Header username={this.props.username} logOut={this.handleLogout} />
+                <Switch>
+                    <Route path="/main" render={props => <Header username={props.username} logOut={this.handleLogout} />} />
+                    <Route path="/" component={HeroBanner} />
+                </Switch>
                 <main role="main" className={styles.main} >
+                    <Route exact path="/" component={LandingPageContent} />
+                    <Route path="/userform/:type" render={props => <UserForm {...props} />} />
                     <Route exact path="/main/dashboard" component={Dashboard} />
                     <Route exact path="/main/givefeedback" component={GiveFeedback} />
                     <Route path="/main/reviewfeedback/:id" component={ReviewFeedback} />
