@@ -3,13 +3,13 @@ import styles from '../css_modules/Header.module.css';
 
 import Button from './Button';
 
-const Header = () => {
+const Header = (props) => {
     return (
         <div className={styles.topBar}>
             <div className={styles.appTitle}>Developeer</div>
             <div>
-                <span className={styles.username}>username</span>
-                <Button type="button">
+                <span className={styles.username}>{props.username}</span>
+                <Button type="button" onClick={props.logOut}>
                     LOG OUT
                 </ Button>
             </div>
