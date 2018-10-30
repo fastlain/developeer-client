@@ -21,9 +21,11 @@ class ReviewFeedback extends Component {
 
         // generate table rows from 
         const tableContents = reviews.map((review, index) => {
+            const userIcon = review.reviewer === 'anonymous' ? null : <FontAwesomeIcon icon="user" className="FA marginRt" />;
+
             const cells = [
                 <Link to={`${this.props.match.url}/view/${index}`} className="Link btnStyle">VIEW</Link>,
-                review.reviewer,
+                <span>{userIcon}{review.reviewer}</span>,
                 `${review.date.toLocaleString()}`,
             ];
             const rowStyle = (index % 2 === 0) ? 'even' : 'odd';
