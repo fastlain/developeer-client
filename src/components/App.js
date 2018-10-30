@@ -4,6 +4,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LandingPageLayout from './LandingPageLayout';
 import MainLayout from './MainLayout';
 
+// import fontawesome icons and add to library
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faArrowsAltH, faAngleRight, faAngleDown, faPlus, faMinus, faTimes, faCopy, faExternalLinkAlt, faArrowLeft, faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
+library.add(faArrowsAltH, faAngleRight, faAngleDown, faPlus, faMinus, faTimes, faCopy, faExternalLinkAlt, faArrowLeft, faEdit, faUser);
+
 const App = () => (
     <Router>
         <div>
