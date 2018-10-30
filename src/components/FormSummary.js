@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from '../css_modules/FormSummary.module.css';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Button from './Button';
 
@@ -48,22 +49,21 @@ class FormSummary extends Component {
 
         const removeBtnActive = this.props.requests > 0;
         const removeBtnClass = removeBtnActive ? 'default' : 'disabled';
-
         const warnClass = (this.state.showWarning && this.props.credit === 0) ? styles.warning : styles.hideWarning;
-
         const inputWidth = this.props.shareableUrl.length;
-
         const showDetails = this.state.expanded ? styles.details : styles.detailsHidden;
-
-        // TODO: Add icons to indicate form are expandable
+        const iconType = this.state.expanded ? "minus" : "plus";
         // TODO: Add edit button functionality
 
         return (
             <div className={styles.formContainer}>
 
                 <div className={styles.formNameWrapper} >
-                    <Button btnStyle="background" onClick={this.toggleExpanded} aria-expanded={this.state.expanded}></Button>
-                    <h3 className={styles.formName} >{this.props.name}</h3>
+                    <Button btnStyle="background" onClick={this.toggleExpanded} aria-expanded={this.state.expanded}>
+                        <h3 className={styles.formName} >{this.props.name}</h3>
+                        <FontAwesomeIcon icon={iconType} className="FA right" />
+                    </Button>
+
                     {/* <Button type="button" btnStyle="edit">Edit</Button> */}
                 </div>
 

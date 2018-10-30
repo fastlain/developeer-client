@@ -12,7 +12,7 @@ body {
     margin: 0;
 }
 
-/***** 3rd Party  *****/
+/***** 3rd Party Component Styles *****/
 
 /* <Link> */
 .Link.btnStyle {
@@ -42,4 +42,15 @@ body {
 .Link.roomy {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
+}
+
+/* <FontAwesomeIcon> */
+
+.FA.right {
+    position: absolute;
+    right: 1.5em;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    color: black;
 }

@@ -85,8 +85,7 @@
 
 .background {
     position: absolute;
-    background: black;
-    opacity: 0;
+    background: none;
     left: 0;
     right: 0;
     width: 100%;
@@ -99,5 +98,5 @@
 }
 
 .background:hover {
-    opacity: 0.2;
+    background: darkgrey;
 }
