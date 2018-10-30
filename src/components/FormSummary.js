@@ -55,6 +55,9 @@ class FormSummary extends Component {
 
         const showDetails = this.state.expanded ? styles.details : styles.detailsHidden;
 
+        // TODO: Add icons to indicate form are expandable
+        // TODO: Add edit button functionality
+
         return (
             <div className={styles.formContainer}>
 
