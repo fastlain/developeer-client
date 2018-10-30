@@ -88,7 +88,9 @@ class FormSummary extends Component {
                         <p className={styles.requestInfo}>Share this direct link elsewhere:</p>
                         <div className={styles.shareLinkWrapper}>
                             <input ref={this.urlInputRef} type="text" value={this.props.shareableUrl} readOnly size={inputWidth} />
-                            <Button type="button" btnStyle="roomySides" onClick={this.copyDirectUrl}>COPY LINK</Button>
+                            <Button type="button" btnStyle="roomySides" onClick={this.copyDirectUrl}>
+                                <FontAwesomeIcon icon="copy" /> COPY LINK
+                            </Button>
                         </div>
                     </div>
                     <Link to={`/main/reviewfeedback/${this.props.id}`} className="Link btnStyle roomy">
