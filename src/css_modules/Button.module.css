@@ -100,3 +100,7 @@
 .background:hover {
     background: darkgrey;
 }
+
+.square {
+    padding: 8px 8px;
+}

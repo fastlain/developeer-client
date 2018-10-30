@@ -72,9 +72,12 @@ class FormSummary extends Component {
                     <div className={styles.pendingRequests}>
                         <span>Pending Requests:</span>
                         <div className={styles.requestButtonWrapper}>
-                            <Button type="button" btnStyle={removeBtnClass} onClick={this.decRequest}>-</Button>
+                            <Button type="button" btnStyle={`square ${removeBtnClass}`} onClick={this.decRequest}><FontAwesomeIcon icon="minus" fixedWidth />
+                            </Button>
                             <span className={styles.credits}>{this.props.requests}</span>
-                            <Button type="button" onClick={this.incRequest}> +</Button>
+                            <Button type="button" btnStyle="square" onClick={this.incRequest}>
+                                <FontAwesomeIcon icon="plus" fixedWidth />
+                            </Button>
                         </div>
                     </div>
                     <p className={warnClass}>Out of credits. Give feedback to earn more</p>
