@@ -15,8 +15,13 @@
     padding: 0 1rem;
 }
 
-.requestWrapper {
+.details {
     background: lightsalmon;
+}
+
+.detailsHidden {
+    composes: details;
+    display: none;
 }
 
 .requestInfo {

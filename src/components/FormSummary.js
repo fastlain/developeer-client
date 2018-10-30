@@ -8,7 +8,8 @@ class FormSummary extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            showWarning: false
+            showWarning: false,
+            expanded: false
         }
         this.urlInputRef = React.createRef();
     }
@@ -33,6 +34,10 @@ class FormSummary extends Component {
         }
     }
 
+    toggleExpanded = () => {
+        this.setState({ expanded: !this.state.expanded });
+    }
+
     // select content of urlInput and copies it to clipboard
     copyDirectUrl = () => {
         this.urlInputRef.current.select();
@@ -48,15 +53,18 @@ class FormSummary extends Component {
 
         const inputWidth = this.props.shareableUrl.length;
 
+        const showDetails = this.state.expanded ? styles.details : styles.detailsHidden;
+
         return (
             <div className={styles.formContainer}>
 
-                <div className={styles.formNameWrapper}>
-                    <h3 className={styles.formName}>{this.props.name}</h3>
+                <div className={styles.formNameWrapper} >
+                    <Button btnStyle="background" onClick={this.toggleExpanded} aria-expanded={this.state.expanded}></Button>
+                    <h3 className={styles.formName} >{this.props.name}</h3>
                     <Button type="button" btnStyle="edit">Edit</Button>
                 </div>
 
-                <div className={styles.requestWrapper}>
+                <div className={showDetails}>
                     <p className={styles.requestInfo}>Spend Credits to get more feedback from other Developeer users.</p>
                     <div className={styles.pendingRequests}>
                         <span>Pending Requests:</span>
@@ -77,11 +85,10 @@ class FormSummary extends Component {
                             <Button type="button" btnStyle="roomySides" onClick={this.copyDirectUrl}>COPY LINK</Button>
                         </div>
                     </div>
+                    <Link to={`/main/reviewfeedback/${this.props.id}`} className="Link btnStyle roomy">
+                        REVIEW FEEDBACK
+                    </Link>
                 </div>
-
-                <Link to={`/main/reviewfeedback/${this.props.id}`} className="Link btnStyle roomy">
-                    REVIEW FEEDBACK
-                </Link>
             </div>
         );
     }
