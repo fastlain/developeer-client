@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../css_modules/HeroBanner.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const HeroBanner = () => {
     return (
