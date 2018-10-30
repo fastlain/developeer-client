@@ -14,12 +14,17 @@ class FeedbackForm extends Component {
 
     submitForm = (e) => {
         e.preventDefault();
+        // TODO: validate input data (maybe just required fields with minimum characters?)
+        // TODO: Update credits, pending requests, reviews, and notifications for form author
+        // TODO: Add credit or successful form submission
         // navigate to dashboard
         this.props.history.push('/main/dashboard');
     }
 
     render() {
 
+        // TODO: Pull form data from server
+        // TODO: Store textarea input in state
         const dummyData = {
             project: 'Example Project',
             author: 'username123',
