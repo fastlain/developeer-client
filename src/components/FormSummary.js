@@ -89,7 +89,7 @@ class FormSummary extends Component {
                         <div className={styles.shareLinkWrapper}>
                             <input ref={this.urlInputRef} type="text" value={this.props.shareableUrl} readOnly size={inputWidth} />
                             <Button type="button" btnStyle="roomySides" onClick={this.copyDirectUrl}>
-                                <FontAwesomeIcon icon="copy" /> COPY LINK
+                                <FontAwesomeIcon icon="copy" className="FA marginRt" /> COPY LINK
                             </Button>
                         </div>
                     </div>

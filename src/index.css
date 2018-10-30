@@ -54,3 +54,7 @@ body {
     bottom: 0;
     color: black;
 }
+
+.FA.marginRt {
+    margin-right: 0.25rem;
+}
