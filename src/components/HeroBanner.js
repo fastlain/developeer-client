@@ -5,7 +5,7 @@ const HeroBanner = () => {
     return (
         <div className={styles.heroBanner}>
             <h1>Developeer</h1>
-            <p>This is the application's tagline</p>
+            <p>Give Feedback - Receive Feedback</p>
         </div>
     );
 }
