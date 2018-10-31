@@ -1,31 +1,33 @@
 import * as ACTIONS from '../actions';
 
 const initialState = {
-    username: "dummy_user",
-    credit: 0,
+    username: "demoUser123",
+    credit: 5,
     forms: [
         {
             id: 0,
-            name: "dummyForm0",
-            projectUrl: "https://www.michaelallain.com",
-            shareableUrl: "https://www.michaelallain.com",
+            name: "Capstone 1 UI Feedback",
+            projectUrl: "http://google.com",
+            shareableUrl: "placeholder",
             pendingRequests: 1,
             questions: [
-                "Form0Question 1 text here",
-                "Form0Question 2 text here",
-                "Form0Question 3 text here"
+                "Did you have any problems navigating around the site?",
+                "Was the login process clear?",
+                "Did you find like the animations or were they distracting?",
+                "Any additional feedback?"
             ]
         },
         {
             id: 1,
-            name: "dummyForm1",
+            name: "Portfolio Design Help",
+            projectUrl: "http://google.com",
+            shareableUrl: "placeholder",
             pendingRequests: 3,
-            projectUrl: "https://www.michaelallain.com",
-            shareableUrl: "https://www.michaelallain.com",
             questions: [
-                "Form1Question 1 text here",
-                "Form1Question 2 text here",
-                "Form1Question 3 text here"
+                "Does the color palette convey an appropriate mood for the site?",
+                "Did you notice any page elements that looked out of place?",
+                "Were the animations smooth on your device?",
+                "What device and browser did you use to view the site?"
             ]
         }
     ],
@@ -35,20 +37,34 @@ const initialState = {
             formId: 0,
             reviewer: "reviewer123",
             responses: [
-                "Review0 Response to question 1",
-                "Review0 Response to question 2",
-                "Review0 Response to question 3",
+                "Nope, everything was intuitive",
+                "Yes, I was able to create a new account successfully",
+                "They were good, but you could increase the transition duration to make them snappier",
+                "Great job!"
             ],
             date: new Date()
         },
         {
             id: 1,
             formId: 0,
-            reviewer: "reviewerabc",
+            reviewer: "reviewerABC",
             responses: [
-                "Review1 Response to question 1",
-                "Review1 Response to question 2",
-                "Review1 Response to question 3",
+                "Navigation was very clear",
+                "I couldn't figure out how to log out of the app",
+                "Not distracting, just right!",
+                "I would have liked to see more information up front on the dashboard instead of on separate pages"
+            ],
+            date: new Date()
+        },
+        {
+            id: 2,
+            formId: 1,
+            reviewer: "reviewerXYZ",
+            responses: [
+                "Yes, it had a light and fun vibe",
+                "I would suggest using consistently round or square corners throughout the site",
+                "Like silk",
+                "Windows laptop, Chrome 70"
             ],
             date: new Date()
         }
