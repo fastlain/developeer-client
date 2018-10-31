@@ -1,6 +1,6 @@
 .formContainer {
     background: lightgrey;
-    margin: 15px auto;
+    margin: 1rem auto;
     width: 90%;
     text-align: center;
 }
@@ -26,21 +26,12 @@
     display: none;
 }
 
-.requestInfo {
-    width: 80%;
-    margin: 0 auto;
-    padding: 10px 0;
-}
-
 .pendingRequests {
+    padding: 0.5rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.requestButtonWrapper {
-    padding: 5px;
 }
 
 .credits {
@@ -61,11 +52,19 @@
 
 .hideWarning {
     composes: warning;
-    display: inline-block;
-    visibility: hidden;
+    display: none;
+}
+
+.requestInfo {
+    margin: 1rem auto 0.5rem;
+}
+
+.urlInput {
+    margin-bottom: 0.5rem;
+    padding: 0.25rem;
+    text-align: center;
 }
 
 .shareLinkWrapper {
-    margin: 0 auto;
-    padding: 10px 0;
+    margin: 0.5rem auto;
 }

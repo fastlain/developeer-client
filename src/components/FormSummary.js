@@ -50,7 +50,7 @@ class FormSummary extends Component {
         const removeBtnActive = this.props.requests > 0;
         const removeBtnClass = removeBtnActive ? 'default' : 'disabled';
         const warnClass = (this.state.showWarning && this.props.credit === 0) ? styles.warning : styles.hideWarning;
-        const inputWidth = this.props.shareableUrl.length;
+        const inputWidth = this.props.shareableUrl.length - 5;
         const showDetails = this.state.expanded ? styles.details : styles.detailsHidden;
         const iconType = this.state.expanded ? "minus" : "plus";
         // TODO: Add edit button functionality
@@ -68,7 +68,6 @@ class FormSummary extends Component {
                 </div>
 
                 <div className={showDetails}>
-                    <p className={styles.requestInfo}>Spend Credits to get more feedback from other Developeer users.</p>
                     <div className={styles.pendingRequests}>
                         <span>Pending Requests:</span>
                         <div className={styles.requestButtonWrapper}>
@@ -82,12 +81,10 @@ class FormSummary extends Component {
                     </div>
                     <p className={warnClass}>Out of credits. Give feedback to earn more</p>
 
-                    <p>-- OR --</p>
-
                     <div>
                         <p className={styles.requestInfo}>Share this direct link elsewhere:</p>
                         <div className={styles.shareLinkWrapper}>
-                            <input ref={this.urlInputRef} type="text" value={this.props.shareableUrl} readOnly size={inputWidth} />
+                            <input ref={this.urlInputRef} type="text" value={this.props.shareableUrl} readOnly size={inputWidth} className={styles.urlInput} />
                             <Button type="button" btnStyle="roomySides" onClick={this.copyDirectUrl}>
                                 <FontAwesomeIcon icon="copy" className="FA marginRt" /> COPY LINK
                             </Button>
