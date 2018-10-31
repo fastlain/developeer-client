@@ -7,7 +7,6 @@
 
 .main {
     flex: 1 0 auto;
-    /* align-self: middle; */
     width: 100%;
     max-width: 1200px;
 }
