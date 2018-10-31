@@ -1,0 +1,25 @@
+.instructions {
+    width: 90%;
+    text-align: center;
+    margin: 0.5rem auto;
+}
+
+.heading {
+    margin: 0.5rem auto;
+    text-align: center;
+}
+
+.list {
+    padding: 0;
+    margin: 0;
+    max-width: 500px;
+    display: inline-block;
+    text-align: left;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem auto;
+    list-style: none;
+}

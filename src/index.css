@@ -58,3 +58,8 @@ body {
 .FA.marginRt {
     margin-right: 0.25rem;
 }
+
+.FA.bullet {
+    color: grey;
+    margin-right: 0.8rem;
+}

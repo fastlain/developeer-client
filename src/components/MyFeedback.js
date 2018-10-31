@@ -5,6 +5,7 @@ import { incRequest, decRequest } from '../actions';
 import styles from '../css_modules/MyFeedback.module.css';
 
 import FormSummary from './FormSummary';
+import Instructions from './Instructions';
 
 class MyFeedback extends Component {
 
@@ -14,15 +15,19 @@ class MyFeedback extends Component {
             <FormSummary key={form.id} id={form.id} name={form.name} requests={form.pendingRequests} shareableUrl={form.shareableUrl} incRequest={this.props.incRequest} decRequest={this.props.decRequest} credit={this.props.credit} />
         ))
 
+        const instructionList = [
+            'Review feedback forms or create new ones',
+            'Spend Credits to request feedback from other Developeer users',
+            'Share a direct review link outside this site - no credits needed!'
+        ];
+
         return (
-            <section className={styles.center}>
+            <div className={styles.center}>
                 <h2>My Feedback</h2>
-                <p>
-                    Here are some instructions...
-                </p>
+                <Instructions list={instructionList} />
                 {summaries}
                 <Link to="/main/createform" className="Link btnStyle roomy">CREATE NEW FORM</Link>
-            </section>
+            </div>
         );
     }
 }
