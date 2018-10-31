@@ -6,12 +6,14 @@ import Button from './Button';
 const Header = (props) => {
     return (
         <header role="banner" className={styles.topBar}>
-            <div className={styles.appTitle}>Developeer</div>
-            <div>
-                <span className={styles.username}>{props.username}</span>
-                <Button type="button" onClick={props.logOut}>
-                    LOG OUT
-                </ Button>
+            <div className={styles.wrapper}>
+                <div className={styles.appTitle}>Developeer</div>
+                <div>
+                    <span className={styles.username}>{props.username}</span>
+                    <Button type="button" onClick={props.logOut}>
+                        LOG OUT
+                    </ Button>
+                </div>
             </div>
         </header>
     );
