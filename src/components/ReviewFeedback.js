@@ -24,7 +24,7 @@ class ReviewFeedback extends Component {
             const userIcon = review.reviewer === 'anonymous' ? null : <FontAwesomeIcon icon="user" className="FA marginRt" />;
 
             const cells = [
-                <Link to={`${this.props.match.url}/view/${index}`} className="Link btnStyle">VIEW</Link>,
+                <Link to={`${this.props.match.url}/view/${review.id}`} className="Link btnStyle">VIEW</Link>,
                 <span>{userIcon}{review.reviewer}</span>,
                 `${review.date.toLocaleString()}`,
             ];
