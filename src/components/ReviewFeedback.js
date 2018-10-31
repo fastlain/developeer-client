@@ -42,7 +42,7 @@ class ReviewFeedback extends Component {
                     <FontAwesomeIcon icon="long-arrow-alt-left" size="lg" /> DASHBOARD
                 </Link>
                 <PageTitle>Review Feedback</PageTitle>
-                <h2 className={styles.center}>Form name: <span className={styles.innerHeading}>{formData.name}</span></h2>
+                <h2 className={styles.formName}>Form: <span className={styles.innerHeading}>{formData.name}</span></h2>
                 <div className={styles.center}>
                     <ExternalLinkBtn href={formData.projectUrl}>
                         VISIT PAGE
