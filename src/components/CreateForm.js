@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PageTitle from './PageTitle';
 import Button from './Button';
 import Question from './Question';
+import Instructions from './Instructions';
 
 class CreateForm extends Component {
     constructor(props) {
@@ -62,16 +63,19 @@ class CreateForm extends Component {
         const addQuestionBtnStyle = maxedQuestions ? '' : 'disabled';
         const warnClass = maxedQuestions ? styles.hideWarning : styles.warning;
 
+        const instructionList = [
+            'Create a meaningful name for your form (e.g. "Blog App UI feedback")',
+            'Provide a link to a LIVE version of your project (NOT a code repository)',
+            'Write up to 5 questions requesting feedback on your project'
+        ];
+
         return (
             <div>
                 <Link to="/main/dashboard" className="Link btnStyle roomy">
                     <FontAwesomeIcon icon="long-arrow-alt-left" size="lg" /> DASHBOARD
                 </Link>
                 <PageTitle>Create a New Form</PageTitle>
-                <section className={styles.instructionsWrapper}>
-                    <h2>Instructions</h2>
-                    <p className={styles.instructions}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </section>
+                <Instructions list={instructionList} />
 
                 <form className={styles.createForm} onSubmit={this.submitForm}>
                     <div className={styles.inputWrapper}>

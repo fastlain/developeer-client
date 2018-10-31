@@ -1,14 +1,3 @@
-.instructionsWrapper {
-    text-align: center;
-    width: 80%;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.instructions {
-    text-align: left;
-}
-
 .createForm {
     width: 80%;
     max-width: 600px;
