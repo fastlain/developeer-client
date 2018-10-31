@@ -16,6 +16,7 @@ class CreateForm extends Component {
         this.state = {
             formName: '',
             projectUrl: '',
+            overview: '',
             questions: ['', '', '']
         };
     }
@@ -66,7 +67,7 @@ class CreateForm extends Component {
         const instructionList = [
             'Create a meaningful name for your form (e.g. "Blog App UI feedback")',
             'Provide a link to a LIVE version of your project (NOT a code repository)',
-            'Write up to 5 questions requesting feedback on your project'
+            'Write instructions and up to 5 questions requesting feedback on your project'
         ];
 
         return (
@@ -87,6 +88,14 @@ class CreateForm extends Component {
                         <label htmlFor="projectUrl">Project URL: </label>
                         <input id="projectUrl" name="projectUrl" type="text" value={this.state.projectUrl} onChange={this.setInput} />
                     </div>
+
+                    <fieldset className={styles.overview}>
+                        <legend>Reviewer Instructions</legend>
+                        <label className={styles.blockLabel} htmlFor="overview">
+                            Provide guidance or helpful information for your reviewers:
+                        </label>
+                        <textarea className={styles.textArea} id="overview" name="overview" rows={4} value={this.state.overview} onChange={this.setInput} />
+                    </fieldset>
 
                     {questionList}
 
