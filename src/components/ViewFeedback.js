@@ -7,16 +7,26 @@ const ViewFeedback = (props) => {
     const review = props.reviews.find(review => review.id === reviewId);
     const questionsWithResponses = props.questions.map((question, i) => (
         <div className={styles.questionResponseWrapper}>
-            <h4>Question {i + 1}:</h4>
-            <p>{question}</p>
-            <p>{review.responses[i]}</p>
+            <h5 className={styles.questionHeading}>Question {i + 1}:</h5>
+            <p className={styles.question}>{question}</p>
+            <p className={styles.response}>{review.responses[i]}</p>
         </div>
     ));
 
     return (
         <div className={styles.viewFeedbackWrapper}>
-            <h3 className={styles.reviewerHeading}>Reviewer: {review.reviewer}</h3>
-            <p className={styles.dateHeading}>Review Date: {review.date.toLocaleString()}</p>
+            <h3 className={styles.reviewerHeading}>
+                Reviewer:
+                <span className={styles.innerHeading}>
+                    {review.reviewer}
+                </span>
+            </h3>
+            <h4 className={styles.dateHeading}>
+                Date:
+                <span className={styles.innerHeading}>
+                    {review.date.toLocaleString()}
+                </span>
+            </h4>
             {questionsWithResponses}
         </div>
     );
