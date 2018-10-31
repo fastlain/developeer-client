@@ -1,7 +1,9 @@
 .creditsWrapper {
     text-align: center;
-    padding: 10px 0;
+    padding: 1px 0 10px;
     background: lightgrey;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .credits {
