@@ -29,6 +29,7 @@ class FeedbackForm extends Component {
             project: 'Example Project',
             author: 'username123',
             link: 'https://www.michaelallain.com',
+            overview: 'Check out my project and answer these questions.',
             questions: [
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -51,6 +52,10 @@ class FeedbackForm extends Component {
             <form className={styles.form}>
                 <h3>Project: <span className={styles.innerHeading}>{dummyData.project}</span></h3>
                 <h3>Author: <span className={styles.innerHeading}>{dummyData.author}</span></h3>
+                <div className={styles.overview}>
+                    <h3>Reivewer Instructions:</h3>
+                    <p className={styles.overviewContent}>{dummyData.overview}</p>
+                </div>
                 <ExternalLinkBtn href={dummyData.link}>
                     VISIT PAGE
                 </ExternalLinkBtn>

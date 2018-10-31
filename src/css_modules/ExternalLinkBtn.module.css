@@ -2,5 +2,5 @@
     composes: default roomyTopBot from "./Button.module.css";
     text-decoration: none;
     font-family: Arial;
-    margin: 0 auto;
+    display: inline-block;
 }
