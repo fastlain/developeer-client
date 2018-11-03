@@ -22,7 +22,7 @@ class MyFeedback extends Component {
         ];
 
         return (
-            <div className={styles.center}>
+            <div className={styles.wrapper}>
                 <h2>My Feedback</h2>
                 <Instructions list={instructionList} />
                 {summaries}
