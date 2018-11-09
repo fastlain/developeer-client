@@ -1,7 +1,8 @@
 import * as ACTIONS from '../actions';
 
 const initialState = {
-    username: "demoUser123",
+    authToken: null,
+    user: null,
     credit: 5,
     forms: [
         {
@@ -110,6 +111,14 @@ const developeerReducer = (state = initialState, action) => {
             const updatedForms = [...state.forms];
             updatedForms.push(newForm);
             return { ...state, forms: updatedForms };
+
+
+        ////////////// Authorization Actions /////////////////
+        case ACTIONS.SET_AUTH_TOKEN:
+            return { ...state, authToken: action.authToken };
+        case ACTIONS.SET_USER:
+            return { ...state, user: action.user }
+
         default:
             return state;
     }

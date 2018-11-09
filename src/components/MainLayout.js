@@ -25,7 +25,7 @@ class MainLayout extends Component {
         return (
             <div className={styles.layoutWrapper}>
                 <Switch>
-                    <Route path="/main" render={props => <Header username={props.username} logOut={this.handleLogout} />} />
+                    <Route path="/main" render={() => <Header username={this.props.username} logOut={this.handleLogout} />} />
                     <Route path="/" component={HeroBanner} />
                 </Switch>
                 <main role="main" className={styles.main} >
@@ -43,7 +43,7 @@ class MainLayout extends Component {
 }
 
 const mapStateToProps = state => ({
-    username: state.username
+    username: state.user ? state.user.username : null
 });
 
 export default connect(mapStateToProps)(MainLayout);

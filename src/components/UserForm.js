@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from '../css_modules/UserForm.module.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { storeAuthInfo } from '../actions';
 
 import Button from './Button';
 import Error from './Error';
@@ -126,14 +127,11 @@ class UserForm extends Component {
                             this.handleErrors({ general: res.statusText });
                         }
                     }
-                    return res.json()
-                        .then(res => {
-                            // TODO: can remove all this res processing and just call loginLocal
-                            console.log(res);
-                            this.loginLocal(user);
-                        });
+
+                    this.loginLocal(user);
+
                 })
-                .catch(err => {
+                .catch(() => {
                     this.handleErrors({ general: 'Server Error. Sorry, try again later.' });
                 })
 
@@ -168,22 +166,21 @@ class UserForm extends Component {
                     }
                 }
                 return res.json()
-                    .then(res => {
-                        console.log(res);
-                        // TODO: process successful JWT response
+                    .then(({ authToken }) => {
+                        this.props.dispatch(storeAuthInfo(authToken));
                     });
             })
-            .catch(err => {
+            .catch(() => {
                 this.handleErrors({ general: 'Server Error. Sorry, try again later.' });
             })
-
-        // TODO: navigate to dashboard
-        // this.props.history.push('/main/dashboard');
-
-        this.setState({ isSubmitting: false });
     }
 
     render() {
+        // if logged in, redirect to dashboard
+        if (this.props.isLoggedIn) {
+            return <Redirect to="/main/dashboard" />
+        }
+
         // get form type from route params
         const formType = this.props.match.params.type;
         const isCreate = (formType === 'create');
@@ -236,4 +233,8 @@ class UserForm extends Component {
     }
 }
 
-export default connect()(UserForm);
+const mapStateToProps = state => ({
+    isLoggedIn: state.user !== null
+})
+
+export default connect(mapStateToProps)(UserForm);
