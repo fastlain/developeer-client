@@ -1,10 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Features from './Features';
 
 import styles from '../css_modules/LandingPageContent.module.css';
 
-const LandingPageContent = () => {
+const LandingPageContent = (props) => {
+    if (props.isLoggedIn) {
+        return <Redirect to="/main/dashboard" />;
+    }
+
     return (
         <div>
             <div className={styles.linkWrapper}>

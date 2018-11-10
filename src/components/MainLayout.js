@@ -29,7 +29,7 @@ class MainLayout extends Component {
                     <Route path="/" component={HeroBanner} />
                 </Switch>
                 <main role="main" className={styles.main} >
-                    <Route exact path="/" component={LandingPageContent} />
+                    <Route exact path="/" render={() => <LandingPageContent isLoggedIn={this.props.isLoggedIn} />} />
                     <Route path="/userform/:type" render={props => <UserForm {...props} />} />
                     <Route exact path="/main/dashboard" component={Dashboard} />
                     <Route exact path="/main/givefeedback" component={GiveFeedback} />
@@ -43,6 +43,7 @@ class MainLayout extends Component {
 }
 
 const mapStateToProps = state => ({
+    isLoggedIn: state.user != null,
     username: state.user ? state.user.username : null
 });
 

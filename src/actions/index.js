@@ -91,7 +91,9 @@ export const refreshAuthToken = () => (dispatch, getState) => {
         }
     })
         .then(res => res.json())
-        .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
+        .then(({ authToken }) => {
+            dispatch(storeAuthInfo(authToken));
+        })
         .catch(err => {
             // TODO: create action and state handlers for auth errors
             // dispatch(authError(err));

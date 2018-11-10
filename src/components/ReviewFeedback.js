@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import requiresLogin from './HOC/requiresLogin';
 import styles from '../css_modules/ReviewFeedback.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -65,4 +66,4 @@ const mapStateToProps = state => ({
     reviews: state.reviews
 });
 
-export default connect(mapStateToProps)(ReviewFeedback);
+export default requiresLogin()(connect(mapStateToProps)(ReviewFeedback));

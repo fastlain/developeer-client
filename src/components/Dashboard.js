@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeNotification } from '../actions';
+import requiresLogin from './HOC/requiresLogin';
 
 import PageTitle from './PageTitle';
 import Notifications from './Notifications';
@@ -25,4 +26,4 @@ const mapDispatchToProps = dispatch => ({
     closeNotification: id => dispatch(closeNotification(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default requiresLogin()(connect(mapStateToProps, mapDispatchToProps)(Dashboard));
