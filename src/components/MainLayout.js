@@ -12,9 +12,36 @@ import GiveFeedback from './GiveFeedback';
 import ReviewFeedback from './ReviewFeedback';
 import CreateForm from './CreateForm';
 import Footer from './Footer';
+import { refreshAuthToken } from '../actions';
 
 
 class MainLayout extends Component {
+
+    componentDidUpdate = (prevProps) => {
+
+        // start/stop periodic authentication refresh if user logs in or logs out
+        if (!prevProps.isLoggedIn && this.props.isLoggedIn) {
+            this.startPeriodicRefresh();
+        } else if (prevProps.isLoggedIn && !this.props.isLoggedIn) {
+            this.stopPeriodicRefresh();
+        }
+    }
+
+    componentWillUnmount = () => {
+        this.stopPeriodicRefresh();
+    }
+
+    startPeriodicRefresh = () => {
+        // refresh authentication token every hour (3600000ms)
+        this.refreshInterval = setInterval(() => this.props.dispatch(refreshAuthToken()), 3600000);
+    }
+
+    stopPeriodicRefresh = () => {
+        if (!this.refreshInterval) {
+            return;
+        }
+        clearInterval(this.refreshInterval);
+    }
 
     handleLogout = () => {
         // TODO: dispatch a logout action
