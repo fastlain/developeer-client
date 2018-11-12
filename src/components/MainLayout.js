@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
+import { refreshAuthToken, clearAuth } from '../actions';
+import { clearAuthToken } from '../local-storage';
 import styles from '../css_modules/MainLayout.module.css';
 
 import HeroBanner from './HeroBanner';
@@ -12,13 +14,10 @@ import GiveFeedback from './GiveFeedback';
 import ReviewFeedback from './ReviewFeedback';
 import CreateForm from './CreateForm';
 import Footer from './Footer';
-import { refreshAuthToken } from '../actions';
-
 
 class MainLayout extends Component {
 
     componentDidUpdate = (prevProps) => {
-
         // start/stop periodic authentication refresh if user logs in or logs out
         if (!prevProps.isLoggedIn && this.props.isLoggedIn) {
             this.startPeriodicRefresh();
@@ -44,8 +43,10 @@ class MainLayout extends Component {
     }
 
     handleLogout = () => {
-        // TODO: dispatch a logout action
-        this.props.history.push('/');
+        // clear authentication token from redux store
+        this.props.dispatch(clearAuth());
+        // clear authentication token from local storage
+        clearAuthToken();
     }
 
     render() {

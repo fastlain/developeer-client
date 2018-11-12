@@ -117,7 +117,9 @@ const developeerReducer = (state = initialState, action) => {
         case ACTIONS.SET_AUTH_TOKEN:
             return { ...state, authToken: action.authToken };
         case ACTIONS.SET_USER:
-            return { ...state, user: action.user }
+            return { ...state, user: action.user };
+        case ACTIONS.CLEAR_AUTH:
+            return { ...state, authToken: null, user: null };
 
         default:
             return state;
