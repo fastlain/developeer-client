@@ -78,16 +78,7 @@ const developeerReducer = (state = initialState, action) => {
         //         notification.id !== action.id
         //     ));
         //     return { ...state, notifications: updatedNotifications };
-        case ACTIONS.ADD_REQUEST:
-            const formsAddedRequest = state.forms.map(form => {
-                return (form.id === action.formId) ? { ...form, pendingRequests: form.pendingRequests + 1 } : form;
-            });
-            return { ...state, forms: formsAddedRequest };
-        case ACTIONS.REMOVE_REQUEST:
-            const formsRemovedRequest = state.forms.map(form => {
-                return (form.id === action.formId) ? { ...form, pendingRequests: form.pendingRequests - 1 } : form;
-            });
-            return { ...state, forms: formsRemovedRequest };
+
         case ACTIONS.CREATE_FORM:
             const newForm = {
                 id: Math.floor(Math.random() * 1000),

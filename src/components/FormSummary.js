@@ -21,15 +21,17 @@ class FormSummary extends Component {
         }
     }
 
+    // decrease pending requests for this form
     decRequest = () => {
         if (this.props.requests > 0) {
-            this.props.decRequest(this.props.id);
+            this.props.changeRequests(this.props.id, -1);
         }
     }
 
+    // increase pending requests for this form (if user has available credits)
     incRequest = () => {
         if (this.props.credit > 0) {
-            this.props.incRequest(this.props.id);
+            this.props.changeRequests(this.props.id, 1);
         } else {
             this.setState({ showWarning: true });
         }
@@ -50,11 +52,12 @@ class FormSummary extends Component {
         const removeBtnActive = this.props.requests > 0;
         const removeBtnClass = removeBtnActive ? 'default' : 'disabled';
         const warnClass = (this.state.showWarning && this.props.credit === 0) ? styles.warning : styles.hideWarning;
-        const inputWidth = this.props.shareableUrl.length - 5;
+        // TODO: uncomment custom input width once shareable URLs have been implemented
+        // const inputWidth = this.props.shareableUrl.length - 5;
+        const inputWidth = 30;
         const showDetails = this.state.expanded ? styles.details : styles.detailsHidden;
-        const iconType = this.state.expanded ? "minus" : "plus";
+        const iconType = this.state.expanded ? 'minus' : 'plus';
         // TODO: Add edit button functionality
-
         return (
             <div className={styles.formContainer}>
 

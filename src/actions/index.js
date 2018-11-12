@@ -2,32 +2,36 @@ import jwtDecode from 'jwt-decode';
 import { saveAuthToken, clearAuthToken } from '../local-storage';
 import { API_BASE_URL } from '../config';
 
+// increase or decrease the pending requests of specified form
+export const changeRequests = (formId, change) => (dispatch, getState) => {
+    const authToken = getState().authToken;
+    const form = getState().user.forms.find(form => form._id === formId);
+    const updatedRequests = form.pendingRequests + change;
 
-export const incRequest = (formId) => dispatch => {
-    dispatch(addRequest(formId));
+    fetch(`${API_BASE_URL}/forms/${formId}`, {
+        method: 'PATCH',
+        headers: {
+            Authorization: `Bearer ${authToken}`,
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({ pendingRequests: updatedRequests })
+    })
+        .then(res => res.json())
+        .then(user => {
+            dispatch(setUser(user));
+        })
+        .catch(err => {
+            // TODO: create action and state handlers for auth errors
+            // dispatch(authError(err));
+            console.error(err);
+        });
 }
 
-export const ADD_REQUEST = 'ADD_REQUEST';
-export const addRequest = (formId) => ({
-    type: ADD_REQUEST,
-    formId
-});
-
-export const decRequest = (formId) => dispatch => {
-    dispatch(removeRequest(formId));
-}
-
-export const REMOVE_REQUEST = 'REMOVE_REQUEST';
-export const removeRequest = (formId) => ({
-    type: REMOVE_REQUEST,
-    formId
-});
-
-export const CLOSE_NOTIFICATION = 'CLOSE_NOTIFICATION';
-export const closeNotification = (id) => ({
-    type: CLOSE_NOTIFICATION,
-    id
-});
+// export const CLOSE_NOTIFICATION = 'CLOSE_NOTIFICATION';
+// export const closeNotification = (id) => ({
+//     type: CLOSE_NOTIFICATION,
+//     id
+// });
 
 export const CREATE_FORM = 'CREATE_FORM';
 export const createForm = (formName, projectUrl, questions) => ({
