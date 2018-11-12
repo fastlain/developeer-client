@@ -33,14 +33,6 @@ export const changeRequests = (formId, change) => (dispatch, getState) => {
 //     id
 // });
 
-export const CREATE_FORM = 'CREATE_FORM';
-export const createForm = (formName, projectUrl, questions) => ({
-    type: CREATE_FORM,
-    formName,
-    projectUrl,
-    questions
-});
-
 
 /////////////// AUTHORIZATION /////////////////
 
