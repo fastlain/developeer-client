@@ -179,10 +179,6 @@ class CreateForm extends Component {
             })
     }
 
-    // this.props.dispatch(createForm(this.state.name, this.state.projectUrl, this.state.questions));
-    // navigate back to dashboard
-    // this.props.history.push('/main/dashboard');
-
     render() {
 
         if (this.state.submitSuccess) {
