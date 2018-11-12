@@ -2,20 +2,9 @@ import jwtDecode from 'jwt-decode';
 import { saveAuthToken, clearAuthToken } from '../local-storage';
 import { API_BASE_URL } from '../config';
 
-export const ADD_CREDIT = 'ADD_CREDIT';
-export const addCredit = () => ({
-    type: ADD_CREDIT
-});
-
-export const REMOVE_CREDIT = 'REMOVE_CREDIT';
-export const removeCredit = () => ({
-    type: REMOVE_CREDIT
-});
-
 
 export const incRequest = (formId) => dispatch => {
     dispatch(addRequest(formId));
-    dispatch(removeCredit());
 }
 
 export const ADD_REQUEST = 'ADD_REQUEST';
@@ -26,7 +15,6 @@ export const addRequest = (formId) => ({
 
 export const decRequest = (formId) => dispatch => {
     dispatch(removeRequest(formId));
-    dispatch(addCredit());
 }
 
 export const REMOVE_REQUEST = 'REMOVE_REQUEST';

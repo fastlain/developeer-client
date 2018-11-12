@@ -73,10 +73,6 @@ const initialState = {
 
 const developeerReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ACTIONS.ADD_CREDIT:
-            return { ...state, credit: state.credit + 1 };
-        case ACTIONS.REMOVE_CREDIT:
-            return { ...state, credit: state.credit - 1 };
         // case ACTIONS.CLOSE_NOTIFICATION:
         //     const updatedNotifications = state.notifications.filter(notification => (
         //         notification.id !== action.id
