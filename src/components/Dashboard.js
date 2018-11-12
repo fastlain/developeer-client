@@ -11,7 +11,7 @@ import MyFeedback from './MyFeedback';
 export const Dashboard = props => (
     <div>
         <PageTitle>Dashboard</PageTitle>
-        <Notifications notifications={props.notifications} closeNotification={props.closeNotification} />
+        {/* <Notifications notifications={props.notifications} closeNotification={props.closeNotification} /> */}
         <Credits credits={props.credit} />
         <MyFeedback />
     </div>
@@ -19,11 +19,11 @@ export const Dashboard = props => (
 
 const mapStateToProps = state => ({
     credit: state.credit,
-    notifications: state.notifications
+    // notifications: state.notifications
 });
 
-const mapDispatchToProps = dispatch => ({
-    closeNotification: id => dispatch(closeNotification(id))
-});
+// const mapDispatchToProps = dispatch => ({
+//     closeNotification: id => dispatch(closeNotification(id))
+// });
 
-export default requiresLogin()(connect(mapStateToProps, mapDispatchToProps)(Dashboard));
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));
