@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeNotification } from '../actions';
+// import { closeNotification } from '../actions';
 import requiresLogin from './HOC/requiresLogin';
 
 import PageTitle from './PageTitle';
-import Notifications from './Notifications';
+// import Notifications from './Notifications';
 import Credits from './Credits';
 import MyFeedback from './MyFeedback';
 
@@ -18,7 +18,7 @@ export const Dashboard = props => (
 );
 
 const mapStateToProps = state => ({
-    credit: state.credit,
+    credit: state.user.credit
     // notifications: state.notifications
 });
 

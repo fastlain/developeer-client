@@ -3,7 +3,6 @@ import * as ACTIONS from '../actions';
 const initialState = {
     authToken: null,
     user: null,
-    credit: 5,
     forms: [
         {
             id: 0,
@@ -69,12 +68,6 @@ const initialState = {
             ],
             date: new Date()
         }
-    ],
-    notifications: [
-        {
-            id: 0,
-            text: "Welcome to Developeer!"
-        }
     ]
 }
 
@@ -84,11 +77,11 @@ const developeerReducer = (state = initialState, action) => {
             return { ...state, credit: state.credit + 1 };
         case ACTIONS.REMOVE_CREDIT:
             return { ...state, credit: state.credit - 1 };
-        case ACTIONS.CLOSE_NOTIFICATION:
-            const updatedNotifications = state.notifications.filter(notification => (
-                notification.id !== action.id
-            ));
-            return { ...state, notifications: updatedNotifications };
+        // case ACTIONS.CLOSE_NOTIFICATION:
+        //     const updatedNotifications = state.notifications.filter(notification => (
+        //         notification.id !== action.id
+        //     ));
+        //     return { ...state, notifications: updatedNotifications };
         case ACTIONS.ADD_REQUEST:
             const formsAddedRequest = state.forms.map(form => {
                 return (form.id === action.formId) ? { ...form, pendingRequests: form.pendingRequests + 1 } : form;
