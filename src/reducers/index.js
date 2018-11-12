@@ -30,44 +30,6 @@ const initialState = {
                 "What device and browser did you use to view the site?"
             ]
         }
-    ],
-    reviews: [
-        {
-            id: 0,
-            formId: 0,
-            reviewer: "reviewer123",
-            responses: [
-                "Nope, everything was intuitive",
-                "Yes, I was able to create a new account successfully",
-                "They were good, but you could increase the transition duration to make them snappier",
-                "Great job!"
-            ],
-            date: new Date()
-        },
-        {
-            id: 1,
-            formId: 0,
-            reviewer: "reviewerABC",
-            responses: [
-                "Navigation was very clear",
-                "I couldn't figure out how to log out of the app",
-                "Not distracting, just right!",
-                "I would have liked to see more information up front on the dashboard instead of on separate pages"
-            ],
-            date: new Date()
-        },
-        {
-            id: 2,
-            formId: 1,
-            reviewer: "reviewerXYZ",
-            responses: [
-                "Yes, it had a light and fun vibe",
-                "I would suggest using consistently round or square corners throughout the site",
-                "Like silk",
-                "Windows laptop, Chrome 70"
-            ],
-            date: new Date()
-        }
     ]
 }
 
