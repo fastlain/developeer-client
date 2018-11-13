@@ -18,6 +18,7 @@ class FeedbackForm extends Component {
             responses: null,
             responseErr: null,
             generalErr: null,
+            getFormErr: null,
 
             isSubmitting: false,
             submitSuccess: false
@@ -36,39 +37,62 @@ class FeedbackForm extends Component {
                 Authorization: `Bearer ${this.props.authToken}`
             }
         })
-            .then(res => res.json())
-            .then(({ form }) => {
-                // populate review authors
-                fetch(`${API_BASE_URL}/users/${form.author}`)
-                    .then(res => res.json())
-                    .then(author => {
-                        form.authorName = author.username;
-                        this.setState({ form });
+            .then(res => {
+                if (!res.ok) {
+                    // check if error is custom JSON error
+                    if (
+                        res.headers.has('content-type') &&
+                        res.headers.get('content-type').startsWith('application/json')
+                    ) {
+                        // display custom server-side errors
+                        return res.json()
+                            .then(err => {
+                                this.handleErrors({ getForm: err.message });
+                            });
+                    } else {
+                        // display Express-generated error
+                        this.handleErrors({ getForm: res.statusText });
+                    }
+                } else {
+                    return res.json()
+                        .then(({ form }) => {
+                            // populate review author
+                            if (form.author) {
+                                fetch(`${API_BASE_URL}/users/${form.author}`)
+                                    .then(res => res.json())
+                                    .then(author => {
+                                        form.authorName = author.username;
+                                        return form;
+                                    })
+                                    .catch(err => console.error(err));
+                            } else {
+                                return form;
+                            }
+                        })
+                        .then(form => {
+                            this.setState({ form });
 
-                        const versions = this.state.form.versions;
-                        // sort form versions by date
-                        const versionsWithDateObj = versions.map(version => {
-                            // convert date strings to Date objects
-                            version.dateObj = new Date(version.date);
-                            return version;
-                        });
-                        // get quetsions for most recent form version
-                        const mostRecentVersion = versionsWithDateObj.sort((a, b) => {
-                            return b.dateObj - a.dateObj;
-                        })[0];
-                        this.setState({
-                            version: mostRecentVersion,
-                            responses: new Array(mostRecentVersion.questions.length).fill(''),
-                            responseErr: new Array(mostRecentVersion.questions.length).fill('')
-                        });
-                    })
-                    .catch(err => console.error(err));
+                            const versions = this.state.form.versions;
+                            // sort form versions by date
+                            const versionsWithDateObj = versions.map(version => {
+                                // convert date strings to Date objects
+                                version.dateObj = new Date(version.date);
+                                return version;
+                            });
+                            // get quetsions for most recent form version
+                            const mostRecentVersion = versionsWithDateObj.sort((a, b) => {
+                                return b.dateObj - a.dateObj;
+                            })[0];
+                            this.setState({
+                                version: mostRecentVersion,
+                                responses: new Array(mostRecentVersion.questions.length).fill(''),
+                                responseErr: new Array(mostRecentVersion.questions.length).fill('')
+                            });
+                        })
+                        .catch(err => console.error(err));
+                }
             })
-            .catch(err => {
-                // TODO: create action and state handlers for auth errors
-                // dispatch(authError(err));
-                console.error(err);
-            });
+            .catch(err => console.error(err));
     }
 
     setResponseText = e => {
@@ -163,6 +187,10 @@ class FeedbackForm extends Component {
 
         if (this.state.submitSuccess) {
             return <Redirect to="/main/dashboard" />
+        }
+
+        if (this.state.getFormErr) {
+            return (<Error message={`${this.state.getFormErr}. Try again later.`} errStyle="center" />);
         }
 
         let questionList;
