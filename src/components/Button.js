@@ -1,22 +1,13 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 import styles from '../css_modules/Button.module.css';
+const cx = classNames.bind(styles);
 
-const Button = (props) => {
-
-    const { btnStyle, ...other } = props;
-
-    // extract classNames from corresponding btnStyle prop
-    let classes = styles.default;
-    if (btnStyle) {
-        const styleList = props.btnStyle.split(' ');
-        for (let style of styleList) {
-            classes += ` ${styles[style]}`;
-        }
-    }
+const Button = ({ btnStyle = '', children, ...otherProps }) => {
 
     return (
-        <button className={classes} {...other}>
-            {props.children}
+        <button className={cx("default", btnStyle.split(' '))} {...otherProps}>
+            {children}
         </button>
     );
 }
