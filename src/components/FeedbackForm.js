@@ -13,7 +13,7 @@ class FeedbackForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            form: {},
+            form: null,
             version: null,
             responses: null,
             responseErr: null,
@@ -58,7 +58,7 @@ class FeedbackForm extends Component {
                         .then(({ form }) => {
                             // populate review author
                             if (form.author) {
-                                fetch(`${API_BASE_URL}/users/${form.author}`)
+                                return fetch(`${API_BASE_URL}/users/${form.author}`)
                                     .then(res => res.json())
                                     .then(author => {
                                         form.authorName = author.username;
@@ -207,23 +207,26 @@ class FeedbackForm extends Component {
             ));
         }
 
-
-        return (
-            <form className={styles.form} >
-                <h3>Project: <span className={styles.innerHeading}>{this.state.form.name}</span></h3>
-                <h3>Author: <span className={styles.innerHeading}>{this.state.form.authorName}</span></h3>
-                <div className={styles.overview}>
-                    <h3>Reivewer Instructions:</h3>
-                    <p className={styles.overviewContent}>{this.state.form.overview}</p>
-                </div>
-                <ExternalLinkBtn href={this.state.form.projectUrl}>
-                    VISIT PAGE
-                </ExternalLinkBtn>
-                {questionList}
-                <Button type="submit" btnStyle="roomyTopBot" onClick={this.handleFormSubmit} > SUBMIT FEEDBACK</Button>
-                <Error message={this.state.generalErr} />
-            </form >
-        );
+        if (this.state.form) {
+            return (
+                <form className={styles.form} >
+                    <h3>Project: <span className={styles.innerHeading}>{this.state.form.name}</span></h3>
+                    <h3>Author: <span className={styles.innerHeading}>{this.state.form.authorName}</span></h3>
+                    <div className={styles.overview}>
+                        <h3>Reivewer Instructions:</h3>
+                        <p className={styles.overviewContent}>{this.state.form.overview}</p>
+                    </div>
+                    <ExternalLinkBtn href={this.state.form.projectUrl}>
+                        VISIT PAGE
+                    </ExternalLinkBtn>
+                    {questionList}
+                    <Button type="submit" btnStyle="roomyTopBot" onClick={this.handleFormSubmit} > SUBMIT FEEDBACK</Button>
+                    <Error message={this.state.generalErr} />
+                </form >
+            );
+        } else {
+            return null;
+        }
     }
 }
 
