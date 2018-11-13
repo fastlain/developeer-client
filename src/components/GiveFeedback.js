@@ -20,13 +20,14 @@ class GiveFeedback extends Component {
     }
 
     render() {
-        let toRender;
+        let startBtn;
+        let feedbackForm;
         if (!this.state.started) {
-            toRender = (
+            startBtn = (
                 <Button type="button" btnStyle="center roomyTopBot" onClick={this.startFeedback}>START</Button>
             );
         } else {
-            toRender = (<FeedbackForm {...this.props} />);
+            feedbackForm = (<FeedbackForm {...this.props} />);
         }
 
         const instructionList = [
@@ -43,7 +44,8 @@ class GiveFeedback extends Component {
                 </Link>
                 <PageTitle> Give Feedback</PageTitle>
                 <Instructions list={instructionList} />
-                {toRender}
+                {startBtn}
+                {feedbackForm}
             </div>
         );
     }
