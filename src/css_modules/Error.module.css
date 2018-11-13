@@ -5,6 +5,10 @@
 }
 
 .center {
-    composes: error;
     text-align: center;
+}
+
+.roomyTopBot {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }

@@ -190,7 +190,7 @@ class FeedbackForm extends Component {
         }
 
         if (this.state.getFormErr) {
-            return (<Error message={`${this.state.getFormErr}. Try again later.`} errStyle="center" />);
+            return (<Error message={`${this.state.getFormErr}. Try again later.`} errStyle={["center", "roomyTopBot"]} />);
         }
 
         let questionList;
@@ -221,7 +221,7 @@ class FeedbackForm extends Component {
                     </ExternalLinkBtn>
                     {questionList}
                     <Button type="submit" btnStyle="roomyTopBot" onClick={this.handleFormSubmit} > SUBMIT FEEDBACK</Button>
-                    <Error message={this.state.generalErr} />
+                    <Error message={this.state.generalErr} errStyle={["center", "roomyTopBot"]} />
                 </form >
             );
         } else {

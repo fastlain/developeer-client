@@ -213,7 +213,7 @@ class CreateForm extends Component {
                         <label htmlFor="name">Form Name: </label>
                         <input id="name" name="name" type="text" value={this.state.name} onChange={this.handleChange} />
                     </div>
-                    <Error message={this.state.nameErr} />
+                    <Error message={this.state.nameErr} errStyle="center" />
 
                     <div className={styles.inputWrapper}>
                         <label htmlFor="projectUrl">Project URL: </label>
