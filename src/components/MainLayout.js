@@ -15,6 +15,7 @@ import ReviewFeedback from './ReviewFeedback';
 import CreateForm from './CreateForm';
 import Footer from './Footer';
 import ExternalFeedback from './ExternalFeedback';
+import Popup from './Popup';
 
 class MainLayout extends Component {
 
@@ -53,6 +54,7 @@ class MainLayout extends Component {
     render() {
         return (
             <div className={styles.layoutWrapper}>
+                <Popup message="Hello World" />
                 <Switch>
                     <Route path="/main" render={() => <Header isLoggedIn={this.props.isLoggedIn} username={this.props.username} logOut={this.handleLogout} />} />
                     <Route path="/" component={HeroBanner} />

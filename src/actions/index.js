@@ -34,6 +34,27 @@ export const changeRequests = (formId, change) => (dispatch, getState) => {
 // });
 
 
+/////////////// POPUP NOTIFICATIONS /////////////////
+
+export const showPopup = message => dispatch => {
+    dispatch(setPopup(message))
+    setTimeout(() => {
+        dispatch(clearPopup())
+    }, 2500);
+}
+
+export const SET_POPUP = 'SET_POPUP';
+export const setPopup = message => ({
+    type: SET_POPUP,
+    message
+});
+
+export const CLEAR_POPUP = 'CLEAR_POPUP';
+export const clearPopup = message => ({
+    type: CLEAR_POPUP,
+    message
+});
+
 /////////////// AUTHORIZATION /////////////////
 
 export const storeAuthInfo = token => dispatch => {

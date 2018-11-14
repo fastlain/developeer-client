@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styles from '../css_modules/FormSummary.module.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { connect } from 'react-redux';
+import { showPopup } from '../actions';
 
 import Button from './Button';
 import { CLIENT_ORIGIN } from '../config';
@@ -46,6 +48,7 @@ class FormSummary extends Component {
     copyDirectUrl = () => {
         this.urlInputRef.current.select();
         document.execCommand('copy');
+        this.props.dispatch(showPopup('Copied'));
     }
 
     render() {
@@ -102,4 +105,4 @@ class FormSummary extends Component {
     }
 }
 
-export default FormSummary;
+export default connect()(FormSummary);

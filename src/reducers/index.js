@@ -2,7 +2,8 @@ import * as ACTIONS from '../actions';
 
 const initialState = {
     authToken: null,
-    user: null
+    user: null,
+    popup: ''
 }
 
 const developeerReducer = (state = initialState, action) => {
@@ -12,6 +13,12 @@ const developeerReducer = (state = initialState, action) => {
         //         notification.id !== action.id
         //     ));
         //     return { ...state, notifications: updatedNotifications };
+
+        ////////////// Popup Actions /////////////////
+        case ACTIONS.SET_POPUP:
+            return { ...state, popup: action.message };
+        case ACTIONS.CLEAR_POPUP:
+            return { ...state, popup: '' };
 
         ////////////// Authorization Actions /////////////////
         case ACTIONS.SET_AUTH_TOKEN:

@@ -5,7 +5,7 @@ import requiresLogin from './HOC/requiresLogin';
 import styles from '../css_modules/CreateForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { API_BASE_URL } from '../config';
-import { setUser } from '../actions';
+import { setUser, showPopup } from '../actions';
 
 import PageTitle from './PageTitle';
 import Button from './Button';
@@ -171,6 +171,7 @@ class CreateForm extends Component {
                         .then(user => {
                             this.props.dispatch(setUser(user));
                             this.setState({ submitSuccess: true })
+                            this.props.dispatch(showPopup('Form created successfully'));
                         });
                 }
             })

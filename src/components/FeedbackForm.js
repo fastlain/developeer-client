@@ -3,7 +3,7 @@ import styles from '../css_modules/FeedbackForm.module.css';
 import { connect } from 'react-redux';
 import { API_BASE_URL } from '../config';
 import { Redirect } from 'react-router-dom';
-import { setUser } from '../actions';
+import { setUser, showPopup } from '../actions';
 
 import Button from './Button';
 import ExternalLinkBtn from './ExternalLinkBtn';
@@ -211,6 +211,7 @@ class FeedbackForm extends Component {
                         .then(user => {
                             // update user object in redux state
                             this.props.dispatch(setUser(user));
+                            this.props.dispatch(showPopup('Review submitted'))
                             this.setState({ submitSuccess: true })
                         });
                 }
