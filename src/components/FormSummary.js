@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Button from './Button';
+import { CLIENT_ORIGIN } from '../config';
 
 class FormSummary extends Component {
     constructor(props) {
@@ -52,9 +53,8 @@ class FormSummary extends Component {
         const removeBtnActive = this.props.requests > 0;
         const removeBtnClass = removeBtnActive ? 'default' : 'disabled';
         const warnClass = (this.state.showWarning && this.props.credit === 0) ? styles.warning : styles.hideWarning;
-        // TODO: uncomment custom input width once shareable URLs have been implemented
-        // const inputWidth = this.props.shareableUrl.length - 5;
-        const inputWidth = 30;
+        const shareableUrl = `${CLIENT_ORIGIN}/main/feedback/${this.props.id}`;
+        const inputWidth = shareableUrl.length - 5;
         const showDetails = this.state.expanded ? styles.details : styles.detailsHidden;
         const iconType = this.state.expanded ? 'minus' : 'plus';
         // TODO: Add edit button functionality
@@ -87,7 +87,7 @@ class FormSummary extends Component {
                     <div>
                         <p className={styles.requestInfo}>Share this direct link elsewhere:</p>
                         <div className={styles.shareLinkWrapper}>
-                            <input ref={this.urlInputRef} type="text" value={this.props.shareableUrl} readOnly size={inputWidth} className={styles.urlInput} />
+                            <input ref={this.urlInputRef} type="text" value={shareableUrl} readOnly size={inputWidth} className={styles.urlInput} />
                             <Button type="button" btnStyle="roomySides" onClick={this.copyDirectUrl}>
                                 <FontAwesomeIcon icon="copy" className="FA marginRt" /> COPY LINK
                             </Button>

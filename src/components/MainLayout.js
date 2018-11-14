@@ -14,6 +14,7 @@ import GiveFeedback from './GiveFeedback';
 import ReviewFeedback from './ReviewFeedback';
 import CreateForm from './CreateForm';
 import Footer from './Footer';
+import ExternalFeedback from './ExternalFeedback';
 
 class MainLayout extends Component {
 
@@ -53,7 +54,7 @@ class MainLayout extends Component {
         return (
             <div className={styles.layoutWrapper}>
                 <Switch>
-                    <Route path="/main" render={() => <Header username={this.props.username} logOut={this.handleLogout} />} />
+                    <Route path="/main" render={() => <Header isLoggedIn={this.props.isLoggedIn} username={this.props.username} logOut={this.handleLogout} />} />
                     <Route path="/" component={HeroBanner} />
                 </Switch>
                 <main role="main" className={styles.main} >
@@ -62,7 +63,8 @@ class MainLayout extends Component {
                     <Route exact path="/main/dashboard" component={Dashboard} />
                     <Route exact path="/main/givefeedback" component={GiveFeedback} />
                     <Route path="/main/reviewfeedback/:id" component={ReviewFeedback} />
-                    <Route path="/main/createform" component={CreateForm} />
+                    <Route exact path="/main/createform" component={CreateForm} />
+                    <Route path="/main/feedback/:id" component={ExternalFeedback} />
                 </main>
                 <Footer />
             </div>
@@ -70,9 +72,17 @@ class MainLayout extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    isLoggedIn: state.user != null,
-    username: state.user ? state.user.username : null
-});
+const mapStateToProps = state => {
+    if (state.user) {
+        return ({
+            isLoggedIn: true,
+            username: state.user.username
+        });
+    } else {
+        return ({
+            isLoggedIn: false
+        });
+    }
+};
 
 export default connect(mapStateToProps)(MainLayout);

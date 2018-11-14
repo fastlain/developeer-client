@@ -15,6 +15,8 @@ class FeedbackForm extends Component {
         this.state = {
             form: null,
             version: null,
+            reviewerName: '',
+            reviewerNameErr: null,
             responses: null,
             responseErr: null,
             generalErr: null,
@@ -29,14 +31,28 @@ class FeedbackForm extends Component {
         this.getForm();
     }
 
-    // fetch a random form with pending requests
     getForm = () => {
-        fetch(`${API_BASE_URL}/forms/toReview`, {
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${this.props.authToken}`
+        // fetch the form specified by the route id or get a random form to review
+        const fetchFormPromise = new Promise((resolve, reject) => {
+            if (!this.props.isInternalReview) {
+                // fetch form for an external review of a specified form
+                fetch(`${API_BASE_URL}/forms/${this.props.match.params.id}`, {
+                    method: 'GET',
+                })
+                    .then(res => resolve(res));
+            } else {
+                // fetch a random form with pending requests
+                fetch(`${API_BASE_URL}/forms/toReview`, {
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${this.props.authToken}`
+                    }
+                })
+                    .then(res => resolve(res));
             }
-        })
+        });
+
+        fetchFormPromise
             .then(res => {
                 if (!res.ok) {
                     // check if error is custom JSON error
@@ -101,6 +117,12 @@ class FeedbackForm extends Component {
         this.setState({ responses: updatedResponses });
     }
 
+    handleChange = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        this.setState({ [field]: value })
+    }
+
     handleFormSubmit = e => {
         e.preventDefault();
         // if already handling submit, do not process new submits
@@ -140,11 +162,22 @@ class FeedbackForm extends Component {
     }
 
     submitToServer = () => {
+        let reviewer;
+        if (!this.props.reviewerId) {
+            // if external reviewer, get name from input or set as 'anonymous
+            let reviewerName = this.state.reviewerName.length > 0 ? this.state.reviewerName : 'anonymous';
+            reviewer = { reviewerName };
+        } else {
+            // for internal reviewer, get their user id
+            reviewer = { reviewerId: this.props.reviewerId };
+        }
+
         const review = {
             formId: this.state.form._id,
             formVersion: this.state.version._id,
-            reviewerId: this.props.reviewerId,
-            responses: this.state.responses
+            ...reviewer,
+            responses: this.state.responses,
+            isInternalReview: this.props.isInternalReview
         };
 
         fetch(`${API_BASE_URL}/reviews`, {
@@ -170,9 +203,13 @@ class FeedbackForm extends Component {
                         // display Express-generated error
                         this.handleErrors({ general: res.statusText });
                     }
+                } else if (res.status === 204) {
+                    // set success in parent <ExternalFeedback />
+                    this.props.extReviewSuccess();
                 } else {
                     res.json()
                         .then(user => {
+                            // update user object in redux state
                             this.props.dispatch(setUser(user));
                             this.setState({ submitSuccess: true })
                         });
@@ -191,6 +228,19 @@ class FeedbackForm extends Component {
 
         if (this.state.getFormErr) {
             return (<Error message={`${this.state.getFormErr}. Try again later.`} errStyle="center roomyTopBot" />);
+        }
+
+        let nameInput;
+        if (!this.props.reviewerId) {
+            nameInput = (
+                <div>
+                    <div className={styles.inputWrapper}>
+                        <label htmlFor="reviewerName">{"Your Name (optional): "}</label>
+                        <input id="reviewerName" name="reviewerName" type="text" value={this.state.reviewerName} onChange={this.handleChange} />
+                    </div>
+                    <Error message={this.state.reviewerNameErr} />
+                </div>
+            )
         }
 
         let questionList;
@@ -219,6 +269,7 @@ class FeedbackForm extends Component {
                     <ExternalLinkBtn href={this.state.form.projectUrl}>
                         VISIT PAGE
                     </ExternalLinkBtn>
+                    {nameInput}
                     {questionList}
                     <Button type="submit" btnStyle="roomyTopBot" onClick={this.handleFormSubmit} > SUBMIT FEEDBACK</Button>
                     <Error message={this.state.generalErr} errStyle="center roomyTopBot" />
@@ -230,9 +281,15 @@ class FeedbackForm extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    authToken: state.authToken,
-    reviewerId: state.user.id
-});
+const mapStateToProps = state => {
+    if (state.user) {
+        return ({
+            authToken: state.authToken,
+            reviewerId: state.user.id
+        });
+    } else {
+        return {};
+    }
+};
 
 export default connect(mapStateToProps)(FeedbackForm);

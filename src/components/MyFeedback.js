@@ -12,7 +12,7 @@ class MyFeedback extends Component {
     render() {
 
         const summaries = this.props.forms.map(form => (
-            <FormSummary key={form._id} id={form._id} name={form.name} requests={form.pendingRequests} shareableUrl={form.shareableUrl} changeRequests={this.props.changeRequests} credit={this.props.credit} />
+            <FormSummary key={form._id} id={form._id} name={form.name} requests={form.pendingRequests} changeRequests={this.props.changeRequests} credit={this.props.credit} />
         ))
 
         const instructionList = [

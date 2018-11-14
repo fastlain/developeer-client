@@ -5,6 +5,11 @@
     margin: 0 auto;
 }
 
+.inputWrapper {
+    margin: 10px 0;
+    text-align: left;
+}
+
 .innerHeading {
     font-weight: 400;
 }

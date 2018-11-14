@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import requiresLogin from './HOC/requiresLogin';
 
 import PageTitle from './PageTitle';
 import Button from './Button';
 import FeedbackForm from './FeedbackForm';
 import Instructions from './Instructions';
+import instructionList from './shared_data/feedbackInstructions';
 
 class GiveFeedback extends Component {
     constructor(props) {
@@ -27,15 +29,8 @@ class GiveFeedback extends Component {
                 <Button type="button" btnStyle="center roomyTopBot" onClick={this.startFeedback}>START</Button>
             );
         } else {
-            feedbackForm = (<FeedbackForm {...this.props} />);
+            feedbackForm = (<FeedbackForm {...this.props} isInternalReview={true} />);
         }
-
-        const instructionList = [
-            'You will be given a random project to review from the request pool',
-            'Read the author\'s instructions and check out their project page',
-            'Try to be constructive and specific in answering their questions',
-            'Expect to spend 2-5 minutes completing your review'
-        ];
 
         return (
             <div>
@@ -51,4 +46,4 @@ class GiveFeedback extends Component {
     }
 }
 
-export default GiveFeedback;
+export default requiresLogin()(GiveFeedback);
