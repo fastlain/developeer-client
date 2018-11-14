@@ -151,24 +151,19 @@ class UserForm extends Component {
             .then(res => {
                 if (!res.ok) {
                     // check if error is custom JSON error
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers.get('content-type').startsWith('application/json')
-                    ) {
-                        // display custom server-side errors
-                        return res.json()
-                            .then(err => {
-                                this.handleErrors({ general: res.message });
-                            });
+
+                    if (res.status === 401) {
+                        this.handleErrors({ general: 'Incorrect username or password' });
                     } else {
                         // display Express-generated error
-                        this.handleErrors({ general: res.statusText });
+                        this.handleErrors({ general: 'Server Error. Sorry, try again later.' });
                     }
+                } else {
+                    res.json()
+                        .then(({ authToken }) => {
+                            this.props.dispatch(storeAuthInfo(authToken));
+                        });
                 }
-                return res.json()
-                    .then(({ authToken }) => {
-                        this.props.dispatch(storeAuthInfo(authToken));
-                    });
             })
             .catch(() => {
                 this.handleErrors({ general: 'Server Error. Sorry, try again later.' });
