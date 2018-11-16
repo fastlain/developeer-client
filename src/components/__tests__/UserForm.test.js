@@ -1,31 +1,38 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 import { UserForm } from '../UserForm';
 import styles from '../../css_modules/UserForm.module.css';
 
+
 describe('<UserForm />', () => {
+    const mountWithRouter = component => {
+        return mount(<Router>{component}</Router>);
+    }
+
     const matchCreate = {
         params: {
             type: 'create'
         }
     };
     const matchLogin = {
-        params: 'login'
+        params: {
+            type: 'login'
+        }
     }
 
     it('Renders without crashing', () => {
-        shallow(<UserForm match={matchCreate} />);
-        shallow(<UserForm match={matchLogin} />);
+        mountWithRouter(<UserForm match={matchLogin} />);
+        mountWithRouter(<UserForm match={matchCreate} />);
     });
 
     it('Redirects when user is logged in', () => {
-        const wrapper = shallow(<UserForm match={matchCreate} isLoggedIn={true} />);
+        const wrapper = mountWithRouter(<UserForm match={matchCreate} isLoggedIn={true} />);
         expect(wrapper.find('Redirect')).toHaveLength(1);
     });
 
     it('Renders `Create Account` components when matching route param', () => {
-        const wrapper = shallow(<UserForm match={matchCreate} />);
+        const wrapper = mountWithRouter(<UserForm match={matchCreate} />);
         expect(wrapper.find('legend').text()).toEqual('Create Account');
         expect(wrapper.find('Button').html()).toMatch('CREATE ACCOUNT');
         expect(wrapper.find('.hide')).toHaveLength(0);
@@ -33,7 +40,7 @@ describe('<UserForm />', () => {
     });
 
     it('Renders `Log In` components when matching route param', () => {
-        const wrapper = shallow(<UserForm match={matchLogin} />);
+        const wrapper = mountWithRouter(<UserForm match={matchLogin} />);
         expect(wrapper.find('legend').text()).toEqual('Log In');
         expect(wrapper.find('Button').html()).toMatch('LOG IN');
         expect(wrapper.find('.hide')).toHaveLength(1);
@@ -41,9 +48,25 @@ describe('<UserForm />', () => {
     });
 
     it('Renders disabled button if submitting', () => {
-        const wrapper = shallow(<UserForm match={matchLogin} />);
+        const wrapper = mountWithRouter(<UserForm match={matchLogin} />);
         wrapper.setState({ isSubmitting: true });
         expect(wrapper.find('Button', { type: 'submit' }).hasClass('disabled'));
+    });
+
+    it('Creates error messages if blank form is submitted', () => {
+        const wrapper = mountWithRouter(< UserForm match={matchCreate} />)
+        wrapper.find(UserForm).instance().handleFormSubmit({ preventDefault: () => null });
+        const state = wrapper.find(UserForm).state();
+        expect(state.usernameErr).toEqual('Must be between 1 and 20 characters');
+        expect(state.passwordErr).toEqual('Must be between 10 and 72 characters');
+    });
+
+    it('Creates error messages username with untrimmed whitespace', () => {
+        const wrapper = mountWithRouter(< UserForm match={matchCreate} />)
+        wrapper.find(UserForm).setState({ username: ' test ' });
+        wrapper.find(UserForm).instance().handleFormSubmit({ preventDefault: () => null });
+        const state = wrapper.find(UserForm).state();
+        expect(state.usernameErr).toEqual('Cannot start or end with whitespace');
     });
 
 
