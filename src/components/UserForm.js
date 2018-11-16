@@ -29,13 +29,15 @@ export class UserForm extends Component {
     }
 
     componentDidMount() {
-        this.usernameRef.current.focus();
+        if (this.usernameRef.current) {
+            this.usernameRef.current.focus();
+        }
     }
 
     componentDidUpdate(prevProps) {
         // focus on username input after toggling Log In and Create Account forms
         if (this.props.match.params.type !== prevProps.match.params.type) {
-            this.usernameRef.current.focus();
+            this.usernameRef.current.select();
         }
     }
 
@@ -77,13 +79,13 @@ export class UserForm extends Component {
 
         // focus on erroneous input
         if (errors.username) {
-            this.usernameRef.current.focus();
+            this.usernameRef.current.select();
         } else if (errors.password) {
-            this.passwordRef.current.focus();
+            this.passwordRef.current.select();
         } else if (errors.rePassword) {
-            this.rePasswordRef.current.focus();
+            this.rePasswordRef.current.select();
         } else if (errors.general) {
-            this.usernameRef.current.focus();
+            this.usernameRef.current.select();
         }
 
         this.setState({ isSubmitting: false });
