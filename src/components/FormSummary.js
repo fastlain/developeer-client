@@ -3,7 +3,7 @@ import styles from '../css_modules/FormSummary.module.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
-import { showPopup } from '../actions';
+import { showPopup, changeRequests } from '../actions';
 
 import Button from './Button';
 import { CLIENT_ORIGIN } from '../config';
@@ -27,14 +27,14 @@ class FormSummary extends Component {
     // decrease pending requests for this form
     decRequest = () => {
         if (this.props.requests > 0) {
-            this.props.changeRequests(this.props.id, -1);
+            this.dispatch(changeRequests(this.props.id, -1));
         }
     }
 
     // increase pending requests for this form (if user has available credits)
     incRequest = () => {
         if (this.props.credit > 0) {
-            this.props.changeRequests(this.props.id, 1);
+            this.dispatch(changeRequests(this.props.id, 1));
         } else {
             this.setState({ showWarning: true });
         }
