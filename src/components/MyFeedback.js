@@ -6,7 +6,7 @@ import styles from '../css_modules/MyFeedback.module.css';
 import FormSummary from './FormSummary';
 import Instructions from './Instructions';
 
-class MyFeedback extends Component {
+export class MyFeedback extends Component {
 
     render() {
 

@@ -9,7 +9,7 @@ import Error from './Error';
 
 const { API_BASE_URL } = require('../config');
 
-class UserForm extends Component {
+export class UserForm extends Component {
     constructor() {
         super();
         this.state = {
@@ -181,7 +181,8 @@ class UserForm extends Component {
         const isCreate = (formType === 'create');
 
         // create variables for account creation or log in form
-        const submitButtonText = isCreate ? 'CREATE ACCOUNT' : 'LOG IN';
+        const legendText = isCreate ? 'Create Account' : 'Log In';
+        const submitButtonText = legendText.toUpperCase();
         const toggleButtonText = isCreate ? 'LOG IN' : 'CREATE ACCOUNT';
         const toggleRouteParam = isCreate ? 'login' : 'create';
         const toggleDescription = isCreate ? 'Already have an account?' : 'New to Developeer?';
@@ -193,7 +194,7 @@ class UserForm extends Component {
         return (
             <form className={styles.userForm} onSubmit={this.handleFormSubmit}>
                 <fieldset>
-                    <legend>Log In</legend>
+                    <legend>{legendText}</legend>
                     <div className={styles.inputWrapper}>
                         <label className={styles.block} htmlFor="username">Username: </label>
                         <input id="username" name="username" type="text" value={this.state.username} onChange={this.handleChange} />

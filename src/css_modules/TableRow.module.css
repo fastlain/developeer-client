@@ -5,25 +5,26 @@
     align-items: center;
 }
 
-.cell {
-    text-align: center;
-    flex-grow: 1;
-    flex-basis: 0;
-}
 
-.rowEven {
+.even {
     composes: row;
     background: lightblue;
 }
 
-.rowOdd {
+.odd {
     composes: row;
     background: lightyellow;
 }
 
-.rowHeading {
+.heading {
     composes: row;
     font-weight: bold;
     background: lightgrey;
     border-bottom: 2px solid darkslategray;
+}
+
+.cell {
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 0;
 }

@@ -61,7 +61,7 @@ class MainLayout extends Component {
                 </Switch>
                 <main role="main" className={styles.main} >
                     <Route exact path="/" render={() => <LandingPageContent isLoggedIn={this.props.isLoggedIn} />} />
-                    <Route path="/userform/:type" render={props => <UserForm {...props} />} />
+                    <Route path="/userform/:type" component={UserForm} />
                     <Route exact path="/main/dashboard" component={Dashboard} />
                     <Route exact path="/main/givefeedback" component={GiveFeedback} />
                     <Route path="/main/reviewfeedback/:id" component={ReviewFeedback} />

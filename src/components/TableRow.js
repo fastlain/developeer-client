@@ -8,12 +8,8 @@ const TableRow = (props) => {
         <span className={styles.cell} key={index}>{cell}</span>
     ));
 
-    // concatenate "row" and capitalized rowStyle prop
-    const rowStyle = `row${props.rowStyle.charAt(0).toUpperCase()}${props.rowStyle.slice(1)}`;
-    const className = styles[rowStyle];
-
     return (
-        <div className={className}>
+        <div className={styles[props.rowStyle]}>
             {wrappedCells}
         </div>
     );

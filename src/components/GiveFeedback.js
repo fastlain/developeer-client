@@ -9,7 +9,7 @@ import FeedbackForm from './FeedbackForm';
 import Instructions from './Instructions';
 import instructionList from './shared_data/feedbackInstructions';
 
-class GiveFeedback extends Component {
+export class GiveFeedback extends Component {
     constructor(props) {
         super(props);
         this.state = {
