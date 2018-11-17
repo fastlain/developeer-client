@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { UserForm } from '../UserForm';
 import styles from '../../css_modules/UserForm.module.css';
+import { storeAuthInfo } from '../../actions';
 
 
 describe('<UserForm />', () => {
@@ -61,7 +62,7 @@ describe('<UserForm />', () => {
         expect(state.passwordErr).toEqual('Must be between 10 and 72 characters');
     });
 
-    it('Creates error messages username with untrimmed whitespace', () => {
+    it('Creates error messages if username has untrimmed whitespace', () => {
         const wrapper = mountWithRouter(< UserForm match={matchCreate} />)
         wrapper.find(UserForm).setState({ username: ' test ' });
         wrapper.find(UserForm).instance().handleFormSubmit({ preventDefault: () => null });
@@ -69,5 +70,21 @@ describe('<UserForm />', () => {
         expect(state.usernameErr).toEqual('Cannot start or end with whitespace');
     });
 
-
+    it('Dispatches storeAuthInfo on successful local login', () => {
+        const user = 'user';
+        const token = { authToken: 'token' };
+        global.fetch = jest.fn().mockImplementation(() =>
+            Promise.resolve({
+                ok: true,
+                json: () => {
+                    return Promise.resolve(token);
+                }
+            })
+        );
+        const dispatch = jest.fn();
+        const wrapper = mountWithRouter(< UserForm match={matchCreate} dispatch={dispatch} />)
+        return wrapper.find(UserForm).instance().loginLocal(user).then(() => {
+            expect(dispatch).toHaveBeenCalled();
+        });
+    });
 });

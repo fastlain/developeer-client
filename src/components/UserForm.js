@@ -169,7 +169,7 @@ export class UserForm extends Component {
     }
 
     loginLocal = user => {
-        fetch(`${API_BASE_URL}/auth/loginlocal`, {
+        return fetch(`${API_BASE_URL}/auth/loginlocal`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -179,7 +179,6 @@ export class UserForm extends Component {
             .then(res => {
                 if (!res.ok) {
                     // check if error is custom JSON error
-
                     if (res.status === 401) {
                         this.handleErrors({ general: 'Incorrect username or password' });
                     } else {
@@ -188,8 +187,8 @@ export class UserForm extends Component {
                     }
                 } else {
                     res.json()
-                        .then(({ authToken }) => {
-                            this.props.dispatch(storeAuthInfo(authToken));
+                        .then(res => {
+                            this.props.dispatch(storeAuthInfo(res.authToken));
                         });
                 }
             })
