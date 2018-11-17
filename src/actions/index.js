@@ -8,7 +8,7 @@ export const changeRequests = (formId, change) => (dispatch, getState) => {
     const form = getState().user.forms.find(form => form._id === formId);
     const updatedRequests = form.pendingRequests + change;
 
-    fetch(`${API_BASE_URL}/forms/${formId}`, {
+    return fetch(`${API_BASE_URL}/forms/${formId}`, {
         method: 'PATCH',
         headers: {
             Authorization: `Bearer ${authToken}`,
