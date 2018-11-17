@@ -1,10 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { UserForm } from '../UserForm';
-import styles from '../../css_modules/UserForm.module.css';
-import { storeAuthInfo } from '../../actions';
-
 
 describe('<UserForm />', () => {
     const mountWithRouter = component => {
