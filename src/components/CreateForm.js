@@ -30,6 +30,19 @@ class CreateForm extends Component {
             isSubmitting: false,
             submitSuccess: false
         };
+        this.nameRef = React.createRef();
+        this.projectUrlRef = React.createRef();
+        this.overviewRef = React.createRef();
+        this.questionRefs = this.state.questions.map(question => {
+            return React.createRef();
+        });
+    }
+
+    componentDidMount() {
+        // focus on name input when component mounts
+        if (this.nameRef.current) {
+            this.nameRef.current.focus({ preventScroll: true });
+        }
     }
 
     // set form input changes (except questions) to state
@@ -47,6 +60,7 @@ class CreateForm extends Component {
 
     deleteQuestion = (order) => {
         const newQuestions = [...this.state.questions];
+        this.questionRefs.splice(order, 1);
         newQuestions.splice(order, 1);
         this.setState({ questions: newQuestions });
     }
@@ -55,6 +69,7 @@ class CreateForm extends Component {
         if (this.state.questions.length < 5) {
             const newQuestions = [...this.state.questions];
             newQuestions.push('');
+            this.questionRefs.push(React.createRef());
             this.setState({ questions: newQuestions });
         }
     }
@@ -86,8 +101,24 @@ class CreateForm extends Component {
 
     handleErrors = errors => {
         for (let err in errors) {
-            this.setState({ [`${err}Err`]: errors[err] })
+            this.setState({ [`${err}Err`]: errors[err] });
         }
+
+        // focus on erroneous input
+        if (errors.name) {
+            this.nameRef.current.focus();
+        } else if (errors.projectUrl) {
+            this.projectUrlRef.current.focus();
+            this.projectUrlRef.current.select();
+        } else if (errors.overview) {
+            this.overviewRef.current.focus();
+        } else if (errors.questions) {
+            const errIndex = errors.questions.findIndex(err => err !== '');
+            this.questionRefs[errIndex].current.focus();
+        } else if (errors.general) {
+            this.nameRef.current.focus();
+        }
+
         this.setState({ isSubmitting: false });
     }
 
@@ -187,7 +218,7 @@ class CreateForm extends Component {
         }
 
         const questionList = this.state.questions.map((question, index) => (
-            <Question order={index} key={index} value={question} setQuestionText={this.setQuestionText} deleteQuestion={this.deleteQuestion} error={this.state.questionsErr[index]} />
+            <Question order={index} key={index} value={question} setQuestionText={this.setQuestionText} deleteQuestion={this.deleteQuestion} error={this.state.questionsErr[index]} qRef={this.questionRefs[index]} />
         ));
 
         const maxedQuestions = this.state.questions.length < 5;
@@ -212,13 +243,13 @@ class CreateForm extends Component {
                 <form className={styles.createForm} onSubmit={this.handleFormSubmit}>
                     <div className={styles.inputWrapper}>
                         <label htmlFor="name">Form Name: </label>
-                        <input id="name" name="name" type="text" value={this.state.name} onChange={this.handleChange} />
+                        <input id="name" name="name" type="text" value={this.state.name} onChange={this.handleChange} ref={this.nameRef} />
                     </div>
-                    <Error message={this.state.nameErr} errStyle="center" />
+                    <Error message={this.state.nameErr} />
 
                     <div className={styles.inputWrapper}>
                         <label htmlFor="projectUrl">Project URL: </label>
-                        <input id="projectUrl" name="projectUrl" type="text" value={this.state.projectUrl} onChange={this.handleChange} />
+                        <input id="projectUrl" name="projectUrl" type="text" value={this.state.projectUrl} onChange={this.handleChange} ref={this.projectUrlRef} />
                     </div>
                     <Error message={this.state.projectUrlErr} />
 
@@ -228,7 +259,7 @@ class CreateForm extends Component {
                         <label className={styles.blockLabel} htmlFor="overview">
                             Provide guidance or helpful information for your reviewers:
                         </label>
-                        <textarea className={styles.textArea} id="overview" name="overview" rows={4} value={this.state.overview} onChange={this.handleChange} />
+                        <textarea className={styles.textArea} id="overview" name="overview" rows={4} value={this.state.overview} onChange={this.handleChange} ref={this.overviewRef} />
                         <Error message={this.state.overviewErr} />
                     </fieldset>
 
