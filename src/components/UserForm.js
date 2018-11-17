@@ -77,14 +77,18 @@ export class UserForm extends Component {
             this.setState({ [`${err}Err`]: errors[err] })
         }
 
-        // focus on erroneous input
+        // focus on and highlight erroneous input
         if (errors.username) {
+            this.usernameRef.current.focus();
             this.usernameRef.current.select();
         } else if (errors.password) {
+            this.passwordRef.current.focus();
             this.passwordRef.current.select();
         } else if (errors.rePassword) {
+            this.rePasswordRef.current.focus();
             this.rePasswordRef.current.select();
         } else if (errors.general) {
+            this.usernameRef.current.focus();
             this.usernameRef.current.select();
         }
 
