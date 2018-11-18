@@ -25,10 +25,19 @@ class FeedbackForm extends Component {
             isSubmitting: false,
             submitSuccess: false
         };
+        this.reviewerNameRef = React.createRef();
     }
 
     componentDidMount = () => {
-        this.getForm();
+        return this.getForm()
+            .then(() => {
+                // focus on first field of form
+                if (!this.props.reviewerId) {
+                    this.reviewerNameRef.current.focus();
+                } else {
+                    this.responseRefs[0].current.focus();
+                }
+            });
     }
 
     getForm = () => {
@@ -52,7 +61,7 @@ class FeedbackForm extends Component {
             }
         });
 
-        fetchFormPromise
+        return fetchFormPromise
             .then(res => {
                 if (!res.ok) {
                     // check if error is custom JSON error
@@ -99,6 +108,12 @@ class FeedbackForm extends Component {
                             const mostRecentVersion = versionsWithDateObj.sort((a, b) => {
                                 return b.dateObj - a.dateObj;
                             })[0];
+
+                            // create refs for the response input for each question
+                            this.responseRefs = mostRecentVersion.questions.map(() => {
+                                return React.createRef();
+                            });
+
                             this.setState({
                                 version: mostRecentVersion,
                                 responses: new Array(mostRecentVersion.questions.length).fill(''),
@@ -158,6 +173,13 @@ class FeedbackForm extends Component {
         for (let err in errors) {
             this.setState({ [`${err}Err`]: errors[err] })
         }
+
+        // focus on erroneous input
+        if (errors.response) {
+            const errIndex = errors.response.findIndex(err => err !== '');
+            this.responseRefs[errIndex].current.focus();
+        }
+
         this.setState({ isSubmitting: false });
     }
 
@@ -222,7 +244,6 @@ class FeedbackForm extends Component {
     }
 
     render() {
-
         if (this.state.submitSuccess) {
             return <Redirect to="/main/dashboard" />
         }
@@ -237,7 +258,7 @@ class FeedbackForm extends Component {
                 <div>
                     <div className={styles.inputWrapper}>
                         <label htmlFor="reviewerName">{"Your Name (optional): "}</label>
-                        <input id="reviewerName" name="reviewerName" type="text" value={this.state.reviewerName} onChange={this.handleChange} />
+                        <input id="reviewerName" name="reviewerName" type="text" value={this.state.reviewerName} onChange={this.handleChange} ref={this.reviewerNameRef} />
                     </div>
                     <Error message={this.state.reviewerNameErr} />
                 </div>
@@ -252,7 +273,7 @@ class FeedbackForm extends Component {
                     <label htmlFor={`question${index + 1}`}>
                         <p>{question}</p>
                     </label>
-                    <textarea className={styles.textArea} id={index} name={`question${index + 1}`} rows={4} value={this.state.responses[index]} onChange={this.setResponseText}></textarea>
+                    <textarea className={styles.textArea} id={index} name={`question${index + 1}`} rows={4} value={this.state.responses[index]} onChange={this.setResponseText} ref={this.responseRefs[index]}></textarea>
                     <Error message={this.state.responseErr[index]} />
                 </fieldset >
             ));
