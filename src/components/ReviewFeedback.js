@@ -11,7 +11,7 @@ import TableRow from './TableRow';
 import ExternalLinkBtn from './ExternalLinkBtn';
 import ViewFeedback from './ViewFeedback';
 
-class ReviewFeedback extends Component {
+export class ReviewFeedback extends Component {
     constructor(props) {
         super(props);
         this.state = {

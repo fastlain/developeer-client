@@ -8,7 +8,7 @@ import { showPopup, changeRequests } from '../actions';
 import Button from './Button';
 import { CLIENT_ORIGIN } from '../config';
 
-class FormSummary extends Component {
+export class FormSummary extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,14 +27,14 @@ class FormSummary extends Component {
     // decrease pending requests for this form
     decRequest = () => {
         if (this.props.requests > 0) {
-            this.dispatch(changeRequests(this.props.id, -1));
+            this.props.dispatch(changeRequests(this.props.id, -1));
         }
     }
 
     // increase pending requests for this form (if user has available credits)
     incRequest = () => {
         if (this.props.credit > 0) {
-            this.dispatch(changeRequests(this.props.id, 1));
+            this.props.dispatch(changeRequests(this.props.id, 1));
         } else {
             this.setState({ showWarning: true });
         }

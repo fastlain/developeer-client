@@ -17,7 +17,7 @@ import Footer from './Footer';
 import ExternalFeedback from './ExternalFeedback';
 import Popup from './Popup';
 
-class MainLayout extends Component {
+export class MainLayout extends Component {
 
     componentDidUpdate = (prevProps) => {
         // start/stop periodic authentication refresh if user logs in or logs out
