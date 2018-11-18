@@ -231,6 +231,12 @@ export class CreateForm extends Component {
     }
 
     submitToServer = () => {
+
+        if (this.props.username === 'DemoAccount') {
+            this.handleErrors({ general: 'Sorry, Demo Account cannot create or edit forms' });
+            return;
+        }
+
         const form = {
             name: this.state.name,
             projectUrl: this.state.projectUrl,
@@ -371,7 +377,8 @@ export class CreateForm extends Component {
 }
 
 const mapStateToProps = state => ({
-    authToken: state.authToken
+    authToken: state.authToken,
+    username: state.user.username
 })
 
 export default requiresLogin()(connect(mapStateToProps)(CreateForm));

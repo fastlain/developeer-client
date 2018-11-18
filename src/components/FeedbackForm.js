@@ -184,6 +184,19 @@ export class FeedbackForm extends Component {
     }
 
     submitToServer = () => {
+        // Block DemoAccount from submitting feedback
+        if (this.props.username === 'DemoAccount') {
+            this.handleErrors({ general: 'Sorry, Demo Account cannot submit feedback' });
+            return;
+        }
+
+        // Block sumitting feedback on forms created by DemoAccount
+        if (this.state.form.authorName === 'DemoAccount') {
+            this.handleErrors({ general: 'Sorry, cannot submit feedback on demo forms' });
+            return;
+        }
+
+
         let reviewer;
         if (!this.props.reviewerId) {
             // if external reviewer, get name from input or set as 'anonymous
@@ -307,7 +320,8 @@ const mapStateToProps = state => {
     if (state.user) {
         return ({
             authToken: state.authToken,
-            reviewerId: state.user.id
+            reviewerId: state.user.id,
+            username: state.user.username
         });
     } else {
         return {};

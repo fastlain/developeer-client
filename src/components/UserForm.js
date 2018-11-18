@@ -128,12 +128,22 @@ export class UserForm extends Component {
         return errors;
     }
 
+    loginDemo = () => {
+        this.loginLocal({
+            username: 'DemoAccount',
+            password: 'DemoAccount'
+        });
+        if (this.state.isSubmitting) { return }
+        this.setState({ isSubmitting: true });
+    }
+
     submitToServer = () => {
         const formType = this.props.match.params.type;
         const user = {
             username: this.state.username,
             password: this.state.password
         }
+        console.log(user);
         if (formType === 'create') {
             // if creating new account, send POST /users
             fetch(`${API_BASE_URL}/users`, {
@@ -223,6 +233,16 @@ export class UserForm extends Component {
         // style button based on isSubmitting state
         const isDisabled = this.state.isSubmitting ? 'disabled' : '';
 
+        // demo account information
+        const demoInformation = isCreate ? null :
+            (
+                <div className={styles.demoWrapper}>
+                    <Button type="button" btnStyle={`center roomyTopBot ${isDisabled} outline`} onClick={this.loginDemo}>
+                        DEMO ACCOUNT
+                    </Button>
+                </div>
+            );
+
         return (
             <form className={styles.userForm} onSubmit={this.handleFormSubmit}>
                 <fieldset>
@@ -246,6 +266,7 @@ export class UserForm extends Component {
                         {submitButtonText}
                     </Button>
                     <Error message={this.state.generalErr} errStyle="center" />
+                    {demoInformation}
                 </fieldset>
 
                 <div className={styles.toggleWrapper}>
