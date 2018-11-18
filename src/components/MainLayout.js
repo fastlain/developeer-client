@@ -66,6 +66,7 @@ export class MainLayout extends Component {
                     <Route exact path="/main/givefeedback" component={GiveFeedback} />
                     <Route path="/main/reviewfeedback/:id" component={ReviewFeedback} />
                     <Route exact path="/main/createform" component={CreateForm} />
+                    <Route exact path="/main/editForm/:id" component={CreateForm} />
                     <Route path="/main/feedback/:id" component={ExternalFeedback} />
                 </main>
                 <Footer />

@@ -26,6 +26,7 @@ export class CreateForm extends Component {
             questions: ['', '', ''],
             questionsErr: [],
             generalErr: '',
+            getFormErr: '',
 
             isSubmitting: false,
             submitSuccess: false
@@ -39,10 +40,71 @@ export class CreateForm extends Component {
     }
 
     componentDidMount() {
+        // get form if in editting mode
+        if (this.props.match.path.includes('editForm')) {
+            this.getForm();
+        }
+
         // focus on name input when component mounts
         if (this.nameRef.current) {
             this.nameRef.current.focus({ preventScroll: true });
         }
+    }
+
+    getForm = () => {
+        const formId = this.props.match.params.id;
+        return fetch(`${API_BASE_URL}/forms/${formId}`, {
+            method: 'GET'
+        })
+            .then(res => {
+                if (!res.ok) {
+                    // check if error is custom JSON error
+                    if (
+                        res.headers.has('content-type') &&
+                        res.headers.get('content-type').startsWith('application/json')
+                    ) {
+                        // display custom server-side errors
+                        return res.json()
+                            .then(err => {
+                                this.setState({ getForm: err.message });
+                            });
+                    } else {
+                        // display Express-generated error
+                        this.handleErrors({ getForm: res.statusText });
+                    }
+                } else {
+                    return res.json()
+                        .then(({ form }) => {
+
+                            const versions = form.versions;
+                            // sort form versions by date
+                            const versionsWithDateObj = versions.map(version => {
+                                // convert date strings to Date objects
+                                version.dateObj = new Date(version.date);
+                                return version;
+                            });
+                            // get most recent form version
+                            const mostRecentVersion = versionsWithDateObj.sort((a, b) => {
+                                return b.dateObj - a.dateObj;
+                            })[0];
+                            const questions = mostRecentVersion.questions;
+
+                            this.setState({
+                                name: form.name,
+                                projectUrl: form.projectUrl,
+                                overview: form.overview,
+                                questions
+                            });
+
+                            // // create refs for the response input for each question
+                            // this.responseRefs = mostRecentVersion.questions.map(() => {
+                            //     return React.createRef();
+                            // });
+                        })
+                        .catch(err => console.error(err));
+                }
+            })
+            .catch(err => console.error(err));
     }
 
     // set form input changes (except questions) to state
@@ -115,8 +177,6 @@ export class CreateForm extends Component {
         } else if (errors.questions) {
             const errIndex = errors.questions.findIndex(err => err !== '');
             this.questionRefs[errIndex].current.focus();
-        } else if (errors.general) {
-            this.nameRef.current.focus();
         }
 
         this.setState({ isSubmitting: false });
@@ -149,6 +209,11 @@ export class CreateForm extends Component {
             errors.overview = 'Reviewer Instructions are required';
         }
 
+        // validate that there is at least one question
+        if (this.state.questions.length < 1) {
+            errors.general = 'A form must have at least one question';
+        }
+
         // validate questions
         let foundQuestionError = false;
         const questionsErr = this.state.questions.map(question => {
@@ -173,8 +238,12 @@ export class CreateForm extends Component {
             questions: this.state.questions
         };
 
-        return fetch(`${API_BASE_URL}/forms`, {
-            method: 'POST',
+        const isNewForm = !this.props.match.path.includes('editForm');
+        const method = isNewForm ? 'POST' : 'PATCH';
+        const path = isNewForm ? `${API_BASE_URL}/forms` : `${API_BASE_URL}/forms/${this.props.match.params.id}`
+
+        return fetch(path, {
+            method,
             headers: {
                 'content-type': 'application/json',
                 Authorization: `Bearer ${this.props.authToken}`
@@ -191,7 +260,11 @@ export class CreateForm extends Component {
                         // display custom server-side errors
                         return res.json()
                             .then(err => {
-                                this.handleErrors({ [err.location]: err.message });
+                                if (err.location) {
+                                    this.handleErrors({ [err.location]: err.message });
+                                } else {
+                                    this.handleErrors({ general: err.message });
+                                }
                             });
                     } else {
                         // display Express-generated error
@@ -202,7 +275,9 @@ export class CreateForm extends Component {
                         .then(user => {
                             this.props.dispatch(setUser(user));
                             this.setState({ submitSuccess: true })
-                            this.props.dispatch(showPopup('Form created successfully'));
+                            const popupMessage = isNewForm ? 'Form created successfully' :
+                                'Form updated successfully';
+                            this.props.dispatch(showPopup(popupMessage));
                         });
                 }
             })
@@ -212,10 +287,23 @@ export class CreateForm extends Component {
     }
 
     render() {
+        if (this.state.getFormErr.length > 0) {
+            return <Error message={this.state.getFormError} />
+        }
 
+        // redirect on successful submission
         if (this.state.submitSuccess) {
             return <Redirect to="/main/dashboard" />
         }
+
+        // set page title based on whether createing or editing form
+        const pageTitle = this.props.match.path.includes('editForm') ?
+            'Edit Form' : 'Create a New Form';
+
+        // set submit button text based on whether createing or editing form
+        const submitText = this.props.match.path.includes('editForm') ?
+            'SAVE CHANGES' : 'CREATE FORM';
+
 
         const questionList = this.state.questions.map((question, index) => (
             <Question order={index} key={index} value={question} setQuestionText={this.setQuestionText} deleteQuestion={this.deleteQuestion} error={this.state.questionsErr[index]} qRef={this.questionRefs[index]} />
@@ -237,7 +325,7 @@ export class CreateForm extends Component {
                 <Link to="/main/dashboard" className="Link btnStyle roomy">
                     <FontAwesomeIcon icon="long-arrow-alt-left" size="lg" /> DASHBOARD
                 </Link>
-                <PageTitle>Create a New Form</PageTitle>
+                <PageTitle>{pageTitle}</PageTitle>
                 <Instructions list={instructionList} />
 
                 <form className={styles.createForm} onSubmit={this.handleFormSubmit}>
@@ -273,8 +361,8 @@ export class CreateForm extends Component {
                         <p className={warnClass}>5 questions maximum</p>
                     </div>
 
-                    <Button btnStyle="roomyTopBot block center" type="submit">SUBMIT FORM</Button>
-                    <Error message={this.state.generalErr} />
+                    <Button btnStyle="roomyTopBot block center" type="submit">{submitText}</Button>
+                    <Error message={this.state.generalErr} errStyle="center" />
 
                 </form>
             </div>

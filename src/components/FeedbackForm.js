@@ -52,10 +52,7 @@ export class FeedbackForm extends Component {
             } else {
                 // fetch a random form with pending requests
                 fetch(`${API_BASE_URL}/forms/toReview`, {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${this.props.authToken}`
-                    }
+                    method: 'GET'
                 })
                     .then(res => resolve(res));
             }

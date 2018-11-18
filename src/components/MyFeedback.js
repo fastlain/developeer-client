@@ -22,7 +22,7 @@ export class MyFeedback extends Component {
 
         return (
             <div className={styles.wrapper}>
-                <h2>My Feedback</h2>
+                <h2>Forms and Feedback</h2>
                 <Instructions list={instructionList} />
                 {summaries}
                 <Link to="/main/createform" className="Link btnStyle roomy">CREATE NEW FORM</Link>

@@ -44,6 +44,12 @@ body {
     margin-bottom: 0.75rem;
 }
 
+.Link.topRight {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
 /* <FontAwesomeIcon> */
 
 .FA.right {

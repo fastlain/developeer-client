@@ -19,6 +19,7 @@
 
 .details {
     background: lightsalmon;
+    position: relative;
 }
 
 .detailsHidden {

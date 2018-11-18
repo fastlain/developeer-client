@@ -70,15 +70,6 @@
     margin-left: auto;
 }
 
-.edit {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: 1rem 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
 .block {
     display: block;
 }

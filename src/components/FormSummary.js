@@ -60,7 +60,7 @@ export class FormSummary extends Component {
         const inputWidth = shareableUrl.length - 5;
         const showDetails = this.state.expanded ? styles.details : styles.detailsHidden;
         const iconType = this.state.expanded ? 'minus' : 'plus';
-        // TODO: Add edit button functionality
+
         return (
             <div className={styles.formContainer}>
 
@@ -69,15 +69,18 @@ export class FormSummary extends Component {
                         <h3 className={styles.formName} >{this.props.name}</h3>
                         <FontAwesomeIcon icon={iconType} className="FA right" />
                     </Button>
-
-                    {/* <Button type="button" btnStyle="edit">Edit</Button> */}
                 </div>
 
                 <div className={showDetails}>
+                    <Link to={`/main/editForm/${this.props.id}`} className="Link btnStyle topRight">
+                        <FontAwesomeIcon icon="edit" className="FA marginRt" />
+                        EDIT
+                    </Link>
                     <div className={styles.pendingRequests}>
                         <span>Pending Requests:</span>
                         <div className={styles.requestButtonWrapper}>
-                            <Button type="button" btnStyle={`square ${removeBtnClass}`} onClick={this.decRequest}><FontAwesomeIcon icon="minus" fixedWidth />
+                            <Button type="button" btnStyle={`square ${removeBtnClass}`} onClick={this.decRequest}>
+                                <FontAwesomeIcon icon="minus" fixedWidth />
                             </Button>
                             <span className={styles.credits}>{this.props.requests}</span>
                             <Button type="button" btnStyle="square" onClick={this.incRequest}>
