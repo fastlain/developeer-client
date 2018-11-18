@@ -9,7 +9,7 @@ import Button from './Button';
 import ExternalLinkBtn from './ExternalLinkBtn';
 import Error from './Error';
 
-class FeedbackForm extends Component {
+export class FeedbackForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
