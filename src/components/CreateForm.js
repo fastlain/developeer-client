@@ -13,7 +13,7 @@ import Question from './Question';
 import Instructions from './Instructions';
 import Error from './Error';
 
-class CreateForm extends Component {
+export class CreateForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -173,7 +173,7 @@ class CreateForm extends Component {
             questions: this.state.questions
         };
 
-        fetch(`${API_BASE_URL}/forms`, {
+        return fetch(`${API_BASE_URL}/forms`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

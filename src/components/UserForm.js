@@ -35,8 +35,9 @@ export class UserForm extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        // focus on username input after toggling Log In and Create Account forms
+        // focus on and select username input after toggling Log In and Create Account forms
         if (this.props.match.params.type !== prevProps.match.params.type) {
+            this.usernameRef.current.focus();
             this.usernameRef.current.select();
         }
     }
