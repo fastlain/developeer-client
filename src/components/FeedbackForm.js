@@ -46,13 +46,16 @@ export class FeedbackForm extends Component {
             if (!this.props.isInternalReview) {
                 // fetch form for an external review of a specified form
                 fetch(`${API_BASE_URL}/forms/${this.props.match.params.id}`, {
-                    method: 'GET',
+                    method: 'GET'
                 })
                     .then(res => resolve(res));
             } else {
                 // fetch a random form with pending requests
                 fetch(`${API_BASE_URL}/forms/toReview`, {
-                    method: 'GET'
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${this.props.authToken}`
+                    }
                 })
                     .then(res => resolve(res));
             }
