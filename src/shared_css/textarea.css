@@ -1,0 +1,8 @@
+.textarea {
+    composes: body from '../shared_css/fonts.css';
+    width: 90%;
+    display: block;
+    margin: 10px auto;
+    resize: vertical;
+    padding: 0.5rem;
+}

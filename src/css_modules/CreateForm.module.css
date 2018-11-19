@@ -34,11 +34,7 @@
 }
 
 .textArea {
-    composes: body from '../shared_css/fonts.css';
-    width: 90%;
-    display: block;
-    margin: 10px auto;
-    resize: vertical;
+    composes: textarea from '../shared_css/textarea.css';
 }
 
 .blockLabel {
