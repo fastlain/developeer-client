@@ -40,7 +40,7 @@ describe('<UserForm />', () => {
     it('Renders `Log In` components when matching route param', () => {
         const wrapper = mountWithRouter(<UserForm match={matchLogin} />);
         expect(wrapper.find('legend').text()).toEqual('Log In');
-        expect(wrapper.find('Button').html()).toMatch('LOG IN');
+        expect(wrapper.find('Button').at(0).html()).toMatch('LOG IN');
         expect(wrapper.find('.hide')).toHaveLength(1);
         expect(wrapper.find('.toggleWrapper').children('p').text()).toEqual('New to Developeer?');
     });
@@ -48,7 +48,7 @@ describe('<UserForm />', () => {
     it('Renders disabled button if submitting', () => {
         const wrapper = mountWithRouter(<UserForm match={matchLogin} />);
         wrapper.setState({ isSubmitting: true });
-        expect(wrapper.find('Button', { type: 'submit' }).hasClass('disabled'));
+        expect(wrapper.find('Button').at(0).hasClass('disabled'));
     });
 
     it('Creates error messages if blank form is submitted', () => {
