@@ -18,7 +18,7 @@ body {
 .Link.btnStyle {
     display: inline-block;
     text-decoration: none;
-    font-family: Arial;
+    font-family: 'Nunito', sans-serif;
     background: darkslategray;
     color: white;
     padding: 8px 12px;

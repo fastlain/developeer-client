@@ -272,7 +272,7 @@ export class FeedbackForm extends Component {
                 <div>
                     <div className={styles.inputWrapper}>
                         <label htmlFor="reviewerName">{"Your Name (optional): "}</label>
-                        <input id="reviewerName" name="reviewerName" type="text" value={this.state.reviewerName} onChange={this.handleChange} ref={this.reviewerNameRef} />
+                        <input id="reviewerName" className={styles.input} name="reviewerName" type="text" value={this.state.reviewerName} onChange={this.handleChange} ref={this.reviewerNameRef} />
                     </div>
                     <Error message={this.state.reviewerNameErr} />
                 </div>
@@ -296,10 +296,10 @@ export class FeedbackForm extends Component {
         if (this.state.form) {
             return (
                 <form className={styles.form} >
-                    <h3>Project: <span className={styles.innerHeading}>{this.state.form.name}</span></h3>
-                    <h3>Author: <span className={styles.innerHeading}>{this.state.form.authorName}</span></h3>
+                    <h3 className={styles.heading}>Project: <span className={styles.innerHeading}>{this.state.form.name}</span></h3>
+                    <h3 className={styles.heading}>Author: <span className={styles.innerHeading}>{this.state.form.authorName}</span></h3>
                     <div className={styles.overview}>
-                        <h3>Reivewer Instructions:</h3>
+                        <h3 className={styles.heading}>Reivewer Instructions:</h3>
                         <p className={styles.overviewContent}>{this.state.form.overview}</p>
                     </div>
                     <ExternalLinkBtn href={this.state.form.projectUrl}>

@@ -23,7 +23,7 @@ const Features = () => {
 
     const features = featureData.map((feature, i) => (
         <div className={styles.feature} key={i}>
-            <h2>{feature.name}</h2>
+            <h2 className={styles.featureName}>{feature.name}</h2>
             <p>{feature.content}</p>
             <img src={feature.screenshot} alt="feature screenshot" />
         </div>

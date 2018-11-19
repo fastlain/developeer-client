@@ -1,7 +1,12 @@
 .heroBanner {
+    composes: body from '../shared_css/fonts.css';
     background: lightgrey;
     text-align: center;
     flex-shrink: 0;
     padding: 50px;
     width: 100%;
+}
+
+.siteTitle {
+    composes: display from '../shared_css/fonts.css';
 }

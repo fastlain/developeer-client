@@ -1,4 +1,5 @@
 .footer {
+    composes: body from '../shared_css/fonts.css';
     background: lightgrey;
     text-align: center;
     flex-shrink: 0;

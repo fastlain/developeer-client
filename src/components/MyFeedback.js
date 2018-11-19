@@ -17,12 +17,12 @@ export class MyFeedback extends Component {
         const instructionList = [
             'Review feedback forms or create new ones',
             'Spend Credits to request feedback from other Developeer users',
-            'Share a direct review link outside this site - no credits needed!'
+            'Share a direct review link outside this site—no credits needed!'
         ];
 
         return (
             <div className={styles.wrapper}>
-                <h2>Forms and Feedback</h2>
+                <h2 className={styles.heading}>Forms and Feedback</h2>
                 <Instructions list={instructionList} />
                 {summaries}
                 <Link to="/main/createform" className="Link btnStyle roomy">CREATE NEW FORM</Link>

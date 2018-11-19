@@ -1,4 +1,5 @@
 .createForm {
+    composes: body from '../shared_css/fonts.css';
     width: 80%;
     max-width: 600px;
     margin: 30px auto;
@@ -28,7 +29,13 @@
     margin: 20px auto;
 }
 
+.input {
+    composes: body from '../shared_css/fonts.css';
+    padding: 0.15rem;
+}
+
 .textArea {
+    composes: body from '../shared_css/fonts.css';
     width: 90%;
     display: block;
     margin: 10px auto;

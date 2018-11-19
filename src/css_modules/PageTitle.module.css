@@ -1,3 +1,4 @@
 .pageTitle {
+    composes: heading from '../shared_css/fonts.css';
     text-align: center;
 }

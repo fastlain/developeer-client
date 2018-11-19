@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const HeroBanner = () => {
     return (
         <header role="banner" className={styles.heroBanner}>
-            <h1>Developeer</h1>
-            <p>Give Feedback <FontAwesomeIcon icon="arrows-alt-h" size="lg" style={{ verticalAlign: "-0.4rem" }} /> Receive Feedback</p>
+            <h1 className={styles.siteTitle}>Developeer</h1>
+            <p>Give&nbsp;Feedback&nbsp;<FontAwesomeIcon icon="arrows-alt-h" size="lg" style={{ verticalAlign: "-0.4rem" }} /> Receive&nbsp;Feedback</p>
         </header>
     );
 }

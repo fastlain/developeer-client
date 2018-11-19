@@ -1,4 +1,5 @@
 .topBar {
+    composes: body from '../shared_css/fonts.css';
     background: lightgrey;
     width: 100%;
     flex-shrink: 0;
@@ -15,10 +16,16 @@
 }
 
 .appTitle {
+    composes: display from '../shared_css/fonts.css';
     font-weight: bold;
 }
 
 .username {
     font-style: italic;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+}
+
+.logName {
+    display: flex;
+    align-items: center;
 }

@@ -1,4 +1,5 @@
 .form {
+    composes: body from '../shared_css/fonts.css';
     text-align: center;
     width: 80%;
     max-width: 600px;
@@ -10,8 +11,17 @@
     text-align: left;
 }
 
+.input {
+    composes: body from '../shared_css/fonts.css';
+}
+
+.heading {
+    composes: heading from '../shared_css/fonts.css';
+}
+
 .innerHeading {
     font-weight: 400;
+    composes: body from '../shared_css/fonts.css';
 }
 
 .overview {
@@ -30,8 +40,10 @@
 }
 
 .textArea {
+    composes: body from '../shared_css/fonts.css';
     width: 90%;
     display: block;
     margin: 10px auto;
     resize: vertical;
+    padding: 0.25rem;
 }

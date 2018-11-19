@@ -11,7 +11,7 @@ class Question extends Component {
                 <legend>Question {this.props.order + 1}:</legend>
                 <label className={styles.blockLabel} htmlFor={`question${this.props.order}`}>
                     Write your question here:
-        </label>
+                 </label>
                 <textarea id={`question${this.props.order}`} className={styles.textArea} name={`question${this.props.order}`} rows={4} value={this.props.value} onChange={(e) => this.props.setQuestionText(e.target.value, this.props.order)} ref={this.props.qRef} />
                 <Error message={this.props.error} />
                 <Button btnStyle="right" type="button" onClick={() => this.props.deleteQuestion(this.props.order)}>

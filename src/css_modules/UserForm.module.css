@@ -1,22 +1,37 @@
 .userForm {
-    margin: 30px auto;
+    composes: body from '../shared_css/fonts.css';
+    margin: 2rem auto;
     width: 90%;
     max-width: 300px;
 }
 
+.legend{
+    composes: heading from '../shared_css/fonts.css';
+    text-align: center;
+}
+
 .inputWrapper {
-    margin: 0 0 10px;
+    margin: 10px auto 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 225px;
+}
+
+.input {
+    composes: body from '../shared_css/fonts.css';
+    padding: 0.25rem;
 }
 
 .toggleWrapper {
-    margin: 10px auto;
+    margin: 1rem auto;
     width: 75%;
     border-top: 1px solid black;
     text-align: center;
 }
 
-.block {
+.label {
     display: block;
+    padding: 0.15rem 0;
 }
 
 .hide {

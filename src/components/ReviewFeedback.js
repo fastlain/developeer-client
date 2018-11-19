@@ -84,7 +84,7 @@ export class ReviewFeedback extends Component {
         const tableHeadings = ['', 'Reviewer', 'Date'];
 
         return (
-            <div>
+            <div className={styles.reviewFeedback}>
                 <Link to="/main/dashboard" className="Link btnStyle roomy">
                     <FontAwesomeIcon icon="long-arrow-alt-left" size="lg" /> DASHBOARD
                 </Link>

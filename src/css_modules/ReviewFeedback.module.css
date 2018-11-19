@@ -1,9 +1,13 @@
+.reviewFeedback {
+    composes: body from '../shared_css/fonts.css';
+}
+
 .center {
     text-align: center;
 }
 
 .formName {
-    composes: center; 
+    composes: center;
     font-size: 1.25rem;
     margin: 0.5rem auto;
 }

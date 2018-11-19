@@ -4,7 +4,7 @@ import styles from '../css_modules/Credits.module.css';
 
 const Credits = ({ credits }) => (
     <section className={styles.creditsWrapper}>
-        <h2>Credits</h2>
+        <h2 className={styles.heading}>Credits</h2>
         <p>You currently have <span className={styles.credits}>{credits}</span> credits.</p>
         <p>Earn more by providing peer feedback:</p>
         <Link to="/main/givefeedback" className="Link btnStyle roomy">

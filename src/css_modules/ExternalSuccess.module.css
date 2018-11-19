@@ -1,9 +1,10 @@
 .success {
+    composes: body from '../shared_css/fonts.css';
     text-align: center;
 }
 
 .heading {
-
+    composes: heading from '../shared_css/fonts.css';
 }
 
 .para {

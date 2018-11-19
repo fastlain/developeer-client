@@ -1,9 +1,14 @@
 .creditsWrapper {
+    composes: body from '../shared_css/fonts.css';
     text-align: center;
     padding: 1px 0 10px;
     background: lightgrey;
     max-width: 400px;
     margin: 0 auto;
+}
+
+.heading {
+    composes: heading from '../shared_css/fonts.css';
 }
 
 .credits {

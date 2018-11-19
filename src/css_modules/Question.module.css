@@ -3,6 +3,7 @@
 }
 
 .textArea {
+    composes: body from '../shared_css/fonts.css';
     width: 90%;
     display: block;
     margin: 10px auto;

@@ -1,10 +1,12 @@
 .instructions {
+    composes: body from '../shared_css/fonts.css';
     width: 90%;
     text-align: center;
     margin: 0.5rem auto;
 }
 
 .heading {
+    composes: heading from '../shared_css/fonts.css';
     margin: 0.5rem auto;
     text-align: center;
 }

@@ -15,7 +15,7 @@ const Header = (props) => {
         <header role="banner" className={styles.topBar}>
             <div className={styles.wrapper}>
                 <div className={styles.appTitle}>Developeer</div>
-                <div>
+                <div className={styles.logName}>
                     {username}
                     {logOutBtn}
                 </div>

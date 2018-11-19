@@ -227,7 +227,7 @@ export class UserForm extends Component {
         const toggleButtonText = isCreate ? 'LOG IN' : 'CREATE ACCOUNT';
         const toggleRouteParam = isCreate ? 'login' : 'create';
         const toggleDescription = isCreate ? 'Already have an account?' : 'New to Developeer?';
-        const hideReEnterPass = isCreate ? styles.block : styles.hide;
+        const hideReEnterPass = isCreate ? null : styles.hide;
 
         // style button based on isSubmitting state
         const isDisabled = this.state.isSubmitting ? 'disabled' : '';
@@ -245,20 +245,20 @@ export class UserForm extends Component {
         return (
             <form className={styles.userForm} onSubmit={this.handleFormSubmit}>
                 <fieldset>
-                    <legend>{legendText}</legend>
+                    <legend className={styles.legend}>{legendText}</legend>
                     <div className={styles.inputWrapper}>
-                        <label className={styles.block} htmlFor="username">Username: </label>
-                        <input id="username" name="username" type="text" value={this.state.username} onChange={this.handleChange} ref={this.usernameRef} />
+                        <label className={styles.label} htmlFor="username">Username: </label>
+                        <input id="username" className={styles.input} name="username" type="text" value={this.state.username} onChange={this.handleChange} ref={this.usernameRef} />
                         <Error message={this.state.usernameErr} />
                     </div>
                     <div className={styles.inputWrapper}>
-                        <label className={styles.block} htmlFor="password">Password: </label>
-                        <input id="password" name="password" type="password" value={this.state.password} onChange={this.handleChange} ref={this.passwordRef} />
+                        <label className={styles.label} htmlFor="password">Password: </label>
+                        <input id="password" className={styles.input} name="password" type="password" value={this.state.password} onChange={this.handleChange} ref={this.passwordRef} />
                         <Error message={this.state.passwordErr} />
                     </div>
                     <div className={`${styles.inputWrapper} ${hideReEnterPass}`} >
-                        <label className={styles.block} htmlFor="rePassword">Confirm Password: </label>
-                        <input id="rePassword" name="rePassword" type="password" value={this.state.rePassword} onChange={this.handleChange} ref={this.rePasswordRef} />
+                        <label className={styles.label} htmlFor="rePassword">Confirm Password: </label>
+                        <input id="rePassword" className={styles.input} name="rePassword" type="password" value={this.state.rePassword} onChange={this.handleChange} ref={this.rePasswordRef} />
                         <Error message={this.state.rePasswordErr} />
                     </div>
                     <Button type="submit" btnStyle={`center roomyTopBot ${isDisabled}`}>

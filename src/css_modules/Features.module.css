@@ -1,8 +1,13 @@
 .feature {
+    composes: body from '../shared_css/fonts.css';
     text-align: center;
     margin: 20px auto;
     width: 90%;
     max-width: 400px;
     background: lightgrey;
     padding: 10px;
+}
+
+.featureName {
+    composes: heading from '../shared_css/fonts.css';
 }

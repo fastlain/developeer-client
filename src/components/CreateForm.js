@@ -337,13 +337,13 @@ export class CreateForm extends Component {
                 <form className={styles.createForm} onSubmit={this.handleFormSubmit}>
                     <div className={styles.inputWrapper}>
                         <label htmlFor="name">Form Name: </label>
-                        <input id="name" name="name" type="text" value={this.state.name} onChange={this.handleChange} ref={this.nameRef} />
+                        <input id="name" className={styles.input} name="name" type="text" value={this.state.name} onChange={this.handleChange} ref={this.nameRef} />
                     </div>
                     <Error message={this.state.nameErr} />
 
                     <div className={styles.inputWrapper}>
                         <label htmlFor="projectUrl">Project URL: </label>
-                        <input id="projectUrl" name="projectUrl" type="text" value={this.state.projectUrl} onChange={this.handleChange} ref={this.projectUrlRef} />
+                        <input id="projectUrl" className={styles.input} name="projectUrl" type="text" value={this.state.projectUrl} onChange={this.handleChange} ref={this.projectUrlRef} />
                     </div>
                     <Error message={this.state.projectUrlErr} />
 

@@ -1,4 +1,5 @@
 .formContainer {
+    composes: body from '../shared_css/fonts.css';
     background: lightgrey;
     margin: 1rem auto;
     width: 90%;
@@ -11,6 +12,7 @@
 }
 
 .formName {
+    composes: heading from '../shared_css/fonts.css';
     /* display: inline-block; */
     /* margin: 1rem 0; */
     /* padding: 0 1rem; */
@@ -61,6 +63,7 @@
 }
 
 .urlInput {
+    composes: body from '../shared_css/fonts.css';
     margin-bottom: 0.5rem;
     padding: 0.25rem;
     text-align: center;
