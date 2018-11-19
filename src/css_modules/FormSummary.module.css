@@ -63,9 +63,8 @@
 }
 
 .urlInput {
-    composes: body from '../shared_css/fonts.css';
+    composes: input from '../shared_css/input.css';
     margin-bottom: 0.5rem;
-    padding: 0.25rem;
     text-align: center;
 }
 

@@ -18,8 +18,7 @@
 }
 
 .input {
-    composes: body from '../shared_css/fonts.css';
-    padding: 0.25rem;
+    composes: input from '../shared_css/input.css';
 }
 
 .toggleWrapper {

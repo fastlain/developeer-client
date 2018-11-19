@@ -1,0 +1,4 @@
+.input {
+    composes: body from '../shared_css/fonts.css';
+    padding: 0.25rem;
+}

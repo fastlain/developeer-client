@@ -30,8 +30,7 @@
 }
 
 .input {
-    composes: body from '../shared_css/fonts.css';
-    padding: 0.15rem;
+    composes: input from '../shared_css/input.css';
 }
 
 .textArea {

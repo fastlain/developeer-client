@@ -12,7 +12,7 @@
 }
 
 .input {
-    composes: body from '../shared_css/fonts.css';
+    composes: input from '../shared_css/input.css';
 }
 
 .heading {
