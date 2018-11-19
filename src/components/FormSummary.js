@@ -56,7 +56,7 @@ export class FormSummary extends Component {
         const removeBtnActive = this.props.requests > 0;
         const removeBtnClass = removeBtnActive ? 'default' : 'disabled';
         const warnClass = (this.state.showWarning && this.props.credit === 0) ? styles.warning : styles.hideWarning;
-        const shareableUrl = `${CLIENT_ORIGIN}/main/feedback/${this.props.id}`;
+        const shareableUrl = `${CLIENT_ORIGIN}/#/main/feedback/${this.props.id}`;
         const inputWidth = shareableUrl.length - 5;
         const showDetails = this.state.expanded ? styles.details : styles.detailsHidden;
         const iconType = this.state.expanded ? 'minus' : 'plus';
