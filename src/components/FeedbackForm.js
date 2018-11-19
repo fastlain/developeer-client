@@ -34,10 +34,11 @@ export class FeedbackForm extends Component {
                 // focus on first field of form
                 if (!this.props.reviewerId) {
                     this.reviewerNameRef.current.focus();
-                } else {
+                } else if (this.responseRefs) {
                     this.responseRefs[0].current.focus();
                 }
-            });
+            })
+            .catch(err => console.error(err));
     }
 
     getForm = () => {
