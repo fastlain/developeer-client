@@ -143,7 +143,6 @@ export class UserForm extends Component {
             username: this.state.username,
             password: this.state.password
         }
-        console.log(user);
         if (formType === 'create') {
             // if creating new account, send POST /users
             fetch(`${API_BASE_URL}/users`, {
