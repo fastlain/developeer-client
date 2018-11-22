@@ -40,6 +40,8 @@ export class CreateForm extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
+
         // get form if in editting mode
         if (this.props.match.path.includes('editForm')) {
             this.getForm();

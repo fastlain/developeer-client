@@ -16,6 +16,10 @@ export class GiveFeedback extends Component {
         };
     }
 
+    componentDidMount = () => {
+        window.scrollTo(0, 0);
+    }
+
     startFeedback = () => {
         this.setState({ started: true });
     }

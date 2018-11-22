@@ -14,6 +14,10 @@ class ExternalFeedback extends Component {
         };
     }
 
+    componentDidMount = () => {
+        window.scrollTo(0, 0);
+    }
+
     extReviewSuccess = () => {
         this.setState({ success: true });
     }

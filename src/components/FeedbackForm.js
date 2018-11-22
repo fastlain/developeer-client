@@ -36,6 +36,7 @@ export class FeedbackForm extends Component {
                 // focus on first field of form
                 if (!this.props.reviewerId) {
                     this.reviewerNameRef.current.focus();
+                    window.scrollTo(0, 0);
                 } else if (this.responseRefs) {
                     this.responseRefs[0].current.focus();
                     window.scrollTo(0, 0);
