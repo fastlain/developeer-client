@@ -31,7 +31,6 @@ describe('<UserForm />', () => {
 
     it('Renders `Create Account` components when matching route param', () => {
         const wrapper = mountWithRouter(<UserForm match={matchCreate} />);
-        expect(wrapper.find('legend').text()).toEqual('Create Account');
         expect(wrapper.find('Button').html()).toMatch('CREATE ACCOUNT');
         expect(wrapper.find('.hide')).toHaveLength(0);
         expect(wrapper.find('.toggleWrapper').children('p').text()).toEqual('Already have an account?');
@@ -39,7 +38,6 @@ describe('<UserForm />', () => {
 
     it('Renders `Log In` components when matching route param', () => {
         const wrapper = mountWithRouter(<UserForm match={matchLogin} />);
-        expect(wrapper.find('legend').text()).toEqual('Log In');
         expect(wrapper.find('Button').at(0).html()).toMatch('LOG IN');
         expect(wrapper.find('.hide')).toHaveLength(1);
         expect(wrapper.find('.toggleWrapper').children('p').text()).toEqual('New to Developeer?');
@@ -55,8 +53,8 @@ describe('<UserForm />', () => {
         const wrapper = mountWithRouter(< UserForm match={matchCreate} />)
         wrapper.find(UserForm).instance().handleFormSubmit({ preventDefault: () => null });
         const state = wrapper.find(UserForm).state();
-        expect(state.usernameErr).toEqual('Must be between 1 and 20 characters');
-        expect(state.passwordErr).toEqual('Must be between 10 and 72 characters');
+        expect(state.usernameErr).toEqual('Must be at least 1 character');
+        expect(state.passwordErr).toEqual('Must be at least 10 characters');
     });
 
     it('Creates error messages if username has untrimmed whitespace', () => {

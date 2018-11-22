@@ -11,7 +11,7 @@ describe('<LandingPageContent />', () => {
     it('Renders Links and Features if not logged in', () => {
         const wrapper = shallow(<LandingPageContent isLoggedIn={false} />);
         expect(wrapper.find('Redirect')).toHaveLength(0);
-        expect(wrapper.find('Link')).toHaveLength(2);
+        expect(wrapper.find('StyledLink')).toHaveLength(2);
         expect(wrapper.find('Features')).toHaveLength(1);
     });
 

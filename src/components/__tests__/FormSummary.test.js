@@ -24,7 +24,7 @@ describe('<FormSummary />', () => {
         const dispatch = jest.fn();
         const wrapper = shallow(<FormSummary dispatch={dispatch} requests={5} />);
 
-        wrapper.find('[btnStyle="square default"]').simulate('click');
+        wrapper.find('[btnStyle="square default lt"]').simulate('click');
         expect(dispatch).toHaveBeenCalled();
     });
 
@@ -32,13 +32,13 @@ describe('<FormSummary />', () => {
         const dispatch = jest.fn();
         const wrapper = shallow(<FormSummary dispatch={dispatch} credit={5} />);
 
-        wrapper.find('[btnStyle="square"]').simulate('click');
+        wrapper.find('[btnStyle="square lt"]').simulate('click');
         expect(dispatch).toHaveBeenCalled();
     });
 
     it('Sets warning on clicking `-` button without credits', () => {
         const wrapper = shallow(<FormSummary credit={0} />);
-        wrapper.find('[btnStyle="square"]').simulate('click');
+        wrapper.find('[btnStyle="square lt"]').simulate('click');
         expect(wrapper.state().showWarning).toEqual(true);
     });
 
@@ -54,7 +54,7 @@ describe('<FormSummary />', () => {
 
         const wrapper = mountWithRouter(<FormSummary dispatch={dispatch} />);
 
-        wrapper.find('[btnStyle="roomySides"]').simulate('click');
+        wrapper.find('[btnStyle="text"]').simulate('click');
         expect(dispatch).toHaveBeenCalled();
         expect(global.document.execCommand).toHaveBeenCalled();
     });
