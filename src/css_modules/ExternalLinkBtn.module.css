@@ -3,3 +3,7 @@
     text-decoration: none;
     display: inline-block;
 }
+
+.buttonLink:focus {
+    box-shadow: 0 0 0 2px var(--c-secondary-dk);
+}
