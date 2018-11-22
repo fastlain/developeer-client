@@ -1,6 +1,7 @@
 .formContainer {
     composes: body from '../shared_css/fonts.css';
-    background: lightgrey;
+    composes: card from '../shared_css/radius.css';
+    composes: card from '../shared_css/boxshadow.css';
     margin: 1rem auto;
     width: 90%;
     text-align: center;
@@ -9,19 +10,19 @@
 .formNameWrapper {
     position: relative;
     height: 3rem;
+    composes: card-top from '../shared_css/radius.css';
 }
 
 .formName {
     composes: heading from '../shared_css/fonts.css';
-    /* display: inline-block; */
-    /* margin: 1rem 0; */
-    /* padding: 0 1rem; */
-    color: black;
+    color: var(--c-text-lt);
 }
 
 .details {
-    background: lightsalmon;
+    composes: card-bottom from '../shared_css/radius.css';
+    background: var(--c-secondary);
     position: relative;
+    padding: 1rem;
 }
 
 .detailsHidden {
@@ -29,45 +30,43 @@
     display: none;
 }
 
-.pendingRequests {
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.requestButtonWrapper {
+    padding-top: 0.75rem;
 }
 
 .credits {
-    background: lightyellow;
+    background: var(--c-accent1);
+    composes: button from '../shared_css/radius.css';
     padding: 5px;
     margin: 0 5px;
-}
-
-.warning {
-    display: inline-block;
-    font-size: 0.8rem;
-    margin: 0 auto; 
-    font-style: italic;
-    background: lightgrey;
-    padding: 3px;
-    border-radius: 5px;
-}
-
-.hideWarning {
-    composes: warning;
-    display: none;
+    font-weight: bold;
 }
 
 .requestInfo {
     margin: 1rem auto 0.5rem;
 }
 
-.urlInput {
-    composes: input from '../shared_css/input.css';
-    margin-bottom: 0.5rem;
-    text-align: center;
-}
-
 .shareLinkWrapper {
     margin: 0.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+}
+
+.urlInput {
+    composes: input from '../shared_css/input.css';
+    text-align: center;
+    flex-grow: 1;
+}
+
+.btnText {
+    display: none;
+}
+
+@media (min-width: 500px){
+    .btnText {
+        display: inline-block;
+        padding-left: 0.25rem;
+    }
 }

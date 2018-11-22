@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import requiresLogin from './HOC/requiresLogin';
 import styles from '../css_modules/ReviewFeedback.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { API_BASE_URL } from '../config';
 
+import DashboardBtn from './DashboardBtn';
 import PageTitle from './PageTitle';
 import TableRow from './TableRow';
 import ExternalLinkBtn from './ExternalLinkBtn';
 import ViewFeedback from './ViewFeedback';
+import StyledLink from './StyledLink';
 
 export class ReviewFeedback extends Component {
     constructor(props) {
@@ -69,10 +71,11 @@ export class ReviewFeedback extends Component {
 
         // generate table rows from 
         const tableContents = this.state.reviews.map((review, index) => {
-            const userIcon = review.reviewerId ? <FontAwesomeIcon icon="user" className="FA marginRt" /> : null;
+            const userIcon = review.reviewerId ? <FontAwesomeIcon icon="user" title="
+            Developeer User" className="FA marginRt accent" /> : null;
             const cells = [
-                <Link to={`${this.props.match.url}/view/${review._id}`} className="Link btnStyle">VIEW</Link>,
-                <span>{userIcon}{review.reviewerName}</span>,
+                <StyledLink to={`${this.props.match.url}/view/${review._id}`} className="secondary view">VIEW</StyledLink>,
+                <span className={styles.username}>{userIcon}{review.reviewerName}</span>,
                 `${review.dateObj.toLocaleString()}`,
             ];
             const rowStyle = (index % 2 === 0) ? 'even' : 'odd';
@@ -85,9 +88,7 @@ export class ReviewFeedback extends Component {
 
         return (
             <div className={styles.reviewFeedback}>
-                <Link to="/main/dashboard" className="Link btnStyle roomy">
-                    <FontAwesomeIcon icon="long-arrow-alt-left" size="lg" /> DASHBOARD
-                </Link>
+                <DashboardBtn />
                 <PageTitle>Review Feedback</PageTitle>
                 <h2 className={styles.formName}>Form: <span className={styles.innerHeading}>{formData.name}</span></h2>
                 <div className={styles.center}>

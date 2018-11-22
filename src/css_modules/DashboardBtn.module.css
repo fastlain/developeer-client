@@ -1,0 +1,10 @@
+.btnText {
+    display: none;
+}
+
+@media (min-width: 700px){
+    .btnText {
+        display: inline-block;
+        padding-left: 0.5rem;
+    }
+}

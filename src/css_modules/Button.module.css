@@ -1,10 +1,12 @@
 .default {
     composes: heading from '../shared_css/fonts.css';
-    background: darkslategray;
-    color: white;
+    composes: button from '../shared_css/boxshadow.css';
+    composes: button from '../shared_css/radius.css';
+    font-size: 1rem;
+    background: var(--c-primary);
+    color: var(--c-text-lt);
     padding: 8px 12px;
     border: none;
-    border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
     margin: 0 5px;
@@ -12,43 +14,112 @@
 }
 
 .default:hover {
-    background: black;
+    background: var(--c-primary-dk);
 }
 
 .default:focus {
     outline: none;
-    box-shadow: 0 0 0 2px blue;
+    box-shadow: 0 0 0 2px var(--c-primary-lt2);
 }
 
-.disabled, .disabled:hover {
-    background: lightgrey;
-    color: darkgrey;
+.lt {
+    background: var(--c-primary-lt2);
+    color: var(--c-text);
+}
+
+.lt:hover {
+    background: var(--c-primary-lt);
+}
+
+.lt:focus {
+    box-shadow: 0 0 0 2px var(--c-secondary-dk);
+}
+
+.link {
+    composes: default;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.secondary {
+    background: var(--c-secondary);
+    color: var(--c-text);
+}
+
+.secondary:hover {
+    background: var(--c-secondary-dk);
+}
+
+.secondary:focus {
+    box-shadow: 0 0 0 2px var(--c-secondary-lt);
+}
+
+.accent {
+    background: var(--c-accent1);
+    color: var(--c-text);
+}
+
+.accent:hover {
+    background: var(--c-accent1-dk);
 }
 
 .outline {
+    box-shadow: none;
     background: none;
-    border: 2px solid darkslategrey;
-    color: darkslategrey;
+    border: 2px solid var(--c-primary);
+    color: var(--c-primary);
 }
 
 .outline:hover {
-    background: white;
+    background: var(--c-primary-10);
+}
+
+.outlineSec {
+    composes: outline;
+    border: 2px solid var(--c-secondary);
+    color: var(--c-secondary);
+}
+
+.outlineSec:hover {
+    background: var(--c-secondary-10);
 }
 
 .text {
     background: none;
     border: none;
-    color: darkslategray;
+    box-shadow: none;
+    color: var(--c-primary);
 }
 
 .text:hover {
-    color: black;
-    background: none;
+    background: var(--c-primary-10);
+}
+
+.text:focus {
+    box-shadow: 0 0 0 2px var(--c-secondary-dk);
+}
+
+.disabled, .disabled:hover {
+    background: var(--c-utility-gray-lt2);
+    color: var(--c-utility-gray-lt);
+}
+
+.outline.disabled {
+    border-color: var(--c-utility-gray-lt);
 }
 
 .roomyTopBot {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
+}
+
+.veryRoomyTopBot {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.botMargin {
+    margin-bottom: 2rem;
 }
 
 .roomySides {
@@ -76,8 +147,10 @@
 }
 
 .background {
+    composes: card-top from '../shared_css/radius.css';
+    background: var(--c-primary);
+    box-shadow: none;
     position: absolute;
-    background: none;
     left: 0;
     right: 0;
     width: 100%;
@@ -86,13 +159,61 @@
     border: none;
     margin: 0;
     padding: 0;
-    border-radius: 0;
+    z-index: 1;
 }
 
 .background:hover {
-    background: darkgrey;
+    background: var(--c-primary-dk);
 }
 
 .square {
     padding: 8px 8px;
+}
+
+.dashboard {
+    position: absolute;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    top: 0.8rem;
+    left: 0.8rem;
+    margin: 0;
+}
+
+.topRight {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.topRightDelete {
+    composes: topRight;
+    top: 1rem;
+    right: 0.25rem;
+}
+
+.view {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+}
+
+
+@media (max-width: 500px) {
+    .shrink {
+        padding: 4px 6px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 350px) {
+    .dashboard {
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 450px) {
+    .view {
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
 }

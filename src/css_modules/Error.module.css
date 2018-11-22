@@ -1,7 +1,7 @@
 .error {
     composes: body from '../shared_css/fonts.css';
     margin: 0;
-    color: tomato;
+    color: var(--c-warning-dk);
     margin: 0.25rem 0;
     font-size: 0.85rem;
 }
@@ -13,4 +13,13 @@
 .roomyTopBot {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
+}
+
+.textArea {
+    width: 90%;
+    margin: auto;
+}
+
+.lt {
+    color: var(--c-warning);
 }

@@ -18,9 +18,11 @@
 }
 
 .questionResponseWrapper {
-    background: lightgrey;
-    padding: 10px 15px;
-    margin: 10px 0;
+    composes: card from '../shared_css/radius.css';
+    composes: card from '../shared_css/boxshadow.css';
+    background: var(--c-secondary);
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
 }
 
 .questionHeading {
@@ -33,6 +35,7 @@
 }
 
 .response {
+    composes: input from '../shared_css/boxshadow.css';
     font-style: italic;
     background: white;
     padding: 0.5rem;

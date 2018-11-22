@@ -1,4 +1,6 @@
 .input {
     composes: body from '../shared_css/fonts.css';
-    padding: 0.25rem;
+    composes: input from '../shared_css/boxshadow.css';
+    border: none;
+    padding: 0.35rem;
 }

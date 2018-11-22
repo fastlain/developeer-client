@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from '../css_modules/UserForm.module.css';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { storeAuthInfo } from '../actions';
 
 import Button from './Button';
 import Error from './Error';
+import StyledLink from './StyledLink';
 
 const { API_BASE_URL } = require('../config');
 
@@ -101,16 +102,20 @@ export class UserForm extends Component {
 
         // validate username
         const username = this.state.username;
-        if (username.length < 1 || username.length > 20) {
-            errors.username = 'Must be between 1 and 20 characters';
+        if (username.length < 1) {
+            errors.username = 'Must be at least 1 character';
+        } else if (username.length > 20) {
+            errors.username = 'Must be less than 20 characters';
         } else if (username.trim() !== username) {
             errors.username = 'Cannot start or end with whitespace';
         }
 
         // validate password
         const password = this.state.password;
-        if (password.length < 10 || password.length > 72) {
-            errors.password = 'Must be between 10 and 72 characters';
+        if (password.length < 10) {
+            errors.password = 'Must be at least 10 characters';
+        } else if (password.length > 72) {
+            errors.password = 'Must be less than 72 characters';
         } else if (password.trim() !== password) {
             errors.password = 'Cannot start or end with whitespace';
         }
@@ -236,7 +241,7 @@ export class UserForm extends Component {
         const demoInformation = isCreate ? null :
             (
                 <div className={styles.demoWrapper}>
-                    <Button type="button" btnStyle={`center roomyTopBot ${isDisabled} outline`} onClick={this.loginDemo}>
+                    <Button type="button" btnStyle={`center roomyTopBot ${isDisabled} text`} onClick={this.loginDemo} disabled={this.state.isSubmitting}>
                         DEMO ACCOUNT
                     </Button>
                 </div>
@@ -244,8 +249,7 @@ export class UserForm extends Component {
 
         return (
             <form className={styles.userForm} onSubmit={this.handleFormSubmit}>
-                <fieldset>
-                    <legend className={styles.legend}>{legendText}</legend>
+                <fieldset className={styles.fieldset}>
                     <div className={styles.inputWrapper}>
                         <label className={styles.label} htmlFor="username">Username: </label>
                         <input id="username" className={styles.input} name="username" type="text" value={this.state.username} onChange={this.handleChange} ref={this.usernameRef} />
@@ -261,7 +265,7 @@ export class UserForm extends Component {
                         <input id="rePassword" className={styles.input} name="rePassword" type="password" value={this.state.rePassword} onChange={this.handleChange} ref={this.rePasswordRef} />
                         <Error message={this.state.rePasswordErr} />
                     </div>
-                    <Button type="submit" btnStyle={`center roomyTopBot ${isDisabled}`}>
+                    <Button type="submit" btnStyle={`center roomyTopBot ${isDisabled}`} disabled={this.state.isSubmitting}>
                         {submitButtonText}
                     </Button>
                     <Error message={this.state.generalErr} errStyle="center" />
@@ -272,9 +276,9 @@ export class UserForm extends Component {
                     <p>
                         {toggleDescription}
                     </p>
-                    <Link to={`/userform/${toggleRouteParam}`} className="Link btnStyle roomy">
+                    <StyledLink to={`/userform/${toggleRouteParam}`} className="outline">
                         {toggleButtonText}
-                    </Link>
+                    </StyledLink>
                 </div>
             </form>
         );

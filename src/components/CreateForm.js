@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import requiresLogin from './HOC/requiresLogin';
 import styles from '../css_modules/CreateForm.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { API_BASE_URL } from '../config';
 import { setUser, showPopup } from '../actions';
 
+import DashboardBtn from './DashboardBtn';
 import PageTitle from './PageTitle';
 import Button from './Button';
 import Question from './Question';
@@ -315,9 +315,9 @@ export class CreateForm extends Component {
             <Question order={index} key={index} value={question} setQuestionText={this.setQuestionText} deleteQuestion={this.deleteQuestion} error={this.state.questionsErr[index]} qRef={this.questionRefs[index]} />
         ));
 
-        const maxedQuestions = this.state.questions.length < 5;
-        const addQuestionBtnStyle = maxedQuestions ? '' : 'disabled';
-        const warnClass = maxedQuestions ? styles.hideWarning : styles.warning;
+        const maxedQuestions = this.state.questions.length >= 5;
+        const addQuestionBtnStyle = maxedQuestions ? 'disabled' : '';
+        const warning = maxedQuestions ? <Error message="5 questions maximum" errStyle="center" /> : null;
 
         const instructionList = [
             'Create a meaningful name for your form (e.g. "Blog App UI feedback")',
@@ -328,33 +328,31 @@ export class CreateForm extends Component {
 
         return (
             <div>
-                <Link to="/main/dashboard" className="Link btnStyle roomy">
-                    <FontAwesomeIcon icon="long-arrow-alt-left" size="lg" /> DASHBOARD
-                </Link>
+                <DashboardBtn />
                 <PageTitle>{pageTitle}</PageTitle>
                 <Instructions list={instructionList} />
 
                 <form className={styles.createForm} onSubmit={this.handleFormSubmit}>
                     <div className={styles.inputWrapper}>
-                        <label htmlFor="name">Form Name: </label>
+                        <label className={styles.formLabel} htmlFor="name">Form Name: </label>
                         <input id="name" className={styles.input} name="name" type="text" value={this.state.name} onChange={this.handleChange} ref={this.nameRef} />
                     </div>
-                    <Error message={this.state.nameErr} />
+                    <Error message={this.state.nameErr} errStyle="lt" />
 
                     <div className={styles.inputWrapper}>
-                        <label htmlFor="projectUrl">Project URL: </label>
+                        <label className={styles.formLabel} htmlFor="projectUrl">Project URL: </label>
                         <input id="projectUrl" className={styles.input} name="projectUrl" type="text" value={this.state.projectUrl} onChange={this.handleChange} ref={this.projectUrlRef} />
                     </div>
-                    <Error message={this.state.projectUrlErr} />
+                    <Error message={this.state.projectUrlErr} errStyle="lt" />
 
 
                     <fieldset className={styles.overview}>
-                        <legend>Reviewer Instructions</legend>
+                        <legend className={styles.legend}>Reviewer Instructions</legend>
                         <label className={styles.blockLabel} htmlFor="overview">
                             Provide guidance or helpful information for your reviewers:
                         </label>
                         <textarea className={styles.textArea} id="overview" name="overview" rows={4} value={this.state.overview} onChange={this.handleChange} ref={this.overviewRef} />
-                        <Error message={this.state.overviewErr} />
+                        <Error message={this.state.overviewErr} errStyle="textArea lt" />
                     </fieldset>
 
                     {questionList}
@@ -363,11 +361,9 @@ export class CreateForm extends Component {
                         + ADD QUESTION
                     </Button>
 
-                    <div className={styles.warningWrapper}>
-                        <p className={warnClass}>5 questions maximum</p>
-                    </div>
+                    {warning}
 
-                    <Button btnStyle="roomyTopBot block center" type="submit">{submitText}</Button>
+                    <Button btnStyle="veryRoomyTopBot block center accent" type="submit">{submitText}</Button>
                     <Error message={this.state.generalErr} errStyle="center" />
 
                 </form>

@@ -17,6 +17,14 @@
 }
 
 .table {
+    composes: card from '../shared_css/boxshadow.css';
+    composes: card from '../shared_css/radius.css';
     max-width: 600px;
+    width: 90%;
     margin: 20px auto;
+}
+
+.username {
+        overflow: hidden;
+        white-space: nowrap;
 }

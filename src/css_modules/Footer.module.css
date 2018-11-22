@@ -1,6 +1,8 @@
 .footer {
     composes: body from '../shared_css/fonts.css';
-    background: lightgrey;
+    composes: top-primary from '../shared_css/boxshadow.css';
+    background: var(--c-primary);
+    color: var(--c-text-lt);
     text-align: center;
     flex-shrink: 0;
     width: 100%;
@@ -8,5 +10,46 @@
 
 .para {
     margin: 0;
-    padding: 20px;
+    padding-top: 1rem;
+}
+
+.link {
+    color: var(--c-secondary);
+    text-decoration: none;
+    position: relative;
+}
+
+.link:before {
+    content: "";
+    position: absolute;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: var(--c-secondary-dk);
+    height: 1px;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.link:hover:before {
+    left: 0;
+    right: 0;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.iconLink {
+    color: var(--c-text-lt);
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+}
+    
+.iconLink:hover {
+    color: var(--c-secondary);
+
 }

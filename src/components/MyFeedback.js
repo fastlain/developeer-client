@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import styles from '../css_modules/MyFeedback.module.css';
 
 import FormSummary from './FormSummary';
 import Instructions from './Instructions';
+import StyledLink from './StyledLink';
 
 export class MyFeedback extends Component {
 
@@ -24,8 +24,8 @@ export class MyFeedback extends Component {
             <div className={styles.wrapper}>
                 <h2 className={styles.heading}>Forms and Feedback</h2>
                 <Instructions list={instructionList} />
+                <StyledLink to="/main/createform" className="roomyTopBot accent">CREATE NEW FORM</StyledLink>
                 {summaries}
-                <Link to="/main/createform" className="Link btnStyle roomy">CREATE NEW FORM</Link>
             </div>
         );
     }

@@ -30,7 +30,7 @@ const Features = () => {
     ));
 
     return (
-        <section>
+        <section className={styles.featureWrapper}>
             {features}
         </section>
     );

@@ -1,9 +1,10 @@
 .topBar {
     composes: body from '../shared_css/fonts.css';
-    background: lightgrey;
+    composes: bottom-primary from '../shared_css/boxshadow.css';
+    background: var(--c-primary);
     width: 100%;
     flex-shrink: 0;
-    padding: 10px 15px;
+    padding: 0.75rem 0.75rem 0.5rem;
 }
 
 .wrapper {
@@ -17,15 +18,71 @@
 
 .appTitle {
     composes: display from '../shared_css/fonts.css';
-    font-weight: bold;
+    font-size: 1.25rem;
+    margin: 0;
+    position: relative;
+}
+
+.develo {
+    color: var(--c-secondary);
+}
+
+.peer {
+    color: var(--c-accent1);
 }
 
 .username {
     font-style: italic;
-    padding: 0 0.5rem;
+    padding: 0.25rem;
+    color: var(--c-text-lt);
+    font-size: 0.8rem;
 }
 
 .logName {
     display: flex;
-    align-items: center;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+}
+
+.appTitle {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.appTitle:before {
+    content: "";
+    position: absolute;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: var(--c-secondary);
+    height: 3px;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.appTitle:hover:before {
+    left: 0;
+    right: 0;
+}
+
+@media (min-width: 500px) {
+    .topBar {
+        padding: 0.75rem 1rem;
+    }
+
+    .appTitle {
+        font-size: 2rem;
+    }
+
+    .logName {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .username {
+        font-size: 1.15rem;
+        padding-right: 0.75rem;
+    }
 }

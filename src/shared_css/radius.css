@@ -1,0 +1,23 @@
+.button-top {
+    border-radius: 5px 5px 0 0;
+}
+
+.button-bottom {
+    border-radius: 0 0 5px 5px;
+}
+
+.button {
+    border-radius: 5px;
+}
+
+.card-top {
+    border-radius: 8px 8px 0 0;
+}
+
+.card-bottom {
+    border-radius: 0 0 8px 8px;
+}
+
+.card {
+    border-radius: 8px;
+}

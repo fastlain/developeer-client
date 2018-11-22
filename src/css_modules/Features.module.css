@@ -1,10 +1,18 @@
+.featureWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .feature {
     composes: body from '../shared_css/fonts.css';
+    composes: card from '../shared_css/boxshadow.css';
+    composes: card from '../shared_css/radius.css';
+    background: var(--c-secondary);
     text-align: center;
-    margin: 20px auto;
+    margin: 20px;
     width: 90%;
     max-width: 400px;
-    background: lightgrey;
     padding: 10px;
 }
 

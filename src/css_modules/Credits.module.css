@@ -1,17 +1,27 @@
 .creditsWrapper {
     composes: body from '../shared_css/fonts.css';
+    composes: card from '../shared_css/boxshadow.css';
+    composes: card from '../shared_css/radius.css';
     text-align: center;
-    padding: 1px 0 10px;
-    background: lightgrey;
-    max-width: 400px;
-    margin: 0 auto;
+    padding: 1rem;
+    background: var(--c-secondary);
+    width: 90%;
+    max-width: 350px;
+    margin: 1rem auto 2rem;
 }
 
 .heading {
     composes: heading from '../shared_css/fonts.css';
+    margin-top: 0;
 }
 
 .credits {
-    background: lightyellow;
+    composes: button from '../shared_css/radius.css';
+    background: var(--c-accent1);
+    font-weight: bold;
     padding: 5px;
+}
+
+.earnMore {
+    margin-bottom: 0.5rem;
 }

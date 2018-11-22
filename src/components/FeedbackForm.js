@@ -29,6 +29,8 @@ export class FeedbackForm extends Component {
     }
 
     componentDidMount = () => {
+        window.scrollTo(0, 0);
+
         return this.getForm()
             .then(() => {
                 // focus on first field of form
@@ -36,6 +38,8 @@ export class FeedbackForm extends Component {
                     this.reviewerNameRef.current.focus();
                 } else if (this.responseRefs) {
                     this.responseRefs[0].current.focus();
+                    window.scrollTo(0, 0);
+
                 }
             })
             .catch(err => console.error(err));
@@ -283,12 +287,12 @@ export class FeedbackForm extends Component {
         if (this.state.version) {
             questionList = this.state.version.questions.map((question, index) => (
                 <fieldset className={styles.questionWrapper} key={index}>
-                    <legend>Question {index + 1}:</legend>
+                    <legend className={styles.legend}>Question {index + 1}:</legend>
                     <label htmlFor={`question${index + 1}`}>
                         <p>{question}</p>
                     </label>
                     <textarea className={styles.textArea} id={index} name={`question${index + 1}`} rows={4} value={this.state.responses[index]} onChange={this.setResponseText} ref={this.responseRefs[index]}></textarea>
-                    <Error message={this.state.responseErr[index]} />
+                    <Error message={this.state.responseErr[index]} errStyle="textArea lt" />
                 </fieldset >
             ));
         }
@@ -296,18 +300,20 @@ export class FeedbackForm extends Component {
         if (this.state.form) {
             return (
                 <form className={styles.form} >
-                    <h3 className={styles.heading}>Project: <span className={styles.innerHeading}>{this.state.form.name}</span></h3>
-                    <h3 className={styles.heading}>Author: <span className={styles.innerHeading}>{this.state.form.authorName}</span></h3>
-                    <div className={styles.overview}>
+                    <div className={styles.descriptionWrapper}>
+                        <h3 className={styles.heading}>Project: <span className={styles.innerHeading}>{this.state.form.name}</span></h3>
+                        <h3 className={styles.heading}>Author: <span className={styles.innerHeading}>{this.state.form.authorName}</span></h3>
                         <h3 className={styles.heading}>Reivewer Instructions:</h3>
                         <p className={styles.overviewContent}>{this.state.form.overview}</p>
+                        <div className={styles.alignCenter}>
+                            <ExternalLinkBtn href={this.state.form.projectUrl}>
+                                VISIT PAGE
+                            </ExternalLinkBtn>
+                        </div>
                     </div>
-                    <ExternalLinkBtn href={this.state.form.projectUrl}>
-                        VISIT PAGE
-                    </ExternalLinkBtn>
                     {nameInput}
                     {questionList}
-                    <Button type="submit" btnStyle="roomyTopBot" onClick={this.handleFormSubmit} > SUBMIT FEEDBACK</Button>
+                    <Button type="submit" btnStyle="accent roomyTopBot center" onClick={this.handleFormSubmit} > SUBMIT FEEDBACK</Button>
                     <Error message={this.state.generalErr} errStyle="center roomyTopBot" />
                 </form >
             );

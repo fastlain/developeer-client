@@ -6,23 +6,11 @@
 }
 
 .inputWrapper {
-    margin: 10px 0;
+    margin: 1rem 0 0;
 }
 
-.warningWrapper {
-    text-align: center;
-}
-
-.warning {
-    display: inline-block;
-    font-size: 0.8rem;
-    margin: 0 auto; 
-    font-style: italic;
-}
-
-.hideWarning {
-    composes: warning;
-    visibility: hidden;
+.formLabel {
+    font-weight: bold;
 }
 
 .overview {
@@ -31,6 +19,8 @@
 
 .input {
     composes: input from '../shared_css/input.css';
+    width: 50%;
+    margin-left: 0.25rem;
 }
 
 .textArea {
@@ -39,4 +29,9 @@
 
 .blockLabel {
     display: block;
+}
+
+.legend {
+    composes: legend from '../shared_css/legend.css';
+    font-weight: bold;
 }

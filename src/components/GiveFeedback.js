@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import requiresLogin from './HOC/requiresLogin';
 
+import DashboardBtn from './DashboardBtn';
 import PageTitle from './PageTitle';
 import Button from './Button';
 import FeedbackForm from './FeedbackForm';
@@ -26,7 +25,7 @@ export class GiveFeedback extends Component {
         let feedbackForm;
         if (!this.state.started) {
             startBtn = (
-                <Button type="button" btnStyle="center roomyTopBot" onClick={this.startFeedback}>START</Button>
+                <Button type="button" btnStyle="center roomyTopBot accent botMargin" onClick={this.startFeedback}>START</Button>
             );
         } else {
             feedbackForm = (<FeedbackForm {...this.props} isInternalReview={true} />);
@@ -34,9 +33,7 @@ export class GiveFeedback extends Component {
 
         return (
             <div>
-                <Link to="/main/dashboard" className="Link btnStyle roomy">
-                    <FontAwesomeIcon icon="long-arrow-alt-left" size="lg" /> DASHBOARD
-                </Link>
+                <DashboardBtn />
                 <PageTitle> Give Feedback</PageTitle>
                 <Instructions list={instructionList} />
                 {startBtn}

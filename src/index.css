@@ -12,43 +12,52 @@ body {
     margin: 0;
 }
 
+/***** Color Variables *****/
+
+/* Original colors from example 45 on: https://www.canva.com/learn/website-color-schemes/  */
+/* Light/dark created with Material color tool: https://material.io/tools/color/#!/?view.left=1&view.right=1&primary.color=4abcab&secondary.color=fc4a1a&primary.text.color=000000  */
+
+:global(:root) {
+    /* Dark Text (black) */
+    --c-text: #000;
+
+    /* Light Text (white) */
+    --c-text-lt: #fff;
+
+    /* Primary - Blues */
+    --c-primary: #465c8b;
+    --c-primary-lt: #7589bb;
+    --c-primary-dk: #15335d;
+    --c-primary-lt2: #a6b9ee;
+
+    --c-primary-10: rgba(70, 92, 139, .1);
+
+    /* Secondary - Greens */
+    --c-secondary: #93c178;
+    --c-secondary-lt: #c5f4a8;
+    --c-secondary-dk: #64904b;
+
+    --c-secondary-10: rgba(147, 193, 120, 0.1);
+
+    /* Accent - bright */
+    --c-accent1: #f7ef6a;    
+    --c-accent1-dk: #c2bd38;    
+
+    /* Accent - light background */
+    --c-accent2: #EEEAF2;
+
+    /* Utility - dark slate gray */
+    --c-utility-gray: #2f4f4f;
+    --c-utility-gray-lt: #778899;
+    --c-utility-gray-lt2: #cdd3d9;
+
+    /* Warning - red*/
+    --c-warning: #ff4444;
+    --c-warning-dk: #CC0000;
+
+}
+
 /***** 3rd Party Component Styles *****/
-
-/* <Link> */
-.Link.btnStyle {
-    display: inline-block;
-    text-decoration: none;
-    font-family: 'Nunito', sans-serif;
-    background: darkslategray;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 0 5px;
-    line-height: 1;
-}
-
-.Link.btnStyle:hover {
-    background: black;
-}
-
-.Link.btnStyle:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px blue;
-}
-
-.Link.roomy {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-}
-
-.Link.topRight {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-}
 
 /* <FontAwesomeIcon> */
 
@@ -58,7 +67,6 @@ body {
     margin: auto;
     top: 0;
     bottom: 0;
-    color: black;
 }
 
 .FA.marginRt {
@@ -66,6 +74,10 @@ body {
 }
 
 .FA.bullet {
-    color: grey;
+    color: var(--c-secondary);
     margin-right: 0.8rem;
+}
+
+.FA.accent {
+    color: var(--c-accent1);
 }

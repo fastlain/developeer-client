@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import styles from '../css_modules/FormSummary.module.css';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { showPopup, changeRequests } from '../actions';
 
+import Error from './Error';
 import Button from './Button';
+import StyledLink from './StyledLink';
 import { CLIENT_ORIGIN } from '../config';
 
 export class FormSummary extends Component {
@@ -55,9 +56,8 @@ export class FormSummary extends Component {
 
         const removeBtnActive = this.props.requests > 0;
         const removeBtnClass = removeBtnActive ? 'default' : 'disabled';
-        const warnClass = (this.state.showWarning && this.props.credit === 0) ? styles.warning : styles.hideWarning;
+        const warning = (this.state.showWarning && this.props.credit === 0) ? <Error message="Out of credits. Give feedback to earn more." /> : null;
         const shareableUrl = `${CLIENT_ORIGIN}/#/main/feedback/${this.props.id}`;
-        const inputWidth = shareableUrl.length - 5;
         const showDetails = this.state.expanded ? styles.details : styles.detailsHidden;
         const iconType = this.state.expanded ? 'minus' : 'plus';
 
@@ -72,36 +72,36 @@ export class FormSummary extends Component {
                 </div>
 
                 <div className={showDetails}>
-                    <Link to={`/main/editForm/${this.props.id}`} className="Link btnStyle topRight">
-                        <FontAwesomeIcon icon="edit" className="FA marginRt" />
-                        EDIT
-                    </Link>
+                    <StyledLink to={`/main/editForm/${this.props.id}`} className=" topRight">
+                        <FontAwesomeIcon icon="edit" title="Edit Form" className="FA" />
+                        <span className={styles.btnText}>EDIT</span>
+                    </StyledLink>
                     <div className={styles.pendingRequests}>
                         <span>Pending Requests:</span>
                         <div className={styles.requestButtonWrapper}>
-                            <Button type="button" btnStyle={`square ${removeBtnClass}`} onClick={this.decRequest}>
-                                <FontAwesomeIcon icon="minus" fixedWidth />
+                            <Button type="button" btnStyle={`square ${removeBtnClass} lt`} onClick={this.decRequest}>
+                                <FontAwesomeIcon icon="minus" title="Remove Request" fixedWidth />
                             </Button>
                             <span className={styles.credits}>{this.props.requests}</span>
-                            <Button type="button" btnStyle="square" onClick={this.incRequest}>
-                                <FontAwesomeIcon icon="plus" fixedWidth />
+                            <Button type="button" btnStyle="square lt" onClick={this.incRequest}>
+                                <FontAwesomeIcon icon="plus" title="Add Request" fixedWidth />
                             </Button>
                         </div>
                     </div>
-                    <p className={warnClass}>Out of credits. Give feedback to earn more</p>
-
+                    {warning}
                     <div>
                         <p className={styles.requestInfo}>Share this direct link elsewhere:</p>
                         <div className={styles.shareLinkWrapper}>
-                            <input ref={this.urlInputRef} type="text" value={shareableUrl} readOnly size={inputWidth} className={styles.urlInput} />
-                            <Button type="button" btnStyle="roomySides" onClick={this.copyDirectUrl}>
-                                <FontAwesomeIcon icon="copy" className="FA marginRt" /> COPY LINK
+                            <input ref={this.urlInputRef} type="text" value={shareableUrl} readOnly className={styles.urlInput} />
+                            <Button type="button" btnStyle="text" onClick={this.copyDirectUrl}>
+                                <FontAwesomeIcon icon="copy" title="Copy Link" className="FA" />
+                                <span className={styles.btnText}>COPY</span>
                             </Button>
                         </div>
                     </div>
-                    <Link to={`/main/reviewfeedback/${this.props.id}`} className="Link btnStyle roomy">
+                    <StyledLink to={`/main/reviewfeedback/${this.props.id}`} className="roomyTopBot">
                         REVIEW FEEDBACK
-                    </Link>
+                    </StyledLink>
                 </div>
             </div>
         );

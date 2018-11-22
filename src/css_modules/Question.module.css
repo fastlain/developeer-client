@@ -1,5 +1,6 @@
 .question {
     margin: 20px auto;
+    position: relative;
 }
 
 .textArea {
@@ -8,4 +9,9 @@
 
 .blockLabel {
     display: block;
+}
+
+.legend {
+    composes: legend from '../shared_css/legend.css';
+    font-weight: bold;
 }

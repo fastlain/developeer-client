@@ -1,5 +1,7 @@
 .textarea {
     composes: body from '../shared_css/fonts.css';
+    composes: input from '../shared_css/boxshadow.css';
+    border: none;
     width: 90%;
     display: block;
     margin: 10px auto;
