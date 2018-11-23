@@ -16,6 +16,28 @@
     padding: 10px;
 }
 
-.featureName {
+.featureTitle {
     composes: heading from '../shared_css/fonts.css';
+    color: var(--c-accent1);
+}
+
+.featureName {
+    margin-left: 1rem;
+    color: var(--c-primary-dk);
+}
+
+.content {
+    width: 90%;
+    text-align: left;
+    margin: 0 auto 1rem;
+}
+
+@media (max-width: 450px) {
+    .featureTitle {
+        font-size: 1.25rem;
+    }
+
+    .content {
+        width: 80%;
+    }
 }
