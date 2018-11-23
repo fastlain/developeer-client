@@ -59,7 +59,7 @@ export class MainLayout extends Component {
                     <Route path="/main" render={() => <Header isLoggedIn={this.props.isLoggedIn} username={this.props.username} logOut={this.handleLogout} />} />
                     <Route path="/" component={HeroBanner} />
                 </Switch>
-                <main role="main" className={styles.main} >
+                <main className={styles.main} >
                     <Route exact path="/" render={() => <LandingPageContent isLoggedIn={this.props.isLoggedIn} />} />
                     <Route path="/userform/:type" component={UserForm} />
                     <Route exact path="/main/dashboard" component={Dashboard} />

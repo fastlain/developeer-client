@@ -14,7 +14,7 @@
 }
 
 .link {
-    color: var(--c-secondary);
+    color: var(--c-secondary-lt);
     text-decoration: none;
     position: relative;
 }
@@ -25,7 +25,7 @@
     left: 51%;
     right: 51%;
     bottom: 0;
-    background: var(--c-secondary-dk);
+    background: var(--c-secondary-lt);
     height: 1px;
     transition-property: left, right;
     transition-duration: 0.3s;

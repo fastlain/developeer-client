@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const HeroBanner = () => {
     return (
-        <header role="banner" className={styles.heroBanner}>
+        <header className={styles.heroBanner}>
             <h1 className={styles.siteTitle}>
                 <span className={styles.develo}>Develo</span>
                 <span className={styles.peer}>Peer</span></h1>

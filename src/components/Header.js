@@ -13,7 +13,7 @@ const Header = (props) => {
         null;
 
     return (
-        <header role="banner" className={styles.topBar}>
+        <header className={styles.topBar}>
             <div className={styles.wrapper}>
                 <h1 className={styles.appTitle}>
                     <Link to='/' className={styles.appTitle}>

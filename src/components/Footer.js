@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => {
     return (
-        <footer role="contentinfo" className={styles.footer}>
+        <footer className={styles.footer}>
             <p className={styles.para}>
                 Created by <a className={styles.link} href="http://www.michaelallain.com">Michael Allain</a>
             </p>
