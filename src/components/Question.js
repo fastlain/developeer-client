@@ -14,7 +14,7 @@ class Question extends Component {
                     Write your question here:
                  </label>
                 <textarea id={`question${this.props.order}`} className={styles.textArea} name={`question${this.props.order}`} rows={4} value={this.props.value} onChange={(e) => this.props.setQuestionText(e.target.value, this.props.order)} ref={this.props.qRef} />
-                <Error message={this.props.error} errStyle="textArea lt" />
+                <Error message={this.props.error} errStyle="textArea" />
                 <Button btnStyle="topRightDelete text" type="button" onClick={() => this.props.deleteQuestion(this.props.order)}>
                     <FontAwesomeIcon title="Delete Question" icon="times" />
                 </Button>

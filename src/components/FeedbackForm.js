@@ -292,8 +292,8 @@ export class FeedbackForm extends Component {
                     <label htmlFor={`question${index + 1}`}>
                         <p>{question}</p>
                     </label>
-                    <textarea className={styles.textArea} id={index} name={`question${index + 1}`} rows={4} value={this.state.responses[index]} onChange={this.setResponseText} ref={this.responseRefs[index]}></textarea>
-                    <Error message={this.state.responseErr[index]} errStyle="textArea lt" />
+                    <textarea className={styles.textArea} id={`question${index + 1}`} name={`question${index + 1}`} rows={4} value={this.state.responses[index]} onChange={this.setResponseText} ref={this.responseRefs[index]}></textarea>
+                    <Error message={this.state.responseErr[index]} errStyle="textArea" />
                 </fieldset >
             ));
         }

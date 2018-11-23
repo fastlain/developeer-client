@@ -23,3 +23,7 @@
 .lt {
     color: var(--c-warning);
 }
+
+.dk {
+    color: var(--c-warning-dk2);
+}

@@ -92,7 +92,7 @@ export class FormSummary extends Component {
                     <div>
                         <p className={styles.requestInfo}>Share this direct link elsewhere:</p>
                         <div className={styles.shareLinkWrapper}>
-                            <input ref={this.urlInputRef} type="text" value={shareableUrl} readOnly className={styles.urlInput} />
+                            <input ref={this.urlInputRef} type="text" value={shareableUrl} readOnly className={styles.urlInput} aria-label="Shareable URL" />
                             <Button type="button" btnStyle="text" onClick={this.copyDirectUrl}>
                                 <FontAwesomeIcon icon="copy" title="Copy Link" className="FA" />
                                 <span className={styles.btnText}>COPY</span>

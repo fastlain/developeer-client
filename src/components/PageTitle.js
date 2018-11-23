@@ -4,9 +4,9 @@ import styles from '../css_modules/PageTitle.module.css';
 const PageTitle = (props) => {
     return (
         <header>
-            <h1 className={styles.pageTitle}>
+            <h2 className={styles.pageTitle}>
                 {props.children}
-            </h1>
+            </h2>
         </header>
     );
 }

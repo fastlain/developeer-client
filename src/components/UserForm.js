@@ -253,22 +253,22 @@ export class UserForm extends Component {
                     <div className={styles.inputWrapper}>
                         <label className={styles.label} htmlFor="username">Username: </label>
                         <input id="username" className={styles.input} name="username" type="text" value={this.state.username} onChange={this.handleChange} ref={this.usernameRef} />
-                        <Error message={this.state.usernameErr} />
+                        <Error message={this.state.usernameErr} errStyle="dk" />
                     </div>
                     <div className={styles.inputWrapper}>
                         <label className={styles.label} htmlFor="password">Password: </label>
                         <input id="password" className={styles.input} name="password" type="password" value={this.state.password} onChange={this.handleChange} ref={this.passwordRef} />
-                        <Error message={this.state.passwordErr} />
+                        <Error message={this.state.passwordErr} errStyle="dk" />
                     </div>
                     <div className={`${styles.inputWrapper} ${hideReEnterPass}`} >
                         <label className={styles.label} htmlFor="rePassword">Confirm Password: </label>
                         <input id="rePassword" className={styles.input} name="rePassword" type="password" value={this.state.rePassword} onChange={this.handleChange} ref={this.rePasswordRef} />
-                        <Error message={this.state.rePasswordErr} />
+                        <Error message={this.state.rePasswordErr} errStyle="dk" />
                     </div>
                     <Button type="submit" btnStyle={`center roomyTopBot ${isDisabled}`} disabled={this.state.isSubmitting}>
                         {submitButtonText}
                     </Button>
-                    <Error message={this.state.generalErr} errStyle="center" />
+                    <Error message={this.state.generalErr} errStyle="center dk" />
                     {demoInformation}
                 </fieldset>
 

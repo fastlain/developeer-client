@@ -339,13 +339,13 @@ export class CreateForm extends Component {
                         <label className={styles.formLabel} htmlFor="name">Form Name: </label>
                         <input id="name" className={styles.input} name="name" type="text" value={this.state.name} onChange={this.handleChange} ref={this.nameRef} />
                     </div>
-                    <Error message={this.state.nameErr} errStyle="lt" />
+                    <Error message={this.state.nameErr} />
 
                     <div className={styles.inputWrapper}>
                         <label className={styles.formLabel} htmlFor="projectUrl">Project URL: </label>
                         <input id="projectUrl" className={styles.input} name="projectUrl" type="text" value={this.state.projectUrl} onChange={this.handleChange} ref={this.projectUrlRef} />
                     </div>
-                    <Error message={this.state.projectUrlErr} errStyle="lt" />
+                    <Error message={this.state.projectUrlErr} />
 
 
                     <fieldset className={styles.overview}>
@@ -354,7 +354,7 @@ export class CreateForm extends Component {
                             Provide guidance or helpful information for your reviewers:
                         </label>
                         <textarea className={styles.textArea} id="overview" name="overview" rows={4} value={this.state.overview} onChange={this.handleChange} ref={this.overviewRef} />
-                        <Error message={this.state.overviewErr} errStyle="textArea lt" />
+                        <Error message={this.state.overviewErr} errStyle="textArea" />
                     </fieldset>
 
                     {questionList}
