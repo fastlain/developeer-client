@@ -1,7 +1,7 @@
 .heroBanner {
     composes: body from '../shared_css/fonts.css';
     composes: bottom-primary from '../shared_css/boxshadow.css';
-    background: var(--c-primary);
+    background: linear-gradient(var(--c-primary-dk), 30%, var(--c-primary));
     text-align: center;
     flex-shrink: 0;
     padding: 20px;

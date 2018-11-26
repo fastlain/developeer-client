@@ -1,7 +1,7 @@
 .topBar {
     composes: body from '../shared_css/fonts.css';
     composes: bottom-primary from '../shared_css/boxshadow.css';
-    background: var(--c-primary);
+    background: linear-gradient(var(--c-primary-dk), 30%, var(--c-primary));
     width: 100%;
     flex-shrink: 0;
     padding: 0.75rem 0.75rem 0.5rem;

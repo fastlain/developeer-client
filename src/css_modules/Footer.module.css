@@ -1,7 +1,7 @@
 .footer {
     composes: body from '../shared_css/fonts.css';
     composes: top-primary from '../shared_css/boxshadow.css';
-    background: var(--c-primary);
+    background: linear-gradient(var(--c-primary), 70%, var(--c-primary-dk));
     color: var(--c-text-lt);
     text-align: center;
     flex-shrink: 0;
