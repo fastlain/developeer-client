@@ -21,8 +21,6 @@ export const changeRequests = (formId, change) => (dispatch, getState) => {
             dispatch(setUser(user));
         })
         .catch(err => {
-            // TODO: create action and state handlers for auth errors
-            // dispatch(authError(err));
             console.error(err);
         });
 }
@@ -86,8 +84,6 @@ export const clearAuth = () => ({
 });
 
 export const refreshAuthToken = () => (dispatch, getState) => {
-    // TODO: create action and state handlers for auth request 
-    // dispatch(authRequest()); // or authPending(), etc.
     const oldToken = getState().authToken;
     return fetch(`${API_BASE_URL}/auth/loginjwt`, {
         method: 'POST',
@@ -100,8 +96,6 @@ export const refreshAuthToken = () => (dispatch, getState) => {
             dispatch(storeAuthInfo(authToken));
         })
         .catch(err => {
-            // TODO: create action and state handlers for auth errors
-            // dispatch(authError(err));
             dispatch(clearAuth());
             clearAuthToken();
         });

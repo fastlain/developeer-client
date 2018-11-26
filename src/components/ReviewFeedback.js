@@ -58,8 +58,6 @@ export class ReviewFeedback extends Component {
 
             })
             .catch(err => {
-                // TODO: create action and state handlers for auth errors
-                // dispatch(authError(err));
                 console.error(err);
             });
     }
