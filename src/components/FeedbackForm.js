@@ -134,7 +134,7 @@ export class FeedbackForm extends Component {
 
     setResponseText = e => {
         const updatedResponses = [...this.state.responses];
-        updatedResponses[e.target.id] = e.target.value;
+        updatedResponses[e.target.id - 1] = e.target.value;
         this.setState({ responses: updatedResponses });
     }
 
@@ -289,10 +289,10 @@ export class FeedbackForm extends Component {
             questionList = this.state.version.questions.map((question, index) => (
                 <fieldset className={styles.questionWrapper} key={index}>
                     <legend className={styles.legend}>Question {index + 1}:</legend>
-                    <label htmlFor={`question${index + 1}`}>
+                    <label htmlFor={`${index + 1}`}>
                         <p>{question}</p>
                     </label>
-                    <textarea className={styles.textArea} id={`question${index + 1}`} name={`question${index + 1}`} rows={4} value={this.state.responses[index]} onChange={this.setResponseText} ref={this.responseRefs[index]}></textarea>
+                    <textarea className={styles.textArea} id={`${index + 1}`} name={`${index + 1}`} rows={4} value={this.state.responses[index]} onChange={this.setResponseText} ref={this.responseRefs[index]}></textarea>
                     <Error message={this.state.responseErr[index]} errStyle="textArea" />
                 </fieldset >
             ));
