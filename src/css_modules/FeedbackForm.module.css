@@ -53,6 +53,7 @@
 }
 
 .questionWrapper {
+    composes: fieldset from '../shared_css/fieldset.css';
     text-align: left;
     margin: 20px auto;
 }
