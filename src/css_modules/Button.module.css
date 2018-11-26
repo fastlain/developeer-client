@@ -187,8 +187,14 @@
 
 .topRightDelete {
     composes: topRight;
+    color: var(--c-warning);
     top: 1rem;
     right: 0.25rem;
+}
+
+.topRightDelete:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--c-warning);
 }
 
 .view {
