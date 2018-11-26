@@ -8,10 +8,10 @@ describe('<PageTitle />', () => {
         shallow(<PageTitle />);
     });
 
-    it('Renders children in an h1', () => {
+    it('Renders children in an h2', () => {
         const child = "Test Title";
         const wrapper = shallow(<PageTitle>{child}</PageTitle>);
-        expect(wrapper.find('h1').text()).toEqual(child);
+        expect(wrapper.find('h2').text()).toEqual(child);
     });
 
 });
