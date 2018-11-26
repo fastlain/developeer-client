@@ -26,6 +26,12 @@
     composes: input from '../shared_css/input.css';
 }
 
+.formTitle {
+    align-self: center;
+    color: var(--c-primary-dk);
+    font-size: 1.5rem;
+}
+
 .heading {
     composes: heading from '../shared_css/fonts.css';
     margin: 0.5rem 0;
