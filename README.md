@@ -44,6 +44,20 @@ Feedback is an essential part of any development project. Whether it's identifyi
 * [Travis](https://travis-ci.org/) Continuous Integration
 * [Heroku](https://www.heroku.com/) Cloud Application Platform
 
+## Install and run locally
+*** NOTE: The client makes AJAX calls to the [DeveloPeer API](https://github.com/fastlain/developeer-api), which should also be running in your development environment
+
+* Clone this repository:
+    * `git clone https://github.com/fastlain/developeer-client.git`
+* Move into folder:
+    * `cd developeer-client/`
+* Run `npm install`
+* Run `npm start`
+* In browser, navigate to `localhost:3000` or your specified port
+  
+* To test, run `npm test`
+
+
 ## Future Features
 * Notifications (in-app and email)
 * Multiple choice questions
