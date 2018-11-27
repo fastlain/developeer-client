@@ -14,16 +14,16 @@ Feedback is an essential part of any development project. Whether it's identifyi
 
 ## Screen Captures
 #### Landing Page and Log In:
-[![Landing Page and Log In](https://i.gyazo.com/265cdf6a3c99454028504bc538b0d8bc.gif)]
+![Landing Page and Log In](https://i.gyazo.com/265cdf6a3c99454028504bc538b0d8bc.gif)
 
 #### Give Feedback:
-[![Give Feedback](https://i.gyazo.com/09061dfeb25504f2a838ec89854bbab0.gif)]
+![Give Feedback](https://i.gyazo.com/09061dfeb25504f2a838ec89854bbab0.gif)
 
 #### Edit a Form: 
-[![Edit a Form](https://i.gyazo.com/547804b2afd42d6b585ded5f10ff6f7d.gif)]
+![Edit a Form](https://i.gyazo.com/547804b2afd42d6b585ded5f10ff6f7d.gif)
 
 #### Review Feedback:
-[![Review Feedback](https://i.gyazo.com/8c6f674f972021d5741ac36926969d9a.gif)]
+![Review Feedback](https://i.gyazo.com/8c6f674f972021d5741ac36926969d9a.gif)
 
 ## Technology
 
