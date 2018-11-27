@@ -79,7 +79,7 @@ export class ReviewFeedback extends Component {
             ];
             const rowStyle = (index % 2 === 0) ? 'even' : 'odd';
             return (
-                <TableRow cells={cells} key={index} rowStyle={rowStyle} />
+                <TableRow cells={cells} key={index} rowStyle={`${rowStyle} review`} />
             );
         });
 

@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-.row:last-child {
+.review:last-child {
     border-radius: 0 0 8px 8px;
 }
 

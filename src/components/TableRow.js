@@ -1,6 +1,7 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 import styles from '../css_modules/TableRow.module.css';
-
+const cx = classNames.bind(styles);
 
 const TableRow = (props) => {
 
@@ -9,7 +10,7 @@ const TableRow = (props) => {
     ));
 
     return (
-        <div className={styles[props.rowStyle]}>
+        <div className={cx(props.rowStyle.split(' '))}>
             {wrappedCells}
         </div>
     );
