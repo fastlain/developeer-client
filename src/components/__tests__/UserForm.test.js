@@ -40,7 +40,7 @@ describe('<UserForm />', () => {
         const wrapper = mountWithRouter(<UserForm match={matchLogin} />);
         expect(wrapper.find('Button').at(0).html()).toMatch('LOG IN');
         expect(wrapper.find('.hide')).toHaveLength(1);
-        expect(wrapper.find('.toggleWrapper').children('p').text()).toEqual('New to Developeer?');
+        expect(wrapper.find('.toggleWrapper').children('p').text()).toEqual('New to DeveloPeer?');
     });
 
     it('Renders disabled button if submitting', () => {

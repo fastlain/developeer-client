@@ -71,7 +71,7 @@ export class ReviewFeedback extends Component {
         // generate table rows from 
         const tableContents = this.state.reviews.map((review, index) => {
             const userIcon = review.reviewerId ? <FontAwesomeIcon icon="user" title="
-            Developeer User" className="FA marginRt accent" /> : null;
+            DeveloPeer User" className="FA marginRt accent" /> : null;
             const cells = [
                 <StyledLink to={`${this.props.match.url}/view/${review._id}`} className="secondary view">VIEW</StyledLink>,
                 <span className={styles.username}>{userIcon}{review.reviewerName}</span>,

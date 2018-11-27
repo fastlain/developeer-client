@@ -9,7 +9,7 @@ const Footer = () => {
                 Created by <a className={styles.link} href="http://www.michaelallain.com">Michael Allain</a>
             </p>
             <div className={styles.iconWrapper}>
-                <a href="`mailto:michaeldallain@gmail.com?subject=Developeer`" className={styles.iconLink} aria-label="Email Michael">
+                <a href="`mailto:michaeldallain@gmail.com?subject=DeveloPeer`" className={styles.iconLink} aria-label="Email Michael">
                     <FontAwesomeIcon icon="envelope" />
                 </a>
                 <a href="https://www.linkedin.com/in/allainm/" className={styles.iconLink} aria-label="Michael's LinkedIn">

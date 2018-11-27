@@ -16,7 +16,7 @@ export class MyFeedback extends Component {
 
         const instructionList = [
             'Review feedback forms or create new ones',
-            'Spend Credits to request feedback from other Developeer users',
+            'Spend Credits to request feedback from other DeveloPeer users',
             'Share a direct review link outside this site—no credits needed!'
         ];
 

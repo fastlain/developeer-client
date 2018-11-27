@@ -231,7 +231,7 @@ export class UserForm extends Component {
         const submitButtonText = legendText.toUpperCase();
         const toggleButtonText = isCreate ? 'LOG IN' : 'CREATE ACCOUNT';
         const toggleRouteParam = isCreate ? 'login' : 'create';
-        const toggleDescription = isCreate ? 'Already have an account?' : 'New to Developeer?';
+        const toggleDescription = isCreate ? 'Already have an account?' : 'New to DeveloPeer?';
         const hideReEnterPass = isCreate ? null : styles.hide;
 
         // style button based on isSubmitting state

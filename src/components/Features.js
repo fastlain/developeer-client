@@ -22,7 +22,7 @@ const Features = () => {
         },
         {
             name: 'Share Anywhere',
-            content: 'Use form links to share forms outside the Developeer community—no credits needed!',
+            content: 'Use form links to share forms outside the DeveloPeer community—no credits needed!',
             icon: 'share-alt'
         }
     ]

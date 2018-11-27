@@ -7,7 +7,7 @@ const ExternalSuccess = () => {
     return (
         <section className={styles.success}>
             <h3 className={styles.heading}>Review Successfully Submitted!</h3>
-            <p className={styles.para}>Thanks for using Developeer</p>
+            <p className={styles.para}>Thanks for using DeveloPeer</p>
             <StyledLink to="/" className="roomyTopBot">LEARN MORE</StyledLink>
         </section>
     );
