@@ -1,7 +1,10 @@
+.container {
+    position: relative;
+}
+
 .question {
     composes: fieldset from '../shared_css/fieldset.css';
     margin: 20px auto;
-    position: relative;
 }
 
 .textArea {
