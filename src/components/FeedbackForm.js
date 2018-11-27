@@ -304,7 +304,7 @@ export class FeedbackForm extends Component {
                     <div className={styles.descriptionWrapper}>
                         <h3 className={`${styles.heading} ${styles.formTitle}`} > {this.state.form.name}</h3>
                         <h4 className={styles.heading}>Author: <span className={styles.innerHeading}>{this.state.form.authorName}</span></h4>
-                        <h4 className={styles.heading}>Reivewer Instructions:</h4>
+                        <h4 className={styles.heading}>Reviewer Instructions:</h4>
                         <p className={styles.overviewContent}>{this.state.form.overview}</p>
                         <div className={styles.alignCenter}>
                             <ExternalLinkBtn href={this.state.form.projectUrl}>

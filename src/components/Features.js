@@ -12,17 +12,17 @@ const Features = () => {
         },
         {
             name: 'Give and Receive Equitably',
-            content: 'Earn credits by reviewing peer projects. Spend credits to receive reviews for your own projects.',
+            content: 'Earn credits by reviewing peer projects. Spend credits to receive reviews for your projects.',
             icon: 'coins'
         },
         {
             name: 'Create Custom Forms',
-            content: 'Easily create feedback forms with instructions and questions for your reviewers to answer.',
+            content: 'Easily create feedback forms with instructions and questions for your reviewers.',
             icon: 'pen'
         },
         {
             name: 'Share Anywhere',
-            content: 'Use form links to share forms outside the DeveloPeer community—no credits needed!',
+            content: 'Share forms outside the DeveloPeer community—no credits needed!',
             icon: 'share-alt'
         }
     ]

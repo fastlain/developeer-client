@@ -322,10 +322,9 @@ export class CreateForm extends Component {
         const warning = maxedQuestions ? <Error message="5 questions maximum" errStyle="center" /> : null;
 
         const instructionList = [
-            'Create a meaningful name for your form (e.g. "Blog App UI feedback")',
-            'Provide a link to a LIVE version of your project (NOT a code repository)',
-            'Write instructions and up to 5 questions requesting feedback on your project',
-            'Keep in mind, their review should take no longer than 5 minutes'
+            'Link to a LIVE version of your project (NOT a code repository)',
+            'Provide instructions and up to 5 questions',
+            'Reviews should take no longer than 5 minutes'
         ];
 
         return (
