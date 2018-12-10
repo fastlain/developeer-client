@@ -10,7 +10,7 @@ class Question extends Component {
         return (
             <div className={styles.container}>
                 <fieldset className={styles.question}>
-                    <legend className={styles.legend}>Question {this.props.order + 1}:</legend>
+                    <legend className={styles.legend}>Question {this.props.order + 1}</legend>
                     <label className={styles.blockLabel} htmlFor={`question${this.props.order}`}>
                         Write your question here:
                      </label>

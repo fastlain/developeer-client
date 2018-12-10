@@ -288,7 +288,7 @@ export class FeedbackForm extends Component {
         if (this.state.version) {
             questionList = this.state.version.questions.map((question, index) => (
                 <fieldset className={styles.questionWrapper} key={index}>
-                    <legend className={styles.legend}>Question {index + 1}:</legend>
+                    <legend className={styles.legend}>Question {index + 1}</legend>
                     <label htmlFor={`${index + 1}`}>
                         <p>{question}</p>
                     </label>

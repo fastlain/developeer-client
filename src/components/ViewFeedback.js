@@ -8,7 +8,7 @@ const ViewFeedback = (props) => {
     const version = props.versions.find(version => version._id === review.formVersion);
     const questionsWithResponses = version.questions.map((question, i) => (
         <div className={styles.questionResponseWrapper} key={i}>
-            <h5 className={styles.questionHeading}>Question {i + 1}:</h5>
+            <h5 className={styles.questionHeading}>Question {i + 1}</h5>
             <p className={styles.question}>{question}</p>
             <p className={styles.response}>{review.responses[i]}</p>
         </div>
